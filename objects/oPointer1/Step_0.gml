@@ -17,8 +17,9 @@ if (global.pOneCastingActive) {
 #endregion
 
 //Remove item from ds_list and destroy instance on pointer click
-if (global.pOneCastingActive) {
-	if (place_meeting(x, y, oElementRed) || keyboard_check_pressed(ord("1"))) {
+#region
+if (global.pOneCastingActive && global.pOnePointer) {
+	if (place_meeting(x, y, oElementRed) && keyboard_check_pressed(ord("1"))) {
 		var _index = ds_list_find_index(global.pOneList, "red")
 		//remove element from the list
 		ds_list_delete(global.pOneList, _index)
@@ -28,12 +29,9 @@ if (global.pOneCastingActive) {
 			instance_destroy(elementID);
 			//destroy pointer after selection
 			instance_destroy(self)
-			global.pOnePointer = false;
-			//end player one casting phase
-			global.pOneCastingActive = false;
-			//start player two casting phase
-			global.pTwoCastingActive = true;
 		}
+		global.pOneCastingActive = false;
+		global.pOnePointer = false;
 	}
 	if (place_meeting(x, y, oElementYellow) && keyboard_check_pressed(ord("1"))) {
 		var _index = ds_list_find_index(global.pOneList, "yellow")
@@ -45,12 +43,9 @@ if (global.pOneCastingActive) {
 			instance_destroy(elementID);
 			//destroy pointer after selection
 			instance_destroy(self)
-			global.pOnePointer = false;
-			//end player one casting phase
-			global.pOneCastingActive = false;
-			//start player two casting phase
-			global.pTwoCastingActive = true;
 		}
+		global.pOneCastingActive = false;
+		global.pOnePointer = false;		
 	}
 	if (place_meeting(x, y, oElementGreen) && keyboard_check_pressed(ord("1"))) {
 		var _index = ds_list_find_index(global.pOneList, "green")
@@ -61,15 +56,13 @@ if (global.pOneCastingActive) {
 			//destroy element
 			instance_destroy(elementID);
 			//destroy pointer after selection
-			instance_destroy(self)
-			global.pOnePointer = false;
-			//end player one casting phase
-			global.pOneCastingActive = false;
-			//start player two casting phase
-			global.pTwoCastingActive = true;
+			instance_destroy(self)			
 		}
+		global.pOneCastingActive = false;
+		global.pOnePointer = false;
 	}	
 }
+#endregion
 
 
 

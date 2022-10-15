@@ -9,10 +9,6 @@ if (global.pOneCastingActive) {
 if (global.pTwoCastingActive) {
 	draw_text(x, y, "Player Two Turn: Cast an Element")
 }
-if (global.endRound) {
-	draw_text(x, y, "Round One Complete!")
-}
-
 
 // current states
 draw_text(5,250, "P1 Movement:")
