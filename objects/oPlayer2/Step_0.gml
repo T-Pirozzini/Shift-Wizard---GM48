@@ -59,41 +59,31 @@ if (global.pTwoMovementActive) {
 #endregion
 	
 //Collect Elements
+#region
 if (global.pTwoMovementActive) {	
 	if (ds_list_size(global.pTwoList) < 5) {
 		var _currentArrLength = ds_list_size(global.pTwoList);		
 		if ((place_meeting(x, y, oRed)) && keyboard_check_released(vk_numpad0)) {			
 			ds_list_add(global.pTwoList, "red")
-			instance_create_layer(opTwoElements.x + elementPositionX, opTwoElements.y, "Instances", oElementRed)
+			instance_create_layer(pOneElements.x + elementPositionX, pTwoElements.y, "Elements", oElementRed)
 			elementPositionX += 20
 		};
 		if ((place_meeting(x, y, oGreen)) && keyboard_check_released(vk_numpad0)) {
 			ds_list_add(global.pTwoList, "green")
-			instance_create_layer(opTwoElements.x + elementPositionX, opTwoElements.y, "Instances", oElementGreen)
+			instance_create_layer(pTwoElements.x + elementPositionX, pTwoElements.y, "Elements", oElementGreen)
 			elementPositionX += 20
 		};
 		if ((place_meeting(x, y, oYellow)) && keyboard_check_released(vk_numpad0)) {			
 			ds_list_add(global.pTwoList, "yellow")
-			instance_create_layer(opTwoElements.x + elementPositionX, opTwoElements.y, "Instances", oElementYellow)
+			instance_create_layer(pTwoElements.x + elementPositionX, pTwoElements.y, "Elements", oElementYellow)
 			elementPositionX += 20
 		};
 		if (_currentArrLength < ds_list_size(global.pTwoList)) {
+			// End Player Two Movement Phase
 			global.pTwoMovementActive = false;
 		}
 	}
 }	
-	
-//End player turn
-if (!global.pTwoMovementActive) {
-	image_index = 0;
-	//if (!global.pOneMovementActive && !global.pOneCastingActive) {
-		global.pTwoCastingActive = true;
-	}
-//}
+#endregion	
 
-//Player Casting
-if (global.pTwoCastingActive) {
-	//Select element to cast
-	global.pTwoPointer = true;	
-}
 	
