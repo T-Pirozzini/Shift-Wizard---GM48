@@ -1,5 +1,7 @@
 /// @description Initialize Variables
 
+
+
 //Movement
 	moveSpd = 1;
 	xspd = 0;
@@ -15,3 +17,7 @@
 global.pTwoMovementActive = true;
 
 global.pTwoCastingActive = false;
+
+elementPositionX = 0;
+
+

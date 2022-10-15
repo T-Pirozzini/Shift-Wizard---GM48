@@ -1,11 +1,8 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oPointer2",
-  "spriteId": {
-    "name": "sPointer",
-    "path": "sprites/sPointer/sPointer.yy",
-  },
+  "name": "pTwoGame",
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "managed": true,
