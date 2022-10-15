@@ -1,5 +1,5 @@
 /// @description Insert description here
 
-if (global.pOnePointer) {
+if (global.pOnePointerActive) {
 	draw_self();	
 }

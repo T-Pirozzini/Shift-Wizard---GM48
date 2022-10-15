@@ -62,28 +62,31 @@ if (global.pTwoMovementActive) {
 #region
 if (global.pTwoMovementActive) {	
 	if (ds_list_size(global.pTwoList) < 5) {
-		var _currentArrLength = ds_list_size(global.pTwoList);		
+		//currentArrLength = ds_list_size(global.pTwoList);		
 		if ((place_meeting(x, y, oRed)) && keyboard_check_released(vk_numpad0)) {			
 			ds_list_add(global.pTwoList, "red")
-			instance_create_layer(pOneElements.x + elementPositionX, pTwoElements.y, "Instances", oElementRed)
-			elementPositionX += 20
+			instance_create_layer(pTwoElements.x + elementPositionX, pTwoElements.y, "Instances", oElementRed)
+			elementPositionX += 20			
 		};
 		if ((place_meeting(x, y, oGreen)) && keyboard_check_released(vk_numpad0)) {
 			ds_list_add(global.pTwoList, "green")
 			instance_create_layer(pTwoElements.x + elementPositionX, pTwoElements.y, "Instances", oElementGreen)
-			elementPositionX += 20
+			elementPositionX += 20			
 		};
 		if ((place_meeting(x, y, oYellow)) && keyboard_check_released(vk_numpad0)) {			
 			ds_list_add(global.pTwoList, "yellow")
 			instance_create_layer(pTwoElements.x + elementPositionX, pTwoElements.y, "Instances", oElementYellow)
-			elementPositionX += 20
+			elementPositionX += 20			
 		};
-		if (_currentArrLength < ds_list_size(global.pTwoList)) {
+		if (ds_list_size(global.pTwoList) > 0) {
 			// End Player Two Movement Phase
-			global.pTwoMovementActive = false;
+			global.pTwoMovementActive = false;			
 		}
 	}
 }	
 #endregion	
 
+if (!global.pTwoMovementActive) {
+	oPlayer2.image_index = 0
+}
 	

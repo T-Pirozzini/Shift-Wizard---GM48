@@ -60,7 +60,7 @@ if (global.pOneMovementActive) {
 
 //Collect Elements
 #region
-if (global.pOneMovementActive) {
+if (global.movementPhase) {
 	if (ds_list_size(global.pOneList) < 5) {
 		//save current list size
 		var _currentArrLength = ds_list_size(global.pOneList);
@@ -69,25 +69,29 @@ if (global.pOneMovementActive) {
 			ds_list_add(global.pOneList, "red")
 			//create redElement on Instances layer
 			instance_create_layer(pOneElements.x + elementPositionX, pOneElements.y, "Instances", oElementRed)
-			elementPositionX += 20;
+			elementPositionX += 20;			
 		};
 		//check if playerOne is on greenCard
 		if ((place_meeting(x, y, oGreen)) && keyboard_check_released(vk_lshift)) {
 			ds_list_add(global.pOneList, "green")
 			instance_create_layer(pOneElements.x + elementPositionX, pOneElements.y, "Instances", oElementGreen)
-			elementPositionX += 20;
+			elementPositionX += 20;			
 		};
 		//check if playerOne is on yellowCard
 		if ((place_meeting(x, y, oYellow)) && keyboard_check_released(vk_lshift)) {			
 			ds_list_add(global.pOneList, "yellow")
 			instance_create_layer(pOneElements.x + elementPositionX, pOneElements.y, "Instances", oElementYellow)
-			elementPositionX += 20;
+			elementPositionX += 20;			
 		};
-		if (_currentArrLength < ds_list_size(global.pOneList)) {
+		if (ds_list_size(global.pOneList) > _currentArrLength) {
 			// End Player One Movement Phase
-			global.pOneMovementActive = false;
+			global.pOneMovementActive = false;		
 		}
 	}
 }
 #endregion
+
+if (!global.pOneMovementActive) {
+	oPlayer1.image_index = 0;
+}
 	
