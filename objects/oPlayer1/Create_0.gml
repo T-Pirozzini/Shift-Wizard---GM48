@@ -12,8 +12,6 @@
 	sprite[2] = sPlayerLeft;
 	sprite[3] = sPlayerDown;
 	
-global.pOneMovementActive = true; 
-
-global.pOneCastingActive = false; 
+ 
 
 elementPositionX = 0;

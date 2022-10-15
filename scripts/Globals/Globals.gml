@@ -4,3 +4,10 @@ global.pTwoList = ds_list_create();
 
 global.pOneList = ds_list_create();
 
+//Starting state
+global.pOneMovementActive = true; 
+global.pTwoMovementActive = true;
+
+global.pOneCastingActive = false;
+global.pTwoCastingActive = false;
+
