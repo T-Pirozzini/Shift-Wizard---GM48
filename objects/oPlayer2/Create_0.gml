@@ -12,4 +12,4 @@
 	sprite[2] = sPlayerLeft;
 	sprite[3] = sPlayerDown;
 	
-	
+pTwoTurnActive = true
