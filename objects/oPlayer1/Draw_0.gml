@@ -1,3 +1,4 @@
 /// @description Insert description here
 
-global.pTwoPointer = false;
+// Draw Player
+draw_self()

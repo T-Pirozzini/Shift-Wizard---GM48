@@ -86,10 +86,10 @@ if (global.pTwoMovementActive) {
 //End player turn
 if (!global.pTwoMovementActive) {
 	image_index = 0;
-	if (!global.pOneMovementActive && !global.pOneCastingActive) {
+	//if (!global.pOneMovementActive && !global.pOneCastingActive) {
 		global.pTwoCastingActive = true;
 	}
-}
+//}
 
 //Player Casting
 if (global.pTwoCastingActive) {

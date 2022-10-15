@@ -1,7 +1,5 @@
 /// @description Initialize Variables
 
-
-
 //Movement
 	moveSpd = 1;
 	xspd = 0;

@@ -1,3 +1,5 @@
 /// @description Insert description here
 
-global.pTwoPointer = false;
+if (global.pOnePointer) {
+	draw_self();	
+}
