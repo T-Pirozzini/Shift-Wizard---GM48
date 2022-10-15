@@ -8,7 +8,7 @@ downKey = keyboard_check(vk_down);
 
 //Player movement
 #region
-if (pTwoTurnActive) {
+if (global.pTwoMovementActive) {
 	xspd = moveSpd * (rightKey - leftKey); // if right = 1, if left = -1, if both pressed = 0 (no movement)
 	yspd = (downKey - upKey); // top left is coord (0,0) - moving down increases y-axis
 
@@ -59,7 +59,7 @@ if (pTwoTurnActive) {
 #endregion
 	
 //Collect Elements
-if (pTwoTurnActive) {
+if (global.pTwoMovementActive) {
 	if (array_length(global.pTwoElements) < 5) {
 		var _currentArrLength = array_length(global.pTwoElements);
 		if ((place_meeting(x, y, oRed)) && keyboard_check_released(vk_numpad0)) {
@@ -72,13 +72,22 @@ if (pTwoTurnActive) {
 			array_push(global.pTwoElements, "yellow")
 		};
 		if (_currentArrLength < array_length(global.pTwoElements)) {
-			pTwoTurnActive = false;
+			global.pTwoMovementActive = false;
 		}
 	}
 }
 
 //End player turn
-if (!pTwoTurnActive) {
+if (!global.pTwoMovementActive) {
 	image_index = 0;
+	if (!global.pOneMovementActive && !global.pOneCastingActive) {
+		global.pTwoCastingActive = true;
+	}
+}
+
+//Player Casting
+if (global.pTwoCastingActive) {
+	//Select element to cast
+	global.pTwoPointer = true;	
 }
 	

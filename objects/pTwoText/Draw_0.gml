@@ -26,3 +26,7 @@ if (array_length(_elements) <= 0) {
 if (array_length(global.pTwoElements) == 5) {
 	draw_text_transformed(x, y + 75, "Spell Bag Full", .75, .75, 1);	
 }
+
+//if (global.pTwoPointer) {
+//	draw_sprite(sPointer, 0, x, y + 75)
+//}

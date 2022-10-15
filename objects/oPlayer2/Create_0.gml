@@ -12,4 +12,6 @@
 	sprite[2] = sPlayerLeft;
 	sprite[3] = sPlayerDown;
 	
-pTwoTurnActive = true
+global.pTwoMovementActive = true;
+
+global.pTwoCastingActive = false;
