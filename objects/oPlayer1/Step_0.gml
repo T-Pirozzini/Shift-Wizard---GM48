@@ -1,10 +1,10 @@
 /// @description Occurs every frame
 
 //Get input
-rightKey = keyboard_check(vk_right);
-leftKey = keyboard_check(vk_left);
-upKey = keyboard_check(vk_up);
-downKey = keyboard_check(vk_down);
+rightKey = keyboard_check(ord("D"));
+leftKey = keyboard_check(ord("A"));
+upKey = keyboard_check(ord("W"));
+downKey = keyboard_check(ord("S"));
 
 //Player movement
 xspd = moveSpd * (rightKey - leftKey); // if right = 1, if left = -1, if both pressed = 0 (no movement)
@@ -53,7 +53,3 @@ sprite_index = sprite[face];
 	
 	// depth
 depth = -bbox_bottom;
-	
-	
-	
-	
