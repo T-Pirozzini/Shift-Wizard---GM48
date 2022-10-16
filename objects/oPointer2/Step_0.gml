@@ -18,38 +18,38 @@ if (global.castingPhase) {
 
 //Remove item from ds_list and destroy instance on pointer click
 #region
-if (global.castingPhase) {
+if (global.castingPhase && !global.pOneCastingActive) {
 	if (global.pTwoCastingActive) {
 		global.pTwoPointerActive = true
 		if (global.pTwoPointerActive) {			
 		 //check if pointer touches red element
-			if (place_meeting(x, y, oElementRed) && keyboard_check_released(vk_delete)) {
+			if (place_meeting(x, y, oElementRed) && keyboard_check_pressed(vk_delete)) {
 					var _index = ds_list_find_index(global.pTwoList, "red")
 					//remove element from the list
 					ds_list_delete(global.pTwoList, _index)
 					for (i = 0; i < instance_number(oElementRed); i++) {
 					  elementID = instance_find(oElementRed,i);
 						//destroy element
-						instance_destroy(elementID);
-						//destroy pointer after selection
-						instance_destroy(self)
+						instance_destroy(elementID);						
 				}		
 				global.pTwoCastingActive = false;
-				global.pTwoPointerActive = false;				
+				global.pTwoPointerActive = false;
+				global.pOneMovementActive = true;				
+				global.currentRound++				
 			}
-			if (place_meeting(x, y, oElementYellow) && keyboard_check_released(vk_delete)) {
+			if (place_meeting(x, y, oElementYellow) && keyboard_check_pressed(vk_delete)) {
 				var _index = ds_list_find_index(global.pTwoList, "yellow")
 				//remove element from the list
 				ds_list_delete(global.pTwoList, _index)
 				for (i = 0; i < instance_number(oElementYellow); i++) {
 				  elementID = instance_find(oElementYellow,i);
 					//destroy element
-					instance_destroy(elementID);
-					//destroy pointer after selection
-					instance_destroy(self)		
+					instance_destroy(elementID);						
 				}
 				global.pTwoCastingActive = false;
-				global.pTwoPointerActive = false;				
+				global.pTwoPointerActive = false;
+				global.pOneMovementActive = true;				
+				global.currentRound++				
 			}
 			if (place_meeting(x, y, oElementGreen) && keyboard_check_pressed(vk_delete)) {
 				var _index = ds_list_find_index(global.pTwoList, "green")
@@ -58,12 +58,12 @@ if (global.castingPhase) {
 				for (i = 0; i < instance_number(oElementGreen); i++) {
 				  elementID = instance_find(oElementGreen,i);
 					//destroy element
-					instance_destroy(elementID);
-					//destroy pointer after selection
-					instance_destroy(self)		
+					instance_destroy(elementID);							
 				}
 				global.pTwoCastingActive = false;
-				global.pTwoPointerActive = false;				
+				global.pTwoPointerActive = false;
+				global.pOneMovementActive = true;				
+				global.currentRound++				
 			}	
 		}
 	}

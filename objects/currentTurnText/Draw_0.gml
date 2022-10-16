@@ -1,7 +1,10 @@
 /// @description Insert description here
 
-if (global.movementPhase) {
-	draw_text(x, y, "Move Phase: Choose an Element")
+if (global.movementPhase && !global.pTwoMovementActive) {
+	draw_text(x, y, "Move Phase: Player One Turn")
+}
+if (global.movementPhase && !global.pOneMovementActive) {
+	draw_text(x, y, "Move Phase: Player Two Turn")
 }
 
 if (global.castingPhase) {
@@ -15,6 +18,7 @@ if (global.castingPhase) {
 	draw_text(x, y, "Casting Phase: Player Two Turn")
 	}
 }
+
 
 
 // current states

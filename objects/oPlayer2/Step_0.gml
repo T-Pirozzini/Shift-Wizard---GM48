@@ -81,7 +81,9 @@ if (global.pTwoMovementActive) {
 		};
 		if (_currentArrLength < ds_list_size(global.pTwoList)) {
 			// End Player One Movement Phase
-			global.pTwoMovementActive = false;			
+			global.pTwoMovementActive = false;
+			global.pOneCastingActive = true;
+			global.pOnePointerActive = true;
 		}
 	}
 	}

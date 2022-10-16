@@ -60,7 +60,7 @@ if (global.pOneMovementActive) {
 
 //Collect Elements
 #region
-if (global.movementPhase) {
+if (global.movementPhase) {	
 	if (global.pOneMovementActive) {
 	if (ds_list_size(global.pOneList) < 5) {
 		//save current list size
@@ -86,7 +86,8 @@ if (global.movementPhase) {
 		};
 		if (_currentArrLength < ds_list_size(global.pOneList)) {
 			// End Player One Movement Phase
-			global.pOneMovementActive = false;			
+			global.pOneMovementActive = false;
+			global.pTwoMovementActive = true;
 		}
 	}
 	}

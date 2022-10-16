@@ -31,6 +31,7 @@
     {"id":{"name":"sElementYellow","path":"sprites/sElementYellow/sElementYellow.yy",},"order":8,},
     {"id":{"name":"oElementYellow","path":"objects/oElementYellow/oElementYellow.yy",},"order":4,},
     {"id":{"name":"sGreen","path":"sprites/sGreen/sGreen.yy",},"order":1,},
+    {"id":{"name":"currentRound","path":"objects/currentRound/currentRound.yy",},"order":18,},
     {"id":{"name":"pOneGame","path":"objects/pOneGame/pOneGame.yy",},"order":7,},
     {"id":{"name":"sPlayerDown","path":"sprites/sPlayerDown/sPlayerDown.yy",},"order":3,},
     {"id":{"name":"sPointer","path":"sprites/sPointer/sPointer.yy",},"order":11,},

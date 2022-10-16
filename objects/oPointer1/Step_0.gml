@@ -19,10 +19,8 @@ if (global.castingPhase) {
 //Remove item from ds_list and destroy instance on pointer click
 #region
 //Initiate casting phase - check if both players have no movement
-if (global.castingPhase) {
-	global.pOneCastingActive = true;
-		if (global.pOneCastingActive) {
-			global.pOnePointerActive = true;
+if (global.castingPhase) {	
+		if (global.pOneCastingActive) {			
 			if (global.pOnePointerActive) {
 				//Check if pointer touches red element
 				if (place_meeting(x, y, oElementRed) && keyboard_check_released(ord("1"))) {					
@@ -32,9 +30,7 @@ if (global.castingPhase) {
 					for (i = 0; i < instance_number(oElementRed); i++) {
 					  elementID = instance_find(oElementRed,i);
 						//destroy element
-						instance_destroy(elementID);
-						//destroy pointer after selection
-						instance_destroy(self)
+						instance_destroy(elementID);						
 					}
 					global.pOnePointerActive = false;
 					global.pOneCastingActive = false;
@@ -42,16 +38,14 @@ if (global.castingPhase) {
 					global.pTwoPointerActive = true;
 				}
 				//Check if pointer touches yellow element
-				if (place_meeting(x, y, oElementYellow) && keyboard_check_pressed(ord("1"))) {
+				if (place_meeting(x, y, oElementYellow) && keyboard_check_released(ord("1"))) {
 					var _index = ds_list_find_index(global.pOneList, "yellow")
 					//remove element from the list
 					ds_list_delete(global.pOneList, _index)
 					for (i = 0; i < instance_number(oElementYellow); i++) {
 					  elementID = instance_find(oElementYellow,i);
 						//destroy element
-						instance_destroy(elementID);
-						//destroy pointer after selection
-						instance_destroy(self)
+						instance_destroy(elementID);						
 					}		
 				global.pOnePointerActive = false;
 				global.pOneCastingActive = false;
@@ -59,16 +53,14 @@ if (global.castingPhase) {
 				global.pTwoPointerActive = true;
 			}
 			//Check in pointer touches green element
-			if (place_meeting(x, y, oElementGreen) && keyboard_check_pressed(ord("1"))) {
+			if (place_meeting(x, y, oElementGreen) && keyboard_check_released(ord("1"))) {
 				var _index = ds_list_find_index(global.pOneList, "green")
 				//remove element from the list
 				ds_list_delete(global.pOneList, _index)
 				for (i = 0; i < instance_number(oElementGreen); i++) {
 				  elementID = instance_find(oElementGreen,i);
 					//destroy element
-					instance_destroy(elementID);
-					//destroy pointer after selection
-					instance_destroy(self)			
+					instance_destroy(elementID);							
 				}		
 				global.pOnePointerActive = false;
 				global.pOneCastingActive = false;

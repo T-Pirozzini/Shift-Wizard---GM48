@@ -12,10 +12,11 @@
 		global.pOneCastingActive = false;
 		global.pOnePointerActive = false;
 	// Player Two
-		global.pTwoMovementActive = true;
+		global.pTwoMovementActive = false;
 		global.pTwoCastingActive = false;
 		global.pTwoPointerActive = false;
 
+	global.currentRound = 0;
  	
 
 
