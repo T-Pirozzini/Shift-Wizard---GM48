@@ -25,3 +25,8 @@
 	adjacentLeft = 0
 	adjacentUp = 0
 	adjacentDown = 0
+	
+	adjacentRightPoint = 0
+	adjacentLeftPoint = 0
+	adjacentUpPoint = 0
+	adjacentDownPoint = 0

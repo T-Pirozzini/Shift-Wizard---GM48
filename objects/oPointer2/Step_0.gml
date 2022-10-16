@@ -28,6 +28,16 @@ if (global.castingPhase && !global.pOneCastingActive) {
 					var _index = ds_list_find_index(global.pTwoList, "red")
 					//remove element from the list
 					ds_list_delete(global.pTwoList, _index)
+					
+					// Cast Red Spell
+					with (instance_create_layer(oPointer2.x, oPointer2.y, "Spells", oRedWand)) {
+					image_xscale = -1
+					}
+					
+					global.pTwoRedSpell = true;
+					global.pTwoPointerActive = false;
+					global.pTwoCastingActive = false;
+					
 					for (i = 0; i < instance_number(oElementRed); i++) {
 					  elementID = instance_find(oElementRed,i);
 						//destroy element						

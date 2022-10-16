@@ -85,6 +85,13 @@ if (global.pTwoMovementActive) {
 			//elementPositionY += 20			
 		};
 		}
+		//check is playerOne is on oPoint
+		if(instance_position(x,y,oPoint) == adjacentRightPoint2 || instance_position(x,y,oPoint) == adjacentLeftPoint2 || instance_position(x,y,oPoint) == adjacentDownPoint2 || instance_position(x,y,oPoint) == adjacentUpPoint2) {
+			if ((place_meeting(x, y, oPoint)) && keyboard_check_released(vk_lshift)) {
+				//room_goto(rm_start)
+				room_goto_next();
+			}
+		}
 		if (_currentArrLength < ds_list_size(global.pTwoList)) {
 			// End Player One Movement Phase
 			global.pTwoMovementActive = false;
@@ -132,6 +139,11 @@ adjacentRight2 = instance_position(currentTile2.x + 80, currentTile2.y, oCard)
 adjacentLeft2 = instance_position(currentTile2.x - 50, currentTile2.y + 10, oCard)
 adjacentDown2 = instance_position(currentTile2.x + 10, currentTile2.y - 50, oCard)
 adjacentUp2 = instance_position(currentTile2.x, currentTile2.y + 80, oCard)
+
+adjacentRightPoint2 = instance_position(currentTile2.x + 80, currentTile2.y, oPoint)
+adjacentLeftPoint2 = instance_position(currentTile2.x - 50, currentTile2.y, oPoint)
+adjacentDownPoint2 = instance_position(currentTile2.x, currentTile2.y - 50, oPoint)
+adjacentUpPoint2 = instance_position(currentTile2.x, currentTile2.y + 80, oPoint)
 #endregion
 
 	

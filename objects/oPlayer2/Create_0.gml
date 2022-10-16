@@ -23,4 +23,9 @@ elementPositionY = 0;
 	adjacentLeft2 = 0
 	adjacentUp2 = 0
 	adjacentDown2 = 0
+	
+	adjacentRightPoint2 = 0
+	adjacentLeftPoint2 = 0
+	adjacentUpPoint2 = 0
+	adjacentDownPoint2 = 0
 

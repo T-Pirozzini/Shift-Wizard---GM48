@@ -82,7 +82,7 @@ if (global.pOneCastingActive) {
 	//Yellow spell movement
 	// up-right	
 	if (keyboard_check_released(vk_up) && keyboard_check_released(vk_right)) {
-		if(!place_meeting(oPlayer2.x + 60, oPlayer2.y - 60, oWall)) {
+		if(!place_meeting(oPlayer2.x + 60, oPlayer2.y - 60, oWall)) {			
 		oPlayer2.x += 60
 		oPlayer2.y -= 60
 		global.pTwoYellowSpell = false;
