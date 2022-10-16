@@ -40,18 +40,22 @@ if (global.castingPhase) {
 				//Check if pointer touches yellow element
 				if (place_meeting(x, y, oElementYellow) && keyboard_check_released(ord("1"))) {
 					var _index = ds_list_find_index(global.pOneList, "yellow")
+					//Cast Yellow Spell
+					instance_create_layer(oPointer1.x, oPointer1.y, "Spells", oYellowWand)					
+					global.pOneYellowSpell = true;
+					global.pOnePointerActive = false;
+					global.pOneCastingActive = false;
+					
 					//remove element from the list
 					ds_list_delete(global.pOneList, _index)
 					for (i = 0; i < instance_number(oElementYellow); i++) {
 					  elementID = instance_find(oElementYellow,i);
 						//destroy element
 						instance_destroy(elementID);						
-					}		
-				global.pOnePointerActive = false;
-				global.pOneCastingActive = false;
-				global.pTwoCastingActive = true;
-				global.pTwoPointerActive = true;
+					}					
+				}
 			}
+		}
 			//Check in pointer touches green element
 			if (place_meeting(x, y, oElementGreen) && keyboard_check_released(ord("1"))) {
 				var _index = ds_list_find_index(global.pOneList, "green")
@@ -67,11 +71,8 @@ if (global.castingPhase) {
 				global.pTwoCastingActive = true;
 				global.pTwoPointerActive = true;
 			}	
-		}
-	}
-}
+		}	
 #endregion
-
 
 
 

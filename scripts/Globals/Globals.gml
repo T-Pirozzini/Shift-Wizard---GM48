@@ -12,10 +12,16 @@ global.gameStart2 = true
 		global.pOneMovementActive = true;
 		global.pOneCastingActive = false;
 		global.pOnePointerActive = false;
+		
+		global.pOneYellowSpell = false;
+		global.pOneCurrentTile = 0
+		
 	// Player Two
 		global.pTwoMovementActive = false;
 		global.pTwoCastingActive = false;
 		global.pTwoPointerActive = false;
+		
+		global.pTwoYellowSpell = false;
 
 	global.currentRound = 1;
 
@@ -24,4 +30,3 @@ global.gameStart2 = true
 	global.pOneList = ds_list_create();
 	global.pTwoList = ds_list_create();
 
-global.pOneCurrentTile = inst_5CC3308E

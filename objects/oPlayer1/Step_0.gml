@@ -68,8 +68,8 @@ if (global.pOneMovementActive) {
 
 //Collect Elements
 #region
-if (global.movementPhase) {	
-	if (global.pOneMovementActive) {
+if (global.movementPhase) {
+	if (global.pOneMovementActive) {		
 	if (ds_list_size(global.pOneList) < 5) {
 		//save current list size
 		var _currentArrLength = ds_list_size(global.pOneList);
@@ -122,21 +122,25 @@ function getCurrentPosition() {
 
 // At beginning of round check current tile reference
 #region
+
 function getTileID () {
 		if (place_meeting(x,y,oRed)) {
 			currentTile = instance_position(x,y,oRed)
 			currentTile.animate = true;
-			currentTile.active = true;			
+			currentTile.active = true;
+			global.pOneCurrentTile = currentTile
 		}
 		if (place_meeting(x,y,oGreen)) {
 			currentTile = instance_position(x,y,oGreen)
 			currentTile.animate = true;
-			currentTile.active = true;			
+			currentTile.active = true;
+			global.pOneCurrentTile = currentTile
 		}
 		if (place_meeting(x,y,oYellow)) {
 			currentTile = instance_position(x,y,oYellow)
 			currentTile.animate = true;
-			currentTile.active = true;			
+			currentTile.active = true;	
+			global.pOneCurrentTile = currentTile
 		}
 	}
 	
