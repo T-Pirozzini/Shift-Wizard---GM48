@@ -47,7 +47,7 @@ if (global.pOneCastingActive) {
 		global.pOneYellowSpell = false;
 		instance_destroy(oYellowWand)
 		global.pTwoCastingActive = true;
-		global.pTwoPointerActive = true;					
+		global.pTwoPointerActive = true;		
 	}
 	}
 	//down-left

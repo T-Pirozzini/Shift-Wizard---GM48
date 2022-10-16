@@ -91,7 +91,7 @@ if (global.castingPhase && !global.pOneCastingActive) {
 					//destroy element
 					instance_destroy(elementID);							
 				}
-				if (!global.pTwoGreenSpell) {
+				if (!global.pTwoGreenSpell && !global.pTwoRedSpell) {
 				global.pTwoCastingActive = false;
 				global.pTwoPointerActive = false;
 				global.pOneMovementActive = true;

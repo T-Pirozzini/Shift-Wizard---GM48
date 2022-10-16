@@ -134,30 +134,48 @@ function getCurrentPosition(player) {
 function getTileID () {
 		if (place_meeting(x,y,oRed)) {
 			currentTile = instance_position(x,y,oRed)
-			currentTile.animate = true;
-			currentTile.active = true;
-			global.pOneCurrentTile = currentTile
+			//currentTile.animate = true;
+			//currentTile.active = true;
+			//global.pOneCurrentTile = currentTile
 		}
 		if (place_meeting(x,y,oGreen)) {
 			currentTile = instance_position(x,y,oGreen)
-			currentTile.animate = true;
-			currentTile.active = true;
-			global.pOneCurrentTile = currentTile
+			//currentTile.animate = true;
+			//currentTile.active = true;
+			//global.pOneCurrentTile = currentTile
 		}
 		if (place_meeting(x,y,oYellow)) {
 			currentTile = instance_position(x,y,oYellow)
-			currentTile.animate = true;
-			currentTile.active = true;	
-			global.pOneCurrentTile = currentTile
+			//currentTile.animate = true;
+			//currentTile.active = true;	
+			//global.pOneCurrentTile = currentTile
 		}
 	}
 	
-if (global.currentRound > prevCurrentRound || global.gameStart) {
-	getCurrentPosition(oPlayer1);
-	getTileID();
-	prevCurrentRound++
+//if (global.gameStart) {
+//	getCurrentPosition(oPlayer1);
+//	getTileID();
+//	prevCurrentRound++
+//	global.gameStart = false;
+//}
+//if (global.newRound1) {
+//	getTileID();	
+//	global.newRound1 = false
+//}
+
+if (global.gameStart) {	
+	getTileID();	
 	global.gameStart = false;
+	//global.newRound2 = true;
 }
+if (global.pTwoCastingActive) {
+	getTileID()
+}
+if (global.setID) {
+	getTileID()
+}
+
+
 
 // get reference of tiles adjacent to currentTile 
 adjacentRight = instance_position(currentTile.x + 80, currentTile.y, oCard)

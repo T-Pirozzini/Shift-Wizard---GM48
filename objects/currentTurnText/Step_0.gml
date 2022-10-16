@@ -5,10 +5,13 @@ if (!global.pOneMovementActive && !global.pTwoMovementActive) {
 	global.movementPhase = false;
 	global.castingPhase = true;
 }
-if (global.pOneMovementActive) {
+if (global.pOneMovementActive) {	
 	global.movementPhase = true;
 	global.castingPhase = false;
+	global.newRound = true
+	//global.newRound1 = true
 }
+
 
 
 //if (global.castingPhase) {

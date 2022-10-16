@@ -29,7 +29,11 @@ global.gameStart2 = true
 		global.pTwoGreenSpell = false;		
 
 	global.currentRound = 1;
+	
+	global.newRound = false;
+	global.newRound1 = false;
 
+global.setID = false
 
 // Stored Element Lists
 	global.pOneList = ds_list_create();

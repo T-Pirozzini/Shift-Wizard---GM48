@@ -16,6 +16,7 @@ if (global.pOneGreenSpell) {
 	global.pOneGreenSpell = false;
 	global.pTwoCastingActive = true;
 	global.pTwoPointerActive = true;
+	global.gameStart = true
 	}
 }
 
@@ -33,5 +34,6 @@ if (global.pTwoGreenSpell) {
 	oPlayer2.y = _oPlayerOneTempY
 	global.pTwoGreenSpell = false;
 	global.pOneMovementActive = true;
+	global.gameStart = true
 	}
 }

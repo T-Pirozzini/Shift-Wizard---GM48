@@ -87,7 +87,7 @@ if (global.pTwoMovementActive) {
 		}
 		//check is playerOne is on oPoint
 		if(instance_position(x,y,oPoint) == adjacentRightPoint2 || instance_position(x,y,oPoint) == adjacentLeftPoint2 || instance_position(x,y,oPoint) == adjacentDownPoint2 || instance_position(x,y,oPoint) == adjacentUpPoint2) {
-			if ((place_meeting(x, y, oPoint)) && keyboard_check_released(vk_lshift)) {
+			if ((place_meeting(x, y, oPoint)) && keyboard_check_released(vk_numpad0)) {
 				//room_goto(rm_start)
 				room_goto_next();
 			}
@@ -128,10 +128,13 @@ function getTileID2 () {
 		}
 	}
 	
-if (global.gameStart2) {
-	
+if (global.gameStart2) {	
 	getTileID2();	
 	global.gameStart2 = false;
+}
+if (global.newRound) {	
+	getTileID2();
+	global.newRound = false
 }
 
 // get reference of tiles adjacent to currentTile 
