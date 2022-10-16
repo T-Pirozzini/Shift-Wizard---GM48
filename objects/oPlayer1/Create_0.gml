@@ -14,4 +14,9 @@
 	
 	elementPositionX = 0;
 	
+	currentPositionX = oPlayer1.x 
+	currentPositionY = oPlayer1.y
+	prevCurrentRound = global.currentRound
 	
+	currentTile = 0
+	instanceID = 0

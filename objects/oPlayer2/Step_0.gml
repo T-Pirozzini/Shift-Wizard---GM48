@@ -93,4 +93,6 @@ if (global.pTwoMovementActive) {
 if (!global.pTwoMovementActive) {
 	oPlayer2.image_index = 0
 }
+
+
 	

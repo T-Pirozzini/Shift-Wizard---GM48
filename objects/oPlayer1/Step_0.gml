@@ -1,5 +1,6 @@
 /// @description Occurs every frame
 
+
 //Get input
 rightKey = keyboard_check(ord("D"));
 leftKey = keyboard_check(ord("A"));
@@ -73,7 +74,8 @@ if (global.movementPhase) {
 		//save current list size
 		var _currentArrLength = ds_list_size(global.pOneList);
 		//check if playerOne is on redCard
-		if ((place_meeting(x, y, oRed)) && keyboard_check_released(vk_lshift)) {			
+		if ((place_meeting(x, y, oRed)) && keyboard_check_released(vk_lshift)) {
+			//oRed.object_index
 			ds_list_add(global.pOneList, "red")
 			//create redElement on Instances layer
 			instance_create_layer(pOneElements.x + elementPositionX, pOneElements.y, "Instances", oElementRed)
@@ -104,4 +106,44 @@ if (global.movementPhase) {
 if (!global.pOneMovementActive) {
 	oPlayer1.image_index = 0;
 }
+
+// Collisions
+function getCurrentPosition() {	
+	currentPositionX = oPlayer1.x 
+	currentPositionY = oPlayer1.y
+}
+
+
+// At beginning of round check current tile reference
+#region
+
+function getTileID () {
+		if (place_meeting(x,y,oRed)) {
+			currentTile = instance_position(x,y,oRed)
+			currentTile.animate = true;
+			currentTile.active = true;
+		}
+		if (place_meeting(x,y,oGreen)) {
+			currentTile = instance_position(x,y,oGreen)
+		}
+		if (place_meeting(x,y,oYellow)) {
+			currentTile = instance_position(x,y,oYellow)
+		}
+	}
+	
+if (global.currentRound > prevCurrentRound || global.gameStart) {
+	getCurrentPosition();
+	getTileID();
+	prevCurrentRound++
+	global.gameStart = false;
+}
+
+
+
+#endregion
+
+
+
+
+
 	
