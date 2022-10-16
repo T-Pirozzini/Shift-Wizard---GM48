@@ -63,27 +63,34 @@ if (global.pTwoMovementActive) {
 if (global.movementPhase) {
 if (global.pTwoMovementActive) {	
 	if (ds_list_size(global.pTwoList) < 5) {
-		var _currentArrLength = ds_list_size(global.pTwoList);		
+		var _currentArrLength = ds_list_size(global.pTwoList);
+		if(instance_position(x,y,oRed) == adjacentRight2 || instance_position(x,y,oRed) == adjacentLeft2 || instance_position(x,y,oRed) == adjacentDown2 || instance_position(x,y,oRed) == adjacentUp2) {
 		if ((place_meeting(x, y, oRed)) && keyboard_check_released(vk_numpad0)) {			
 			ds_list_add(global.pTwoList, "red")
 			instance_create_layer(pTwoElements.x + elementPositionY, pTwoElements.y, "Instances", oElementRed)
 			elementPositionY += 20			
 		};
+		}
+		if(instance_position(x,y,oGreen) == adjacentRight2 || instance_position(x,y,oGreen) == adjacentLeft2 || instance_position(x,y,oGreen) == adjacentDown2 || instance_position(x,y,oGreen) == adjacentUp2) {
 		if ((place_meeting(x, y, oGreen)) && keyboard_check_released(vk_numpad0)) {
 			ds_list_add(global.pTwoList, "green")
 			instance_create_layer(pTwoElements.x + elementPositionY, pTwoElements.y, "Instances", oElementGreen)
 			elementPositionY += 20			
 		};
+		}
+		if(instance_position(x,y,oYellow) == adjacentRight2 || instance_position(x,y,oYellow) == adjacentLeft2 || instance_position(x,y,oYellow) == adjacentDown2 || instance_position(x,y,oYellow) == adjacentUp2) {
 		if ((place_meeting(x, y, oYellow)) && keyboard_check_released(vk_numpad0)) {			
 			ds_list_add(global.pTwoList, "yellow")
 			instance_create_layer(pTwoElements.x + elementPositionY, pTwoElements.y, "Instances", oElementYellow)
 			elementPositionY += 20			
 		};
+		}
 		if (_currentArrLength < ds_list_size(global.pTwoList)) {
 			// End Player One Movement Phase
 			global.pTwoMovementActive = false;
 			global.pOneCastingActive = true;
 			global.pOnePointerActive = true;
+			getTileID2();
 		}
 	}
 	}
@@ -94,5 +101,37 @@ if (!global.pTwoMovementActive) {
 	oPlayer2.image_index = 0
 }
 
+// At beginning of round check current tile reference
+#region
+function getTileID2 () {
+		if (place_meeting(x,y,oRed)) {
+			currentTile2 = instance_position(x,y,oRed)
+			//currentTile2.animate = true;
+			//currentTile2.active = true;			
+		}
+		if (place_meeting(x,y,oGreen)) {
+			currentTile2 = instance_position(x,y,oGreen)
+			//currentTile2.animate = true;
+			//currentTile2.active = true;			
+		}
+		if (place_meeting(x,y,oYellow)) {
+			currentTile2 = instance_position(x,y,oYellow)
+			//currentTile2.animate = true;
+			//currentTile2.active = true;			
+		}
+	}
+	
+if (global.gameStart2) {
+	
+	getTileID2();	
+	global.gameStart2 = false;
+}
+
+// get reference of tiles adjacent to currentTile 
+adjacentRight2 = instance_position(currentTile2.x + 80, currentTile2.y, oCard)
+adjacentLeft2 = instance_position(currentTile2.x - 50, currentTile2.y + 10, oCard)
+adjacentDown2 = instance_position(currentTile2.x + 10, currentTile2.y - 50, oCard)
+adjacentUp2 = instance_position(currentTile2.x, currentTile2.y + 80, oCard)
+#endregion
 
 	

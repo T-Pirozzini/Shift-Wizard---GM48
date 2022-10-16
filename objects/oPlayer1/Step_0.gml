@@ -73,7 +73,8 @@ if (global.movementPhase) {
 	if (ds_list_size(global.pOneList) < 5) {
 		//save current list size
 		var _currentArrLength = ds_list_size(global.pOneList);
-		//check if playerOne is on redCard
+		//check if playerOne is on redCard		
+		if(instance_position(x,y,oRed) == adjacentRight || instance_position(x,y,oRed) == adjacentLeft || instance_position(x,y,oRed) == adjacentDown || instance_position(x,y,oRed) == adjacentUp) {
 		if ((place_meeting(x, y, oRed)) && keyboard_check_released(vk_lshift)) {
 			//oRed.object_index
 			ds_list_add(global.pOneList, "red")
@@ -81,22 +82,28 @@ if (global.movementPhase) {
 			instance_create_layer(pOneElements.x + elementPositionX, pOneElements.y, "Instances", oElementRed)
 			elementPositionX += 20;			
 		};
+		}
 		//check if playerOne is on greenCard
+		if(instance_position(x,y,oGreen) == adjacentRight || instance_position(x,y,oGreen) == adjacentLeft || instance_position(x,y,oGreen) == adjacentDown || instance_position(x,y,oGreen) == adjacentUp) {
 		if ((place_meeting(x, y, oGreen)) && keyboard_check_released(vk_lshift)) {
 			ds_list_add(global.pOneList, "green")
 			instance_create_layer(pOneElements.x + elementPositionX, pOneElements.y, "Instances", oElementGreen)
 			elementPositionX += 20;			
 		};
+		}
 		//check if playerOne is on yellowCard
+		if(instance_position(x,y,oYellow) == adjacentRight || instance_position(x,y,oYellow) == adjacentLeft || instance_position(x,y,oYellow) == adjacentDown || instance_position(x,y,oYellow) == adjacentUp) {
 		if ((place_meeting(x, y, oYellow)) && keyboard_check_released(vk_lshift)) {			
 			ds_list_add(global.pOneList, "yellow")
 			instance_create_layer(pOneElements.x + elementPositionX, pOneElements.y, "Instances", oElementYellow)
 			elementPositionX += 20;			
 		};
+		}
 		if (_currentArrLength < ds_list_size(global.pOneList)) {
 			// End Player One Movement Phase
 			global.pOneMovementActive = false;
 			global.pTwoMovementActive = true;
+			getTileID();
 		}
 	}
 	}
@@ -113,21 +120,23 @@ function getCurrentPosition() {
 	currentPositionY = oPlayer1.y
 }
 
-
 // At beginning of round check current tile reference
 #region
-
 function getTileID () {
 		if (place_meeting(x,y,oRed)) {
 			currentTile = instance_position(x,y,oRed)
 			currentTile.animate = true;
-			currentTile.active = true;
+			currentTile.active = true;			
 		}
 		if (place_meeting(x,y,oGreen)) {
 			currentTile = instance_position(x,y,oGreen)
+			currentTile.animate = true;
+			currentTile.active = true;			
 		}
 		if (place_meeting(x,y,oYellow)) {
 			currentTile = instance_position(x,y,oYellow)
+			currentTile.animate = true;
+			currentTile.active = true;			
 		}
 	}
 	
@@ -138,9 +147,15 @@ if (global.currentRound > prevCurrentRound || global.gameStart) {
 	global.gameStart = false;
 }
 
-
-
+// get reference of tiles adjacent to currentTile 
+adjacentRight = instance_position(currentTile.x + 80, currentTile.y, oCard)
+adjacentLeft = instance_position(currentTile.x - 50, currentTile.y, oCard)
+adjacentDown = instance_position(currentTile.x, currentTile.y - 50, oCard)
+adjacentUp = instance_position(currentTile.x, currentTile.y + 80, oCard)
 #endregion
+
+
+
 
 
 

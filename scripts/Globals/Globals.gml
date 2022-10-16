@@ -2,6 +2,7 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 
 global.gameStart = true
+global.gameStart2 = true
 // Game Phases
 	global.movementPhase = true;
 	global.castingPhase = false;
@@ -23,3 +24,4 @@ global.gameStart = true
 	global.pOneList = ds_list_create();
 	global.pTwoList = ds_list_create();
 
+global.pOneCurrentTile = inst_5CC3308E

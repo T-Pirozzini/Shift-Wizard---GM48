@@ -11,7 +11,10 @@
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "oCard",
+    "path": "objects/oCard/oCard.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,

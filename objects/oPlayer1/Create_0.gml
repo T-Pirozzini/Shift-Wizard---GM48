@@ -20,3 +20,8 @@
 	
 	currentTile = 0
 	instanceID = 0
+	
+	adjacentRight = 0
+	adjacentLeft = 0
+	adjacentUp = 0
+	adjacentDown = 0

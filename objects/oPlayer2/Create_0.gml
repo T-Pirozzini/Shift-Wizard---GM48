@@ -14,4 +14,13 @@
 	
 elementPositionY = 0;
 
+//prevCurrentRound = global.currentRound
+	
+	currentTile2 = 0
+	//instanceID = 0
+	
+	adjacentRight2 = 0
+	adjacentLeft2 = 0
+	adjacentUp2 = 0
+	adjacentDown2 = 0
 
