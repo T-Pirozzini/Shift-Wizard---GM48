@@ -64,7 +64,7 @@ if (global.castingPhase) {
 				}
 			}
 		}
-			//Check in pointer touches green element
+			//Check if pointer touches green element
 			if (place_meeting(x, y, oElementGreen) && keyboard_check_released(ord("1"))) {
 				var _index = ds_list_find_index(global.pOneList, "green")
 				

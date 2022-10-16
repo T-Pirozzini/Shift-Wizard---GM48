@@ -15,6 +15,8 @@ global.gameStart2 = true
 		
 		global.pOneYellowSpell = false;
 		global.pOneRedSpell = false;
+		global.pOneGreenSpell = false;
+		
 		global.pOneCurrentTile = 0
 		
 	// Player Two
@@ -23,6 +25,8 @@ global.gameStart2 = true
 		global.pTwoPointerActive = false;
 		
 		global.pTwoYellowSpell = false;
+		global.pTwoRedSpell = false;	
+		global.pTwoGreenSpell = false;		
 
 	global.currentRound = 1;
 
