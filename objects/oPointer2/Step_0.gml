@@ -40,6 +40,16 @@ if (global.castingPhase && !global.pOneCastingActive) {
 			}
 			if (place_meeting(x, y, oElementYellow) && keyboard_check_pressed(vk_delete)) {
 				var _index = ds_list_find_index(global.pTwoList, "yellow")
+				
+				//Cast Yellow Spell
+					with (instance_create_layer(oPointer2.x + 100, oPointer2.y, "Spells", oYellowWand)) {
+						image_xscale = -1
+					}
+					
+					global.pTwoYellowSpell = true;
+					global.pTwoPointerActive = false;
+					global.pTwoCastingActive = false;
+					
 				//remove element from the list
 				ds_list_delete(global.pTwoList, _index)
 				for (i = 0; i < instance_number(oElementYellow); i++) {
@@ -57,7 +67,9 @@ if (global.castingPhase && !global.pOneCastingActive) {
 				var _index = ds_list_find_index(global.pTwoList, "green")
 				
 				// Cast Green Spell
-					instance_create_layer(oPointer2.x, oPointer2.y, "Spells", oGreenWand)
+					with (instance_create_layer(oPointer2.x + 100, oPointer2.y, "Spells", oGreenWand)) {
+						image_xscale = -1
+					}
 					global.pTwoGreenSpell = true;
 					global.pTwoPointerActive = false;
 					global.pTwoCastingActive = false;
