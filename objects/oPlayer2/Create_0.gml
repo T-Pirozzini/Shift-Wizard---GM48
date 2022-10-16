@@ -7,10 +7,10 @@
 	
 //Sprite Control
 	face = 3;
-	sprite[0] = sPlayerRight;
-	sprite[1] = sPlayerUp;
-	sprite[2] = sPlayerLeft;
-	sprite[3] = sPlayerDown;
+	sprite[0] = sPlayerRightOld;
+	sprite[1] = sPlayerUpOld;
+	sprite[2] = sPlayerLeftOld;
+	sprite[3] = sPlayerDownOld;
 	
 elementPositionY = 0;
 

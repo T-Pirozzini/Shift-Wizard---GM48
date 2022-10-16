@@ -80,11 +80,13 @@ if (global.castingPhase) {
 				  elementID = instance_find(oElementGreen,i);
 					//destroy element
 					instance_destroy(elementID);							
-				}		
+				}	
+				if (!global.pOneGreenSpell) {
 				global.pOnePointerActive = false;
 				global.pOneCastingActive = false;
 				global.pTwoCastingActive = true;
 				global.pTwoPointerActive = true;
+				}
 			}	
 		}	
 #endregion

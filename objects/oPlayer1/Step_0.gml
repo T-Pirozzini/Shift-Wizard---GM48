@@ -115,9 +115,9 @@ if (!global.pOneMovementActive) {
 }
 
 // Collisions
-function getCurrentPosition() {	
-	currentPositionX = oPlayer1.x 
-	currentPositionY = oPlayer1.y
+function getCurrentPosition(player) {	
+	currentPositionX = player.x 
+	currentPositionY = player.y
 }
 
 // At beginning of round check current tile reference
@@ -145,7 +145,7 @@ function getTileID () {
 	}
 	
 if (global.currentRound > prevCurrentRound || global.gameStart) {
-	getCurrentPosition();
+	getCurrentPosition(oPlayer1);
 	getTileID();
 	prevCurrentRound++
 	global.gameStart = false;

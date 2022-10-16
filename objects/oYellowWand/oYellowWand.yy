@@ -30,7 +30,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Event-Free",
-    "path": "folders/Objects/Event-Free.yy",
+    "name": "Objects",
+    "path": "folders/Objects.yy",
   },
 }

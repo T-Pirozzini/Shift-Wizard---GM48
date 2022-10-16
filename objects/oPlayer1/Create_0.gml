@@ -14,8 +14,8 @@
 	
 	elementPositionX = 0;
 	
-	currentPositionX = oPlayer1.x 
-	currentPositionY = oPlayer1.y
+	currentPositionX = 0
+	currentPositionY = 0
 	prevCurrentRound = global.currentRound
 	
 	currentTile = 0
