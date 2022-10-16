@@ -80,7 +80,7 @@ if (global.movementPhase) {
 			ds_list_add(global.pOneList, "red")
 			//create redElement on Instances layer
 			instance_create_layer(pOneElements.x + elementPositionX, pOneElements.y, "Instances", oElementRed)
-			elementPositionX += 20;			
+			//elementPositionX += 20;			
 		};
 		}
 		//check if playerOne is on greenCard
@@ -88,7 +88,7 @@ if (global.movementPhase) {
 		if ((place_meeting(x, y, oGreen)) && keyboard_check_released(vk_lshift)) {
 			ds_list_add(global.pOneList, "green")
 			instance_create_layer(pOneElements.x + elementPositionX, pOneElements.y, "Instances", oElementGreen)
-			elementPositionX += 20;			
+			//elementPositionX += 20;			
 		};
 		}
 		//check if playerOne is on yellowCard
@@ -96,7 +96,7 @@ if (global.movementPhase) {
 		if ((place_meeting(x, y, oYellow)) && keyboard_check_released(vk_lshift)) {			
 			ds_list_add(global.pOneList, "yellow")
 			instance_create_layer(pOneElements.x + elementPositionX, pOneElements.y, "Instances", oElementYellow)
-			elementPositionX += 20;			
+			//elementPositionX += 20;			
 		};
 		}
 		if (_currentArrLength < ds_list_size(global.pOneList)) {

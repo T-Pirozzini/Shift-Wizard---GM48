@@ -1,41 +1,44 @@
 /// @description Insert description here
 
-if (global.movementPhase && !global.pTwoMovementActive) {
-	draw_text(x, y, "Move Phase: Player One Turn")
+if (global.movementPhase && !global.pTwoMovementActive) {	
+	draw_text_transformed_color(x, y, "MOVE PHASE: Player One Turn", 1, 1, image_angle, c_blue, c_blue, c_aqua, c_aqua, 1);
 }
-if (global.movementPhase && !global.pOneMovementActive) {
-	draw_text(x, y, "Move Phase: Player Two Turn")
+if (global.movementPhase && !global.pOneMovementActive) {	
+	draw_text_transformed_color(x, y, "MOVE PHASE: Player Two Turn", 1, 1, image_angle, c_red, c_red, c_orange, c_orange, 1);
 }
 
 if (global.castingPhase) {
-	if (global.pOneCastingActive) {
-	draw_text(x, y, "Casting Phase: Player One Turn")
+	if (global.pOneCastingActive) {	
+	draw_text_transformed_color(x, y, "CASTING PHASE: Player One Turn", 1, 1, image_angle, c_blue, c_blue, c_aqua, c_aqua, 1);
 	}
 }
 
 if (global.castingPhase) {
 	if (global.pTwoCastingActive) {
-	draw_text(x, y, "Casting Phase: Player Two Turn")
+	draw_text_transformed_color(x, y, "CASTING PHASE: Player Two Turn", 1, 1, image_angle, c_red, c_red, c_orange, c_orange, 1);
 	}
 }
 
 
 
 // current states
-draw_text(5,225, "Movement Phase:")
-draw_text(140,225, global.movementPhase)
-draw_text(5,250, "P1 Movement:")
-draw_text(130,250, global.pOneMovementActive)
-draw_text(5,270, "P1 Casting:")
-draw_text(130,270, global.pOneCastingActive)
-draw_text(5,290, "P1 Pointer:")
-draw_text(130,290, global.pOnePointerActive)
+draw_text_transformed(5,260, "Movement Phase:", .75, .75,  image_angle)
+draw_text_transformed(120,260,global.movementPhase,.75, .75,  image_angle)
+draw_text_transformed(5,275,"Casting Phase:",.75, .75,  image_angle)
+draw_text_transformed(120,275,global.castingPhase, .75, .75, image_angle)
 
-draw_text(500,225, "Casting Phase:")
-draw_text(630,225, global.castingPhase)
-draw_text(500,250, "P2 Movement:")
-draw_text(620,250, global.pTwoMovementActive)
-draw_text(500,270, "P2 Casting:")
-draw_text(620,270, global.pTwoCastingActive)
-draw_text(500,290, "P2 Pointer:")
-draw_text(620,290, global.pTwoPointerActive)
+draw_text_transformed(5,300,"P1 Movement:",.75, .75,  image_angle)
+draw_text_transformed(100,300,global.pOneMovementActive,.75, .75,  image_angle)
+draw_text_transformed(5,320,"P1 Casting:",.75, .75,  image_angle)
+draw_text_transformed(100,320,global.pOneCastingActive, .75, .75, image_angle)
+draw_text_transformed(5,340,"P1 Pointer:",.75, .75,  image_angle)
+draw_text_transformed(100,340,global.pOnePointerActive,.75, .75,  image_angle)
+
+
+
+draw_text_transformed(500,300,"P2 Movement:", .75, .75, image_angle)
+draw_text_transformed(620,300,global.pTwoMovementActive, .75, .75, image_angle)
+draw_text_transformed(500,320, "P2 Casting:",.75, .75, image_angle)
+draw_text_transformed(620,320,global.pTwoCastingActive, .75, .75, image_angle)
+draw_text_transformed(500,340, "P2 Pointer:",.75, .75, image_angle)
+draw_text_transformed(620,340,global.pTwoPointerActive, .75, .75, image_angle)

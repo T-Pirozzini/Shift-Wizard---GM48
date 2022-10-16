@@ -25,6 +25,13 @@ if (global.castingPhase) {
 				//Check if pointer touches red element
 				if (place_meeting(x, y, oElementRed) && keyboard_check_released(ord("1"))) {					
 					var _index = ds_list_find_index(global.pOneList, "red")
+					
+					// Cast Red Spell
+					instance_create_layer(oPointer1.x, oPointer1.y, "Spells", oRedWand)
+					global.pOneRedSpell = true;
+					global.pOnePointerActive = false;
+					global.pOneCastingActive = false;
+					
 					//remove element from the list
 					ds_list_delete(global.pOneList, _index)
 					for (i = 0; i < instance_number(oElementRed); i++) {
@@ -40,6 +47,7 @@ if (global.castingPhase) {
 				//Check if pointer touches yellow element
 				if (place_meeting(x, y, oElementYellow) && keyboard_check_released(ord("1"))) {
 					var _index = ds_list_find_index(global.pOneList, "yellow")
+					
 					//Cast Yellow Spell
 					instance_create_layer(oPointer1.x, oPointer1.y, "Spells", oYellowWand)					
 					global.pOneYellowSpell = true;
@@ -59,6 +67,13 @@ if (global.castingPhase) {
 			//Check in pointer touches green element
 			if (place_meeting(x, y, oElementGreen) && keyboard_check_released(ord("1"))) {
 				var _index = ds_list_find_index(global.pOneList, "green")
+				
+				// Cast Green Spell
+					instance_create_layer(oPointer1.x, oPointer1.y, "Spells", oGreenWand)
+					global.pOneGreenSpell = true;
+					global.pOnePointerActive = false;
+					global.pOneCastingActive = false;
+					
 				//remove element from the list
 				ds_list_delete(global.pOneList, _index)
 				for (i = 0; i < instance_number(oElementGreen); i++) {

@@ -1,6 +1,6 @@
 /// @description Insert description here
 
-draw_text(x, y, "Player Two");
+draw_text_transformed_color(x, y, "PLAYER TWO", 1, 1, image_angle, c_red, c_red, c_orange, c_orange, 1);
 draw_text(x - 25, y + 25, "Spell Components");
 
 //No elements in spell bag

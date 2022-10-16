@@ -68,21 +68,21 @@ if (global.pTwoMovementActive) {
 		if ((place_meeting(x, y, oRed)) && keyboard_check_released(vk_numpad0)) {			
 			ds_list_add(global.pTwoList, "red")
 			instance_create_layer(pTwoElements.x + elementPositionY, pTwoElements.y, "Instances", oElementRed)
-			elementPositionY += 20			
+			//elementPositionY += 20			
 		};
 		}
 		if(instance_position(x,y,oGreen) == adjacentRight2 || instance_position(x,y,oGreen) == adjacentLeft2 || instance_position(x,y,oGreen) == adjacentDown2 || instance_position(x,y,oGreen) == adjacentUp2) {
 		if ((place_meeting(x, y, oGreen)) && keyboard_check_released(vk_numpad0)) {
 			ds_list_add(global.pTwoList, "green")
 			instance_create_layer(pTwoElements.x + elementPositionY, pTwoElements.y, "Instances", oElementGreen)
-			elementPositionY += 20			
+			//elementPositionY += 20			
 		};
 		}
 		if(instance_position(x,y,oYellow) == adjacentRight2 || instance_position(x,y,oYellow) == adjacentLeft2 || instance_position(x,y,oYellow) == adjacentDown2 || instance_position(x,y,oYellow) == adjacentUp2) {
 		if ((place_meeting(x, y, oYellow)) && keyboard_check_released(vk_numpad0)) {			
 			ds_list_add(global.pTwoList, "yellow")
 			instance_create_layer(pTwoElements.x + elementPositionY, pTwoElements.y, "Instances", oElementYellow)
-			elementPositionY += 20			
+			//elementPositionY += 20			
 		};
 		}
 		if (_currentArrLength < ds_list_size(global.pTwoList)) {

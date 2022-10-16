@@ -14,6 +14,7 @@ global.gameStart2 = true
 		global.pOnePointerActive = false;
 		
 		global.pOneYellowSpell = false;
+		global.pOneRedSpell = false;
 		global.pOneCurrentTile = 0
 		
 	// Player Two
