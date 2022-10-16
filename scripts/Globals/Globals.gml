@@ -16,12 +16,7 @@
 		global.pTwoCastingActive = false;
 		global.pTwoPointerActive = false;
 
-	global.currentRound = 0;
- 	
-
-
-
-
+	global.currentRound = 1;
 
 
 // Stored Element Lists

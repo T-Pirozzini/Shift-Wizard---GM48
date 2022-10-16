@@ -29,7 +29,7 @@ if (global.castingPhase && !global.pOneCastingActive) {
 					ds_list_delete(global.pTwoList, _index)
 					for (i = 0; i < instance_number(oElementRed); i++) {
 					  elementID = instance_find(oElementRed,i);
-						//destroy element
+						//destroy element						
 						instance_destroy(elementID);						
 				}		
 				global.pTwoCastingActive = false;

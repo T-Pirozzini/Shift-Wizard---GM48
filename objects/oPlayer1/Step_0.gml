@@ -8,7 +8,7 @@ downKey = keyboard_check(ord("S"));
 
 //Player movement
 #region
-if (global.pOneMovementActive) {
+if (global.pOneMovementActive) {	
 	xspd = moveSpd * (rightKey - leftKey); // if right = 1, if left = -1, if both pressed = 0 (no movement)
 	yspd = (downKey - upKey); // top left is coord (0,0) - moving down increases y-axis
 
@@ -43,6 +43,13 @@ if (global.pOneMovementActive) {
 	};
 
 	sprite_index = sprite[face];
+	
+	if (place_meeting(x + xspd, y, oWall)) {
+		xspd = 0;
+	};
+	if (place_meeting(x, y + yspd, oWall)) {
+		yspd = 0;
+	};
 
 		// move the player
 		x += xspd;
