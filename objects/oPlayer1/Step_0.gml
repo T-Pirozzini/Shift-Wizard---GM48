@@ -61,6 +61,7 @@ if (global.pOneMovementActive) {
 //Collect Elements
 #region
 if (global.movementPhase) {
+	if (global.pOneMovementActive) {
 	if (ds_list_size(global.pOneList) < 5) {
 		//save current list size
 		var _currentArrLength = ds_list_size(global.pOneList);
@@ -83,10 +84,11 @@ if (global.movementPhase) {
 			instance_create_layer(pOneElements.x + elementPositionX, pOneElements.y, "Instances", oElementYellow)
 			elementPositionX += 20;			
 		};
-		if (ds_list_size(global.pOneList) > _currentArrLength) {
+		if (_currentArrLength < ds_list_size(global.pOneList)) {
 			// End Player One Movement Phase
-			global.pOneMovementActive = false;		
+			global.pOneMovementActive = false;			
 		}
+	}
 	}
 }
 #endregion

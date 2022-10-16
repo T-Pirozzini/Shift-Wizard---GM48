@@ -17,61 +17,58 @@ if (global.castingPhase) {
 #endregion
 
 //Remove item from ds_list and destroy instance on pointer click
-//#region
-//if (!global.pOneMovementActive && !global.pTwoMovementActive && !global.pOneCastingTurn) {
-//	if (global.pTwoCastingTurn) {
-//		global.pTwoPointer = true
-//		if (global.pTwoPointer) {			
-// //check if pointer touches red element
-//	if (place_meeting(x, y, oElementRed) || keyboard_check_pressed(vk_delete)) {
-//		var _index = ds_list_find_index(global.pTwoList, "red")
-//		//remove element from the list
-//		ds_list_delete(global.pTwoList, _index)
-//		for (i = 0; i < instance_number(oElementRed); i++) {
-//		  elementID = instance_find(oElementRed,i);
-//			//destroy element
-//			instance_destroy(elementID);
-//			//destroy pointer after selection
-//			instance_destroy(self)	
-//		}		
-//		global.pTwoCastingPhase = false;
-//		global.pTwoPointer = false;
-//		global.movementPhase = true
-//	}
-//	if (place_meeting(x, y, oElementYellow) || keyboard_check_pressed(vk_delete)) {
-//		var _index = ds_list_find_index(global.pTwoList, "yellow")
-//		//remove element from the list
-//		ds_list_delete(global.pTwoList, _index)
-//		for (i = 0; i < instance_number(oElementYellow); i++) {
-//		  elementID = instance_find(oElementYellow,i);
-//			//destroy element
-//			instance_destroy(elementID);
-//			//destroy pointer after selection
-//			instance_destroy(self)		
-//		}
-//		global.pTwoCastingTurn = false;
-//		global.pTwoPointer = false;
-//		global.movementPhase = true
-//	}
-//	if (place_meeting(x, y, oElementGreen) || keyboard_check_pressed(vk_delete)) {
-//		var _index = ds_list_find_index(global.pTwoList, "green")
-//		//remove element from the list
-//		ds_list_delete(global.pTwoList, _index)
-//		for (i = 0; i < instance_number(oElementGreen); i++) {
-//		  elementID = instance_find(oElementGreen,i);
-//			//destroy element
-//			instance_destroy(elementID);
-//			//destroy pointer after selection
-//			instance_destroy(self)		
-//		}
-//		global.pTwoCastingTurn = false;
-//		global.pTwoPointer = false;
-//		global.movementPhase = true
-//	}	
-//}
-//	}
-//}
-//#endregion
+#region
+if (global.castingPhase) {
+	if (global.pTwoCastingActive) {
+		global.pTwoPointerActive = true
+		if (global.pTwoPointerActive) {			
+		 //check if pointer touches red element
+			if (place_meeting(x, y, oElementRed) && keyboard_check_released(vk_delete)) {
+					var _index = ds_list_find_index(global.pTwoList, "red")
+					//remove element from the list
+					ds_list_delete(global.pTwoList, _index)
+					for (i = 0; i < instance_number(oElementRed); i++) {
+					  elementID = instance_find(oElementRed,i);
+						//destroy element
+						instance_destroy(elementID);
+						//destroy pointer after selection
+						instance_destroy(self)
+				}		
+				global.pTwoCastingActive = false;
+				global.pTwoPointerActive = false;				
+			}
+			if (place_meeting(x, y, oElementYellow) && keyboard_check_released(vk_delete)) {
+				var _index = ds_list_find_index(global.pTwoList, "yellow")
+				//remove element from the list
+				ds_list_delete(global.pTwoList, _index)
+				for (i = 0; i < instance_number(oElementYellow); i++) {
+				  elementID = instance_find(oElementYellow,i);
+					//destroy element
+					instance_destroy(elementID);
+					//destroy pointer after selection
+					instance_destroy(self)		
+				}
+				global.pTwoCastingActive = false;
+				global.pTwoPointerActive = false;				
+			}
+			if (place_meeting(x, y, oElementGreen) && keyboard_check_pressed(vk_delete)) {
+				var _index = ds_list_find_index(global.pTwoList, "green")
+				//remove element from the list
+				ds_list_delete(global.pTwoList, _index)
+				for (i = 0; i < instance_number(oElementGreen); i++) {
+				  elementID = instance_find(oElementGreen,i);
+					//destroy element
+					instance_destroy(elementID);
+					//destroy pointer after selection
+					instance_destroy(self)		
+				}
+				global.pTwoCastingActive = false;
+				global.pTwoPointerActive = false;				
+			}	
+		}
+	}
+}
+#endregion
 
 
 
