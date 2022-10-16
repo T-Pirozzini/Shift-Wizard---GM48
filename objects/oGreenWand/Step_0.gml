@@ -33,5 +33,5 @@ if (global.pTwoGreenSpell) {
 	oPlayer2.y = _oPlayerOneTempY
 	global.pTwoGreenSpell = false;
 	global.pOneMovementActive = true;
-}
+	}
 }

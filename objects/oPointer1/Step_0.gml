@@ -27,7 +27,7 @@ if (global.castingPhase) {
 					var _index = ds_list_find_index(global.pOneList, "red")
 					
 					// Cast Red Spell
-					instance_create_layer(oPointer1.x, oPointer1.y, "Spells", oRedWand)
+					instance_create_layer(oPointer1.x + 100, oPointer1.y, "Spells", oRedWand)
 					global.pOneRedSpell = true;
 					global.pOnePointerActive = false;
 					global.pOneCastingActive = false;
@@ -81,7 +81,7 @@ if (global.castingPhase) {
 					//destroy element
 					instance_destroy(elementID);							
 				}	
-				if (!global.pOneGreenSpell) {
+				if (!global.pOneGreenSpell && !global.pOneRedSpell) {
 				global.pOnePointerActive = false;
 				global.pOneCastingActive = false;
 				global.pTwoCastingActive = true;
