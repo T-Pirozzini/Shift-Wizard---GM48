@@ -28,6 +28,7 @@ if (global.castingPhase) {
 					
 					// Cast Red Spell
 					instance_create_layer(oPointer1.x + 100, oPointer1.y, "Spells", oRedWand)
+					instance_create_layer(oPointer1.x, oPointer1.y + 100, "Spells", oRedInstructions)
 					global.pOneRedSpell = true;
 					global.pOnePointerActive = false;
 					global.pOneCastingActive = false;
@@ -49,7 +50,9 @@ if (global.castingPhase) {
 					var _index = ds_list_find_index(global.pOneList, "yellow")
 					
 					//Cast Yellow Spell
-					instance_create_layer(oPointer1.x, oPointer1.y, "Spells", oYellowWand)					
+					instance_create_layer(oPointer1.x, oPointer1.y, "Spells", oYellowWand)	
+					instance_create_layer(oPointer1.x, oPointer1.y + 100, "Spells", oYellowInstructions)
+					
 					global.pOneYellowSpell = true;
 					global.pOnePointerActive = false;
 					global.pOneCastingActive = false;
@@ -70,6 +73,7 @@ if (global.castingPhase) {
 				
 				// Cast Green Spell
 					instance_create_layer(oPointer1.x, oPointer1.y, "Spells", oGreenWand)
+					instance_create_layer(oPointer1.x, oPointer1.y + 100, "Spells", oGreenInstructions)
 					global.pOneGreenSpell = true;
 					global.pOnePointerActive = false;
 					global.pOneCastingActive = false;

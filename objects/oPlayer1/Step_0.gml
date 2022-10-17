@@ -103,7 +103,7 @@ if (global.movementPhase) {
 		if(instance_position(x,y,oPoint) == adjacentRightPoint || instance_position(x,y,oPoint) == adjacentLeftPoint || instance_position(x,y,oPoint) == adjacentDownPoint || instance_position(x,y,oPoint) == adjacentUpPoint) {
 			if ((place_meeting(x, y, oPoint)) && keyboard_check_released(vk_lshift)) {
 				//room_goto(rm_start)
-				room_goto_next();
+				room_goto(rm_p1Win);
 			}
 		}
 		

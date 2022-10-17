@@ -22,6 +22,7 @@ if (global.pOneRedSpell) {
 		 instance_destroy(_cardID)
 		 global.pOneRedSpell = false
 		 instance_destroy(oRedWand)
+		 instance_destroy(oRedInstructions)
 		}
 	}
 	//global.pOneRedSpell = false;
@@ -51,7 +52,8 @@ if (global.pTwoRedSpell) {
 			var _cardID = instance_position(x, y, oCard)
 			instance_destroy(_cardID)
 			global.pTwoRedSpell = false
-			instance_destroy(oRedWand)	 	 
+			instance_destroy(oRedWand)
+			instance_destroy(oRedInstructions)
 			global.pOneMovementActive = true;
 		}
 	}

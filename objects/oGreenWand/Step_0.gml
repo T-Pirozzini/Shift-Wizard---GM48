@@ -12,6 +12,7 @@ if (global.pOneGreenSpell) {
 	oPlayer2.x = _oPlayerOneTempX
 	oPlayer2.y = _oPlayerOneTempY
 	instance_destroy(oGreenWand)
+	instance_destroy(oGreenInstructions)
 	
 	global.pOneGreenSpell = false;
 	global.pTwoCastingActive = true;
@@ -29,6 +30,7 @@ if (global.pTwoGreenSpell) {
 	oPlayer1.y = oPlayer2.y
 	
 	instance_destroy(oGreenWand)
+	instance_destroy(oGreenInstructions)
 	
 	oPlayer2.x = _oPlayerOneTempX
 	oPlayer2.y = _oPlayerOneTempY

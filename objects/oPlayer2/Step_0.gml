@@ -89,7 +89,7 @@ if (global.pTwoMovementActive) {
 		if(instance_position(x,y,oPoint) == adjacentRightPoint2 || instance_position(x,y,oPoint) == adjacentLeftPoint2 || instance_position(x,y,oPoint) == adjacentDownPoint2 || instance_position(x,y,oPoint) == adjacentUpPoint2) {
 			if ((place_meeting(x, y, oPoint)) && keyboard_check_released(vk_numpad0)) {
 				//room_goto(rm_start)
-				room_goto_next();
+				room_goto(rm_p2Win);
 			}
 		}
 		if (_currentArrLength < ds_list_size(global.pTwoList)) {

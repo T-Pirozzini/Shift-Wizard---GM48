@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "titleObject",
+  "name": "p2Win",
   "spriteId": null,
   "solid": false,
   "visible": true,

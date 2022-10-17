@@ -24,6 +24,7 @@ if (global.pOneCastingActive) {
 		oPlayer1.y -= 60
 		global.pOneYellowSpell = false;
 		instance_destroy(oYellowWand)
+		instance_destroy(oYellowInstructions)
 		global.pTwoCastingActive = true;
 		global.pTwoPointerActive = true;	
 	}
@@ -35,6 +36,7 @@ if (global.pOneCastingActive) {
 		oPlayer1.y -= 60
 		global.pOneYellowSpell = false;
 		instance_destroy(oYellowWand)
+		instance_destroy(oYellowInstructions)
 		global.pTwoCastingActive = true;
 		global.pTwoPointerActive = true;
 	}
@@ -46,6 +48,7 @@ if (global.pOneCastingActive) {
 		oPlayer1.y += 60
 		global.pOneYellowSpell = false;
 		instance_destroy(oYellowWand)
+		instance_destroy(oYellowInstructions)
 		global.pTwoCastingActive = true;
 		global.pTwoPointerActive = true;		
 	}
@@ -57,6 +60,7 @@ if (global.pOneCastingActive) {
 		oPlayer1.y += 60
 		global.pOneYellowSpell = false;
 		instance_destroy(oYellowWand)
+		instance_destroy(oYellowInstructions)
 		global.pTwoCastingActive = true;
 		global.pTwoPointerActive = true;
 		}
@@ -87,6 +91,7 @@ if (global.pOneCastingActive) {
 		oPlayer2.y -= 60
 		global.pTwoYellowSpell = false;
 		instance_destroy(oYellowWand)
+		instance_destroy(oYellowInstructions)
 		global.pTwoYellowSpell = false;
 		global.pOneMovementActive = true;	
 	}
@@ -98,6 +103,7 @@ if (global.pOneCastingActive) {
 		oPlayer2.y -= 60
 		global.pTwoYellowSpell = false;
 		instance_destroy(oYellowWand)
+		instance_destroy(oYellowInstructions)
 		global.pTwoYellowSpell = false;
 		global.pOneMovementActive = true;
 	}
@@ -109,6 +115,7 @@ if (global.pOneCastingActive) {
 		oPlayer2.y += 60
 		global.pTwoYellowSpell = false;
 		instance_destroy(oYellowWand)
+		instance_destroy(oYellowInstructions)
 		global.pTwoYellowSpell = false;
 		global.pOneMovementActive = true;					
 	}
@@ -120,6 +127,7 @@ if (global.pOneCastingActive) {
 		oPlayer2.y += 60
 		global.pTwoYellowSpell = false;
 		instance_destroy(oYellowWand)
+		instance_destroy(oYellowInstructions)
 		global.pTwoYellowSpell = false;
 		global.pOneMovementActive = true;
 		}

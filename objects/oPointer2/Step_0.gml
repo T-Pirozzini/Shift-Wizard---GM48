@@ -33,6 +33,7 @@ if (global.castingPhase && !global.pOneCastingActive) {
 					with (instance_create_layer(oPointer2.x, oPointer2.y, "Spells", oRedWand)) {
 					image_xscale = -1
 					}
+					instance_create_layer(oPointer2.x, oPointer2.y + 100, "Spells", oRedInstructions)
 					
 					global.pTwoRedSpell = true;
 					global.pTwoPointerActive = false;
@@ -55,6 +56,7 @@ if (global.castingPhase && !global.pOneCastingActive) {
 					with (instance_create_layer(oPointer2.x + 100, oPointer2.y, "Spells", oYellowWand)) {
 						image_xscale = -1
 					}
+					instance_create_layer(oPointer2.x, oPointer2.y + 100, "Spells", oYellowInstructions)
 					
 					global.pTwoYellowSpell = true;
 					global.pTwoPointerActive = false;
@@ -80,6 +82,8 @@ if (global.castingPhase && !global.pOneCastingActive) {
 					with (instance_create_layer(oPointer2.x + 100, oPointer2.y, "Spells", oGreenWand)) {
 						image_xscale = -1
 					}
+					instance_create_layer(oPointer2.x, oPointer2.y + 100, "Spells", oGreenInstructions)
+					
 					global.pTwoGreenSpell = true;
 					global.pTwoPointerActive = false;
 					global.pTwoCastingActive = false;

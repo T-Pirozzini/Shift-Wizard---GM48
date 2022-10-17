@@ -22,10 +22,10 @@ if (global.castingPhase) {
 
 
 // current states
-draw_text_transformed(5,260, "Movement Phase:", .75, .75,  image_angle)
-draw_text_transformed(120,260,global.movementPhase,.75, .75,  image_angle)
-draw_text_transformed(5,275,"Casting Phase:",.75, .75,  image_angle)
-draw_text_transformed(120,275,global.castingPhase, .75, .75, image_angle)
+//draw_text_transformed(5,260, "Movement Phase:", .75, .75,  image_angle)
+//draw_text_transformed(120,260,global.movementPhase,.75, .75,  image_angle)
+//draw_text_transformed(5,275,"Casting Phase:",.75, .75,  image_angle)
+//draw_text_transformed(120,275,global.castingPhase, .75, .75, image_angle)
 
 draw_text_transformed(5,300,"P1 Movement:",.75, .75,  image_angle)
 draw_text_transformed(100,300,global.pOneMovementActive,.75, .75,  image_angle)
