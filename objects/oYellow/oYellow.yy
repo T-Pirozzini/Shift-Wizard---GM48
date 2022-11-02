@@ -11,10 +11,7 @@
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": {
-    "name": "oCard",
-    "path": "objects/oCard/oCard.yy",
-  },
+  "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -31,7 +28,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Event-Free",
-    "path": "folders/Objects/Event-Free.yy",
+    "name": "Cards",
+    "path": "folders/Objects/Cards.yy",
   },
 }

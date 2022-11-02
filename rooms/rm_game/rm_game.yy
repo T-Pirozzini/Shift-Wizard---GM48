@@ -30,6 +30,7 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4BB35E80","properties":[],"isDnd":false,"objectId":{"name":"currentRound","path":"objects/currentRound/currentRound.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":128.0,"y":291.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1DF79F6D","properties":[],"isDnd":false,"objectId":{"name":"oGreen","path":"objects/oGreen/oGreen.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":32.0,"y":144.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_272821E7","properties":[],"isDnd":false,"objectId":{"name":"oGreen","path":"objects/oGreen/oGreen.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1104.0,"y":112.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2ECB64C3","properties":[],"isDnd":false,"objectId":{"name":"oCard","path":"objects/oCard/oCard.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1184.0,"y":336.0,},
       ],"visible":true,"depth":100,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":16,"gridY":16,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Cards","instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3CF9B4B8","properties":[],"isDnd":false,"objectId":{"name":"oCard","path":"objects/oCard/oCard.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":0.0,"y":0.0,},
@@ -189,6 +190,7 @@
     {"name":"inst_3CF9B4B8","path":"rooms/rm_game/rm_game.yy",},
     {"name":"inst_1DF79F6D","path":"rooms/rm_game/rm_game.yy",},
     {"name":"inst_272821E7","path":"rooms/rm_game/rm_game.yy",},
+    {"name":"inst_2ECB64C3","path":"rooms/rm_game/rm_game.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,
