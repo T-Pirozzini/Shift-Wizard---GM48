@@ -1,5 +1,16 @@
-// Script assets have changed for v2.3.0 see
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
+
+
+// game rounds
+global.selectionPhase = true;
+
+
+// game begin state
+	// starting tile
+	global.p1SelectStartingTile = true;
+	global.p2SelectStartingTile = false;
+
+
+
 
 global.gameStart = true
 global.gameStart2 = true
