@@ -13,3 +13,7 @@ if (global.selectionPhase) {
 if (!global.selectionPhase) {		
 		draw_text_transformed_color(x, y, "SELECTION PHASE OVER", 1, 1, image_angle, c_blue, c_blue, c_aqua, c_aqua, 1);
 }
+
+if (global.test) {		
+		draw_text_transformed_color(x, y + 200, "TESTINGGGG", 1, 1, image_angle, c_blue, c_blue, c_aqua, c_aqua, 1);
+}

@@ -1,27 +1,40 @@
 /// @description Occurs every frame
 
 // SELECTION PHASE
-	// set p1 selection phase to false after selecting starting tile
+#region
 	if (global.selectionPhase) {
 		if (place_meeting(x, y, oGameBoard)) {
 			if (keyboard_check_pressed(vk_enter)) {
+				//get id of current tile instance
 				var _inst = instance_place(x, y, oGameBoard)
-				if (_inst.object_index = oRed) {
-					var _newElement = oElementRed
+				
+				//check if current tile is on the perimeter of the gameboard
+				if (place_meeting(_inst.x, _inst.y, oPerimeter)) {			
+				
+					//check for current tile and set associated element
+					if (_inst.object_index = oRed) {
+						var _newElement = oElementRed
+					}
+					if (_inst.object_index = oGreen) {
+						var _newElement = oElementGreen
+					}
+					if (_inst.object_index = oYellow) {
+						var _newElement = oElementYellow
+					}
+				
+					//store new element				
+					instance_create_layer(pOneElements.x,pOneElements.y,"Elements", _newElement)
+				
+					//update phase information
+					global.p2SelectionPhase = true;
+					global.pTwoMovementActive = true;
+					global.p1SelectionPhase = false;
+					global.pOneMovementActive = false;
 				}
-				if (_inst.object_index = oGreen) {
-					var _newElement = oElementGreen
-				}
-				if (_inst.object_index = oYellow) {
-					var _newElement = oElementYellow
-				}
-				instance_create_layer(pOneElements.x,pOneElements.y,"Instances", _newElement )			
-				global.p2SelectionPhase = true;
-				global.p1SelectionPhase = false;
-				global.pOneMovementActive = false;				
 			}
 		}
-	}
+	};
+	#endregion
 
 
 

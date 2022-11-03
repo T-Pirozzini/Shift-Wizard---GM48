@@ -36,9 +36,9 @@ draw_text_transformed(100,340,global.pOnePointerActive,.75, .75,  image_angle)
 
 
 
-draw_text_transformed(500,300,"P2 Movement:", .75, .75, image_angle)
-draw_text_transformed(620,300,global.pTwoMovementActive, .75, .75, image_angle)
-draw_text_transformed(500,320, "P2 Casting:",.75, .75, image_angle)
-draw_text_transformed(620,320,global.pTwoCastingActive, .75, .75, image_angle)
-draw_text_transformed(500,340, "P2 Pointer:",.75, .75, image_angle)
-draw_text_transformed(620,340,global.pTwoPointerActive, .75, .75, image_angle)
+draw_text_transformed(200,300,"P2 Movement:", .75, .75, image_angle)
+draw_text_transformed(320,300,global.pTwoMovementActive, .75, .75, image_angle)
+draw_text_transformed(200,320, "P2 Casting:",.75, .75, image_angle)
+draw_text_transformed(320,320,global.pTwoCastingActive, .75, .75, image_angle)
+draw_text_transformed(200,340, "P2 Pointer:",.75, .75, image_angle)
+draw_text_transformed(320,340,global.pTwoPointerActive, .75, .75, image_angle)

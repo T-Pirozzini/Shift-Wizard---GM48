@@ -36,7 +36,7 @@ global.gameStart2 = true
 		global.pOneCurrentTile = 0
 		
 	// Player Two
-		global.pTwoMovementActive = true;
+		global.pTwoMovementActive = false;
 		global.pTwoCastingActive = false;
 		global.pTwoPointerActive = false;
 		
