@@ -1,5 +1,23 @@
 /// @description Occurs every frame
 
+// SELECTION PHASE
+	// set p1 selection phase to false after selecting starting tile
+	if (global.selectionPhase) {
+		if (place_meeting(x, y, oGameBoard)) {
+			if (keyboard_check_pressed(vk_enter)) {
+				var _inst = instance_place(x, y, oGameBoard)
+				if (_inst.object_index = oRed) {
+					var _newElement = oElementRed
+				instance_create_layer(pOneElements.x,pTwoElements.y,"Instances", _newElement )
+				//global.pOneList
+				//ds_list_add(global.pOneList, oElementGreen)
+				global.p1SelectionPhase = false
+			}
+			}
+		}
+	}
+
+
 
 //Get input
 rightKey = keyboard_check(ord("D"));

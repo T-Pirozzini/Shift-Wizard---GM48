@@ -1,5 +1,16 @@
 /// @description Occurs every frame
 
+// SELECTION PHASE
+
+// set p2 selection phase to false after selecting starting tile
+if (global.selectionPhase) {
+	if (place_meeting(x, y, oGameBoard)) {
+		if (keyboard_check(vk_enter)) {
+			global.p2SelectionPhase = false
+		}
+	}
+}
+
 //Get input
 rightKey = keyboard_check(vk_right);
 leftKey = keyboard_check(vk_left);
@@ -138,15 +149,15 @@ if (global.newRound) {
 }
 
 // get reference of tiles adjacent to currentTile 
-adjacentRight2 = instance_position(currentTile2.x + 80, currentTile2.y, oGameBoard)
-adjacentLeft2 = instance_position(currentTile2.x - 50, currentTile2.y + 10, oGameBoard)
-adjacentDown2 = instance_position(currentTile2.x + 10, currentTile2.y - 50, oGameBoard)
-adjacentUp2 = instance_position(currentTile2.x, currentTile2.y + 80, oGameBoard)
+//adjacentRight2 = instance_position(currentTile2.x + 80, currentTile2.y, oGameBoard)
+//adjacentLeft2 = instance_position(currentTile2.x - 50, currentTile2.y + 10, oGameBoard)
+//adjacentDown2 = instance_position(currentTile2.x + 10, currentTile2.y - 50, oGameBoard)
+//adjacentUp2 = instance_position(currentTile2.x, currentTile2.y + 80, oGameBoard)
 
-adjacentRightPoint2 = instance_position(currentTile2.x + 80, currentTile2.y, oPoint)
-adjacentLeftPoint2 = instance_position(currentTile2.x - 50, currentTile2.y, oPoint)
-adjacentDownPoint2 = instance_position(currentTile2.x, currentTile2.y - 50, oPoint)
-adjacentUpPoint2 = instance_position(currentTile2.x, currentTile2.y + 80, oPoint)
+//adjacentRightPoint2 = instance_position(currentTile2.x + 80, currentTile2.y, oPoint)
+//adjacentLeftPoint2 = instance_position(currentTile2.x - 50, currentTile2.y, oPoint)
+//adjacentDownPoint2 = instance_position(currentTile2.x, currentTile2.y - 50, oPoint)
+//adjacentUpPoint2 = instance_position(currentTile2.x, currentTile2.y + 80, oPoint)
 #endregion
 
 	

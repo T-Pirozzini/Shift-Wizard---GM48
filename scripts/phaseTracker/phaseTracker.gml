@@ -1,14 +1,18 @@
+global.test = false
 
-
-// game rounds
+// game setup
 global.gameSetup = true; //set up game board
+
+// selection phase
 global.selectionPhase = true; //players select starting tiles
+global.p1SelectionPhase = true; //p1 selection
+global.p2SelectionPhase = true; //p2 selection
 
 
 // game begin state
 	// starting tile
-	global.p1SelectStartingTile = true;
-	global.p2SelectStartingTile = false;
+	//global.p1SelectStartingTile = true;
+	//global.p2SelectStartingTile = false;
 
 
 
@@ -32,7 +36,7 @@ global.gameStart2 = true
 		global.pOneCurrentTile = 0
 		
 	// Player Two
-		global.pTwoMovementActive = false;
+		global.pTwoMovementActive = true;
 		global.pTwoCastingActive = false;
 		global.pTwoPointerActive = false;
 		

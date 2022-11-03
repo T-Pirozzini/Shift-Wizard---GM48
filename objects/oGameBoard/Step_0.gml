@@ -6,3 +6,8 @@ if (global.gameSetup) {
 	global.gameSetup = false
 }
 
+if (!global.selectionPhase) {
+ animate = false;
+}
+
+
