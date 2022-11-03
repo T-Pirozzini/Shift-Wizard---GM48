@@ -1,15 +1,27 @@
 /// @description Occurs every frame
 
 // SELECTION PHASE
-
-// set p2 selection phase to false after selecting starting tile
-if (global.selectionPhase) {
-	if (place_meeting(x, y, oGameBoard)) {
-		if (keyboard_check(vk_enter)) {
-			global.p2SelectionPhase = false
+	// set p1 selection phase to false after selecting starting tile
+	if (global.selectionPhase) {
+		if (place_meeting(x, y, oGameBoard)) {
+			if (keyboard_check_pressed(vk_enter)) {
+				var _inst = instance_place(x, y, oGameBoard)
+				if (_inst.object_index = oRed) {
+					var _newElement = oElementRed
+				}
+				if (_inst.object_index = oGreen) {
+					var _newElement = oElementGreen
+				}
+				if (_inst.object_index = oYellow) {
+					var _newElement = oElementYellow
+				}
+				instance_create_layer(pTwoElements.x,pTwoElements.y,"Instances", _newElement )			
+				global.p2SelectionPhase = false;
+				global.pTwoMovementActive = false;
+				global.selectionPhase = false;
+			}
 		}
 	}
-}
 
 //Get input
 rightKey = keyboard_check(vk_right);

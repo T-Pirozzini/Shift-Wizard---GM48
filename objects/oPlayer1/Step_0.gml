@@ -8,11 +8,17 @@
 				var _inst = instance_place(x, y, oGameBoard)
 				if (_inst.object_index = oRed) {
 					var _newElement = oElementRed
-				instance_create_layer(pOneElements.x,pTwoElements.y,"Instances", _newElement )
-				//global.pOneList
-				//ds_list_add(global.pOneList, oElementGreen)
-				global.p1SelectionPhase = false
-			}
+				}
+				if (_inst.object_index = oGreen) {
+					var _newElement = oElementGreen
+				}
+				if (_inst.object_index = oYellow) {
+					var _newElement = oElementYellow
+				}
+				instance_create_layer(pOneElements.x,pOneElements.y,"Instances", _newElement )			
+				global.p2SelectionPhase = true;
+				global.p1SelectionPhase = false;
+				global.pOneMovementActive = false;				
 			}
 		}
 	}

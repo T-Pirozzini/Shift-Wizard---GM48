@@ -6,7 +6,7 @@ global.gameSetup = true; //set up game board
 // selection phase
 global.selectionPhase = true; //players select starting tiles
 global.p1SelectionPhase = true; //p1 selection
-global.p2SelectionPhase = true; //p2 selection
+global.p2SelectionPhase = false; //p2 selection
 
 
 // game begin state
