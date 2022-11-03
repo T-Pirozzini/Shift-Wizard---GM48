@@ -1,10 +1,5 @@
 /// @description Insert description here
 
-// set card animation to false by default
-animate = false;
-active = false;
-gameBegin = true;
-
 // set seed to random value
 randomise();
 // create deck
@@ -15,4 +10,6 @@ ds_list_add(cardDeck, oGreen, oYellow, oRed, oGreen, oYellow, oRed, oGreen, oYel
 ds_list_shuffle(cardDeck)
 // get current size of deck
 deckSize = ds_list_size(cardDeck)
+
+
 

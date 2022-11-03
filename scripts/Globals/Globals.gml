@@ -1,7 +1,8 @@
 
 
 // game rounds
-global.selectionPhase = true;
+global.gameSetup = true; //set up game board
+global.selectionPhase = true; //players select starting tiles
 
 
 // game begin state

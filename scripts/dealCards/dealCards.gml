@@ -2,14 +2,14 @@ function dealCards () {
 // get deck size
 var _deckSize = ds_list_size(cardDeck);
 // set each rows y-position
-var _y5 = 50
-var _y4 = 50
-var _y3 = 50
-var _y2 = 50
-var _y1 = 50
+var _y5 = 125
+var _y4 = 125
+var _y3 = 125
+var _y2 = 125
+var _y1 = 125
 
 	for (var i = 0; i < _deckSize; i++) {	
-		var _xAdjustment = 100;
+		var _xAdjustment = 175;
 		// set row 5
 		if (i < 5) {
 			 instance_create_layer(750 + _xAdjustment, _y5, "Cards", ds_list_find_value(cardDeck, i))
