@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "Script4",
+  "name": "setCardAnimation",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {

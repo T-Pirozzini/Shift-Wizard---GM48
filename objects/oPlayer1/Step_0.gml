@@ -178,10 +178,10 @@ if (global.setID) {
 
 
 // get reference of tiles adjacent to currentTile 
-adjacentRight = instance_position(currentTile.x + 80, currentTile.y, oCard)
-adjacentLeft = instance_position(currentTile.x - 50, currentTile.y, oCard)
-adjacentDown = instance_position(currentTile.x, currentTile.y - 50, oCard)
-adjacentUp = instance_position(currentTile.x, currentTile.y + 80, oCard)
+adjacentRight = instance_position(currentTile.x + 80, currentTile.y, oGameBoard)
+adjacentLeft = instance_position(currentTile.x - 50, currentTile.y, oGameBoard)
+adjacentDown = instance_position(currentTile.x, currentTile.y - 50, oGameBoard)
+adjacentUp = instance_position(currentTile.x, currentTile.y + 80, oGameBoard)
 
 
 adjacentRightPoint = instance_position(currentTile.x + 80, currentTile.y, oPoint)

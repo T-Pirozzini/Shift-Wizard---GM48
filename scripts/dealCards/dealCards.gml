@@ -1,6 +1,16 @@
 function dealCards () {
+	
+// set seed to random value
+randomise();
+// create deck
+cardDeck = ds_list_create();
+// add cards to deck
+ds_list_add(cardDeck, oGreen, oYellow, oRed, oGreen, oYellow, oRed, oGreen, oYellow, oRed, oGreen, oYellow, oRed, oGreen, oYellow, oRed, oGreen, oYellow, oRed, oGreen, oYellow, oRed, oGreen, oYellow, oRed, oPoint, oRed)
+// shuffle the deck
+ds_list_shuffle(cardDeck)	
 // get deck size
 var _deckSize = ds_list_size(cardDeck);
+
 // set each rows y-position
 var _y5 = 125
 var _y4 = 125
