@@ -2,9 +2,10 @@
 
 // SELECTION PHASE
 #region
-	if (global.selectionPhase) {
+	if (global.selectionPhase && !global.pOneMovementActive) {	
+		
 		if (place_meeting(x, y, oGameBoard)) {
-			if (keyboard_check_pressed(vk_enter)) {
+			if (keyboard_check_pressed(vk_rshift)) {
 				//get current tile instance
 				var _inst = instance_place(x, y, oGameBoard)
 				
@@ -25,15 +26,21 @@
 					//store element
 					instance_create_layer(pTwoElements.x,pTwoElements.y,"Elements", _newElement )
 				
+					//start game round
+					global.gameRound = true;
+					global.pOneTurn = true;
+				
 					//update phase information
-					global.p2SelectionPhase = false;
+					global.pTwoSelectionPhase = false;
 					global.pTwoMovementActive = false;
-					global.selectionPhase = false;
+					global.selectionPhase = false;				
 				}
 			}
 		}
 	};
 	#endregion
+
+
 
 //Get input
 rightKey = keyboard_check(vk_right);
