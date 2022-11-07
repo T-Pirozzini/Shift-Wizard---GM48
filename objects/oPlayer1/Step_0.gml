@@ -116,49 +116,52 @@
 	}
 	#endregion
 
+
 //PLAYER ONE TURN
+#region
 if (global.currentRound >= 1) {
 	if (global.gameRound && global.pOneTurn) {		
 		global.pOneMovementActive = true;
-	// COLLECT ELEMENT		
-		// max element storage is 5
-		if (ds_list_size(global.pOneList) < 5) {
-			// save current list size
-			var _elementsStoredLength = ds_list_size(global.pOneList);
-			// collect element that player is on top of
-			if (keyboard_check_released(vk_lshift) && place_meeting(x, y, oGameBoard)) {
-				//get id of current tile instance
-				var _inst = instance_place(x, y, oGameBoard)			
+		// COLLECT ELEMENT		
+			// max element storage is 5
+			if (ds_list_size(global.pOneList) < 5) {
+				// save current list size
+				var _elementsStoredLength = ds_list_size(global.pOneList);
+				// collect element that player is on top of
+				if (keyboard_check_released(vk_lshift) && place_meeting(x, y, oGameBoard)) {
+					//get id of current tile instance
+					var _inst = instance_place(x, y, oGameBoard)			
 						
-					//check for current tile and set associated element
-					if (_inst.object_index == oRed) {
-						var _newElement = oElementRed
-						ds_list_add(global.pOneList, "red")
-					}
-					if (_inst.object_index == oGreen) {
-						var _newElement = oElementGreen
-						ds_list_add(global.pOneList, "green")
-					}
-					if (_inst.object_index == oYellow) {
-						var _newElement = oElementYellow
-						ds_list_add(global.pOneList, "yellow")
-					}
+						//check for current tile and set associated element
+						if (_inst.object_index == oRed) {
+							var _newElement = oElementRed
+							ds_list_add(global.pOneList, "red")
+						}
+						if (_inst.object_index == oGreen) {
+							var _newElement = oElementGreen
+							ds_list_add(global.pOneList, "green")
+						}
+						if (_inst.object_index == oYellow) {
+							var _newElement = oElementYellow
+							ds_list_add(global.pOneList, "yellow")
+						}
 				
-					//store new element						
-					instance_create_layer(pOneElements.x + elementPositionX ,pOneElements.y,"Elements", _newElement)
-					elementPositionX += 20;
+						//store new element						
+						instance_create_layer(pOneElements.x + elementPositionX ,pOneElements.y,"Elements", _newElement)
+						elementPositionX += 20;
 					
-					//if (_elementsStoredLength < ds_list_size(global.pOneList)) {
-					if (_elementsStoredLength == 4) {
-						// End Player One Movement Phase
-						global.pOneTurn = false;
-						global.pOneMovementActive = false;
-						global.pTwoTurn = true;				
+						//if (_elementsStoredLength < ds_list_size(global.pOneList)) {
+						if (_elementsStoredLength == 4) {
+							// End Player One Movement Phase
+							global.pOneTurn = false;
+							global.pOneMovementActive = false;
+							global.pTwoTurn = true;				
+				}
 			}
 		}
 	}
 }
-}
+#endregion
 		
 		
 	//	//check if playerOne is on redCard		

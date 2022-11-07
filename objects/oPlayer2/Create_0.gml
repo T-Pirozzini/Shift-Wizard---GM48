@@ -12,7 +12,7 @@
 	sprite[2] = sPlayerLeftOld;
 	sprite[3] = sPlayerDownOld;
 	
-elementPositionY = 0;
+spellBagX = 20;
 
 //prevCurrentRound = global.currentRound
 	

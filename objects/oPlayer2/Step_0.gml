@@ -15,12 +15,15 @@
 					// check for current tile and set associated element
 					if (_inst.object_index = oRed) {
 						var _newElement = oElementRed
+						ds_list_add(global.pTwoList, "red")
 					}
 					if (_inst.object_index = oGreen) {
 						var _newElement = oElementGreen
+						ds_list_add(global.pTwoList, "green")
 					}
 					if (_inst.object_index = oYellow) {
 						var _newElement = oElementYellow
+						ds_list_add(global.pTwoList, "yellow")
 					}
 				
 					//store element
@@ -41,7 +44,51 @@
 	};
 	#endregion
 
-
+//PLAYER TWO TURN
+if (global.currentRound >= 1) {
+	if (global.gameRound && global.pTwoTurn) {		
+		global.pTwoMovementActive = true;
+		// COLLECT ELEMENT		
+			// max element storage is 5
+			if (ds_list_size(global.pTwoList) < 5) {
+				// save current list size
+				var _elementsStoredLength = ds_list_size(global.pTwoList);				
+				
+				// collect element that player is on top of
+				if (keyboard_check_released(vk_numpad0) && place_meeting(x, y, oGameBoard)) {
+					//get id of current tile instance
+					var _inst = instance_place(x, y, oGameBoard)			
+						
+						//check for current tile and set associated element
+						if (_inst.object_index == oRed) {
+							var _newElement = oElementRed
+							ds_list_add(global.pTwoList, "red")
+						}
+						if (_inst.object_index == oGreen) {
+							var _newElement = oElementGreen
+							ds_list_add(global.pTwoList, "green")
+						}
+						if (_inst.object_index == oYellow) {
+							var _newElement = oElementYellow
+							ds_list_add(global.pTwoList, "yellow")
+						}
+				
+						//store new element						
+						instance_create_layer(pTwoElements.x + spellBagX ,pTwoElements.y,"Elements", _newElement)
+						spellBagX += 20;
+					
+						//if (_elementsStoredLength < ds_list_size(global.pOneList)) {
+						if (_elementsStoredLength == 4) {
+							// End Player One Movement Phase
+							global.pTwoTurn = false;
+							global.pTwoMovementActive = false;
+							global.pOneTurn = true;	
+							global.currentRound++;
+				}
+			}
+		}
+	}
+}
 
 //Get input
 rightKey = keyboard_check(vk_right);
