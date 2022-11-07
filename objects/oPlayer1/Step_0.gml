@@ -72,96 +72,94 @@
 
 // SELECTION PHASE
 #region
-	if (global.selectionPhase && !global.pTwoMovementActive) {
-		// update phase information
-		global.movementPhase = true;
-		global.pOneSelectionPhase = true;
-		global.pOneMovementActive = true;
+	if (global.currentRound == 0) {
+		if (global.selectionPhase && !global.pTwoMovementActive) {
+			// update phase information
+			global.movementPhase = true;
+			global.pOneSelectionPhase = true;
+			global.pOneMovementActive = true;
 		
-		if (place_meeting(x, y, oGameBoard)) {
-			if (keyboard_check_pressed(vk_lshift)) {
-				//get id of current tile instance
-				var _inst = instance_place(x, y, oGameBoard)
-				
-				//check if current tile is on the perimeter of the gameboard
-				if (place_meeting(_inst.x, _inst.y, oPerimeter)) {			
-				
-					//check for current tile and set associated element
-					if (_inst.object_index = oRed) {
-						var _newElement = oElementRed
-					}
-					if (_inst.object_index = oGreen) {
-						var _newElement = oElementGreen
-					}
-					if (_inst.object_index = oYellow) {
-						var _newElement = oElementYellow
-					}
-				
-					//store new element				
-					instance_create_layer(pOneElements.x,pOneElements.y,"Elements", _newElement)
-				
-					//update phase information
-					global.pTwoSelectionPhase = true;
-					global.pTwoMovementActive = true;
-					global.pOneSelectionPhase = false;
-					global.pOneMovementActive = false;					
-				}
-			}
-		}
-	};
-	#endregion
-
-//PLAYER ONE TURN
-	if (global.gameRound && global.pOneTurn) {		
-	// COLLECT ELEMENT			
-				global.pOneMovementActive = true;
-				if (keyboard_check_pressed(vk_lshift) && place_meeting(x, y, oGameBoard)) {
+			if (place_meeting(x, y, oGameBoard)) {
+				if (keyboard_check_released(vk_lshift)) {
 					//get id of current tile instance
-					var _inst = instance_place(x, y, oGameBoard)			
-						
+					var _inst = instance_place(x, y, oGameBoard)
+				
+					//check if current tile is on the perimeter of the gameboard
+					if (place_meeting(_inst.x, _inst.y, oPerimeter)) {			
+				
 						//check for current tile and set associated element
 						if (_inst.object_index = oRed) {
 							var _newElement = oElementRed
+							ds_list_add(global.pOneList, "red")
 						}
 						if (_inst.object_index = oGreen) {
 							var _newElement = oElementGreen
+							ds_list_add(global.pOneList, "green")
 						}
 						if (_inst.object_index = oYellow) {
 							var _newElement = oElementYellow
+							ds_list_add(global.pOneList, "yellow")
 						}
 				
 						//store new element				
-						instance_create_layer(pOneElements.x + 50,pOneElements.y,"Elements", _newElement)
+						instance_create_layer(pOneElements.x,pOneElements.y,"Elements", _newElement)
+				
+						//update phase information
+						global.pTwoSelectionPhase = true;
+						global.pTwoMovementActive = true;
+						global.pOneSelectionPhase = false;
+						global.pOneMovementActive = false;					
+					}
 				}
 			}
-		
+		}
+	}
+	#endregion
 
-
-
-
-// PLAYER ONE TURN
-#region
-	// COLLECT ELEMENTS
-	//if (global.movementPhase) {
-	//if (global.pOneMovementActive) {
+//PLAYER ONE TURN
+if (global.currentRound >= 1) {
+	if (global.gameRound && global.pOneTurn) {		
+		global.pOneMovementActive = true;
+	// COLLECT ELEMENT		
+		// max element storage is 5
+		if (ds_list_size(global.pOneList) < 5) {
+			// save current list size
+			var _elementsStoredLength = ds_list_size(global.pOneList);
+			// collect element that player is on top of
+			if (keyboard_check_released(vk_lshift) && place_meeting(x, y, oGameBoard)) {
+				//get id of current tile instance
+				var _inst = instance_place(x, y, oGameBoard)			
+						
+					//check for current tile and set associated element
+					if (_inst.object_index == oRed) {
+						var _newElement = oElementRed
+						ds_list_add(global.pOneList, "red")
+					}
+					if (_inst.object_index == oGreen) {
+						var _newElement = oElementGreen
+						ds_list_add(global.pOneList, "green")
+					}
+					if (_inst.object_index == oYellow) {
+						var _newElement = oElementYellow
+						ds_list_add(global.pOneList, "yellow")
+					}
+				
+					//store new element						
+					instance_create_layer(pOneElements.x + elementPositionX ,pOneElements.y,"Elements", _newElement)
+					elementPositionX += 20;
+					
+					//if (_elementsStoredLength < ds_list_size(global.pOneList)) {
+					if (_elementsStoredLength == 4) {
+						// End Player One Movement Phase
+						global.pOneTurn = false;
+						global.pOneMovementActive = false;
+						global.pTwoTurn = true;				
+			}
+		}
+	}
+}
+}
 		
-	//// max elements stored is 5
-	//if (ds_list_size(global.pOneList) < 5) {
-		
-	//	if (keyboard_check_pressed(vk_enter)) {
-	//	//save current list size
-	//	var _elementsStoredLength = ds_list_size(global.pOneList);
-		
-	//	//get id of current tile instance
-	//			var _inst = instance_place(x, y, oGameBoard)
-		
-	//	//check for current tile and set associated element
-	//				if (_inst.object_index = oRed) {
-	//					var _newElement = oElementRed
-	//				}
-		
-	//	//store new element				
-	//				instance_create_layer(pOneElements.x,pOneElements.y,"Elements", _newElement)
 		
 	//	//check if playerOne is on redCard		
 	//	//if(instance_position(x,y,oRed) == adjacentRight || instance_position(x,y,oRed) == adjacentLeft || instance_position(x,y,oRed) == adjacentDown || instance_position(x,y,oRed) == adjacentUp) {

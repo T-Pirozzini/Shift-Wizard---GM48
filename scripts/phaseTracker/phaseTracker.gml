@@ -3,6 +3,9 @@ global.test = false
 // game setup
 global.gameSetup = true; //set up game board
 
+// current round
+global.currentRound = 0
+
 // selection phase
 global.selectionPhase = false; //players select starting tiles
 global.pOneSelectionPhase = false; //p1 selection
@@ -49,7 +52,7 @@ global.gameStart2 = true
 		global.pTwoRedSpell = false;	
 		global.pTwoGreenSpell = false;		
 
-	global.currentRound = 1;
+
 	
 	global.newRound = false;
 	global.newRound1 = false;
