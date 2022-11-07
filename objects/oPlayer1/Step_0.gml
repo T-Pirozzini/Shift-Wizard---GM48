@@ -184,29 +184,29 @@ if (global.currentRound >= 1) {
 	//	}
 	//}
 	
-		//check if playerOne is on greenCard
-		if(instance_position(x,y,oGreen) == adjacentRight || instance_position(x,y,oGreen) == adjacentLeft || instance_position(x,y,oGreen) == adjacentDown || instance_position(x,y,oGreen) == adjacentUp) {
-		if ((place_meeting(x, y, oGreen)) && keyboard_check_released(vk_lshift)) {
-			ds_list_add(global.pOneList, "green")
-			instance_create_layer(pOneElements.x + elementPositionX, pOneElements.y, "Instances", oElementGreen)
-			//elementPositionX += 20;			
-		};
-		}
-		//check if playerOne is on yellowCard
-		if(instance_position(x,y,oYellow) == adjacentRight || instance_position(x,y,oYellow) == adjacentLeft || instance_position(x,y,oYellow) == adjacentDown || instance_position(x,y,oYellow) == adjacentUp) {
-		if ((place_meeting(x, y, oYellow)) && keyboard_check_released(vk_lshift)) {			
-			ds_list_add(global.pOneList, "yellow")
-			instance_create_layer(pOneElements.x + elementPositionX, pOneElements.y, "Instances", oElementYellow)
-			//elementPositionX += 20;			
-		};
-		}
-		//check is playerOne is on oPoint
-		if(instance_position(x,y,oPoint) == adjacentRightPoint || instance_position(x,y,oPoint) == adjacentLeftPoint || instance_position(x,y,oPoint) == adjacentDownPoint || instance_position(x,y,oPoint) == adjacentUpPoint) {
-			if ((place_meeting(x, y, oPoint)) && keyboard_check_released(vk_lshift)) {
-				//room_goto(rm_start)
-				room_goto(rm_p1Win);
-			}
-		}
+		////check if playerOne is on greenCard
+		//if(instance_position(x,y,oGreen) == adjacentRight || instance_position(x,y,oGreen) == adjacentLeft || instance_position(x,y,oGreen) == adjacentDown || instance_position(x,y,oGreen) == adjacentUp) {
+		//if ((place_meeting(x, y, oGreen)) && keyboard_check_released(vk_lshift)) {
+		//	ds_list_add(global.pOneList, "green")
+		//	instance_create_layer(pOneElements.x + elementPositionX, pOneElements.y, "Instances", oElementGreen)
+		//	//elementPositionX += 20;			
+		//};
+		//}
+		////check if playerOne is on yellowCard
+		//if(instance_position(x,y,oYellow) == adjacentRight || instance_position(x,y,oYellow) == adjacentLeft || instance_position(x,y,oYellow) == adjacentDown || instance_position(x,y,oYellow) == adjacentUp) {
+		//if ((place_meeting(x, y, oYellow)) && keyboard_check_released(vk_lshift)) {			
+		//	ds_list_add(global.pOneList, "yellow")
+		//	instance_create_layer(pOneElements.x + elementPositionX, pOneElements.y, "Instances", oElementYellow)
+		//	//elementPositionX += 20;			
+		//};
+		//}
+		////check is playerOne is on oPoint
+		//if(instance_position(x,y,oPoint) == adjacentRightPoint || instance_position(x,y,oPoint) == adjacentLeftPoint || instance_position(x,y,oPoint) == adjacentDownPoint || instance_position(x,y,oPoint) == adjacentUpPoint) {
+		//	if ((place_meeting(x, y, oPoint)) && keyboard_check_released(vk_lshift)) {
+		//		//room_goto(rm_start)
+		//		room_goto(rm_p1Win);
+		//	}
+		//}
 		
 		//if (_elementsStoredLength < ds_list_size(global.pOneList)) {
 		//	// End Player One Movement Phase
@@ -221,42 +221,42 @@ if (global.currentRound >= 1) {
 
 
 
-#endregion
+//#endregion
 
 
-if (!global.pOneMovementActive) {
-	oPlayer1.image_index = 0;
-}
+//if (!global.pOneMovementActive) {
+//	oPlayer1.image_index = 0;
+//}
 
-// Collisions
-function getCurrentPosition(player) {	
-	currentPositionX = player.x 
-	currentPositionY = player.y
-}
+//// Collisions
+//function getCurrentPosition(player) {	
+//	currentPositionX = player.x 
+//	currentPositionY = player.y
+//}
 
-// At beginning of round check current tile reference
-#region
+//// At beginning of round check current tile reference
+//#region
 
-function getTileID () {
-		if (place_meeting(x,y,oRed)) {
-			currentTile = instance_position(x,y,oRed)
-			//currentTile.animate = true;
-			//currentTile.active = true;
-			//global.pOneCurrentTile = currentTile
-		}
-		if (place_meeting(x,y,oGreen)) {
-			currentTile = instance_position(x,y,oGreen)
-			//currentTile.animate = true;
-			//currentTile.active = true;
-			//global.pOneCurrentTile = currentTile
-		}
-		if (place_meeting(x,y,oYellow)) {
-			currentTile = instance_position(x,y,oYellow)
-			//currentTile.animate = true;
-			//currentTile.active = true;	
-			//global.pOneCurrentTile = currentTile
-		}
-	}
+//function getTileID () {
+//		if (place_meeting(x,y,oRed)) {
+//			currentTile = instance_position(x,y,oRed)
+//			//currentTile.animate = true;
+//			//currentTile.active = true;
+//			//global.pOneCurrentTile = currentTile
+//		}
+//		if (place_meeting(x,y,oGreen)) {
+//			currentTile = instance_position(x,y,oGreen)
+//			//currentTile.animate = true;
+//			//currentTile.active = true;
+//			//global.pOneCurrentTile = currentTile
+//		}
+//		if (place_meeting(x,y,oYellow)) {
+//			currentTile = instance_position(x,y,oYellow)
+//			//currentTile.animate = true;
+//			//currentTile.active = true;	
+//			//global.pOneCurrentTile = currentTile
+//		}
+//	}
 	
 //if (global.gameStart) {
 //	getCurrentPosition(oPlayer1);
@@ -269,33 +269,33 @@ function getTileID () {
 //	global.newRound1 = false
 //}
 
-if (global.gameStart) {	
-	getTileID();	
-	global.gameStart = false;
-	//global.newRound2 = true;
-}
-if (global.pTwoCastingActive) {
-	getTileID()
-}
-if (global.setID) {
-	getTileID()
-}
+//if (global.gameStart) {	
+//	getTileID();	
+//	global.gameStart = false;
+//	//global.newRound2 = true;
+//}
+//if (global.pTwoCastingActive) {
+//	getTileID()
+//}
+//if (global.setID) {
+//	getTileID()
+//}
 
 
 
-// get reference of tiles adjacent to currentTile 
-adjacentRight = instance_position(currentTile.x + 80, currentTile.y, oGameBoard)
-adjacentLeft = instance_position(currentTile.x - 50, currentTile.y, oGameBoard)
-adjacentDown = instance_position(currentTile.x, currentTile.y - 50, oGameBoard)
-adjacentUp = instance_position(currentTile.x, currentTile.y + 80, oGameBoard)
+//// get reference of tiles adjacent to currentTile 
+//adjacentRight = instance_position(currentTile.x + 80, currentTile.y, oGameBoard)
+//adjacentLeft = instance_position(currentTile.x - 50, currentTile.y, oGameBoard)
+//adjacentDown = instance_position(currentTile.x, currentTile.y - 50, oGameBoard)
+//adjacentUp = instance_position(currentTile.x, currentTile.y + 80, oGameBoard)
 
 
-adjacentRightPoint = instance_position(currentTile.x + 80, currentTile.y, oPoint)
-adjacentLeftPoint = instance_position(currentTile.x - 50, currentTile.y, oPoint)
-adjacentDownPoint = instance_position(currentTile.x, currentTile.y - 50, oPoint)
-adjacentUpPoint = instance_position(currentTile.x, currentTile.y + 80, oPoint)
+//adjacentRightPoint = instance_position(currentTile.x + 80, currentTile.y, oPoint)
+//adjacentLeftPoint = instance_position(currentTile.x - 50, currentTile.y, oPoint)
+//adjacentDownPoint = instance_position(currentTile.x, currentTile.y - 50, oPoint)
+//adjacentUpPoint = instance_position(currentTile.x, currentTile.y + 80, oPoint)
 
-#endregion
+//#endregion
 
 
 
