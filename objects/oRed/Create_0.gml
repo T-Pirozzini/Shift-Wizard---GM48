@@ -1,3 +1,3 @@
 /// @description Insert description here
 
-animate = true;
+animate = false;

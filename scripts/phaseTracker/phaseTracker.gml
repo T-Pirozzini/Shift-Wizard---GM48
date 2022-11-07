@@ -17,6 +17,8 @@ global.gameRound = false;
 global.pOneTurn = false;
 global.pTwoTurn = false;
 
+
+
 // game begin state
 	// starting tile
 	//global.p1SelectStartingTile = true;
@@ -41,7 +43,7 @@ global.gameStart2 = true
 		global.pOneRedSpell = false;
 		global.pOneGreenSpell = false;
 		
-		global.pOneCurrentTile = 0
+		global.pOneCurrentTile = 0		
 		
 	// Player Two
 		global.pTwoMovementActive = false;

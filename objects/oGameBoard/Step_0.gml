@@ -8,8 +8,12 @@ if (global.gameSetup) {
 	global.selectionPhase = true
 }
 
-if (!global.selectionPhase) {
- animate = false;
+//if (!global.selectionPhase) {
+// animate = false;
+//}
+
+if (animate) {
+	image_angle = 90
 }
 
 

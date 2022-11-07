@@ -61,6 +61,7 @@
     {"id":{"name":"sPlayerDownOld","path":"sprites/sPlayerDownOld/sPlayerDownOld.yy",},"order":3,},
     {"id":{"name":"sPointer","path":"sprites/sPointer/sPointer.yy",},"order":11,},
     {"id":{"name":"sPlayerUp","path":"sprites/sPlayerUp/sPlayerUp.yy",},"order":21,},
+    {"id":{"name":"oPlayerParent","path":"objects/oPlayerParent/oPlayerParent.yy",},"order":2,},
     {"id":{"name":"rm_game","path":"rooms/rm_game/rm_game.yy",},"order":0,},
   ],
   "Options": [

@@ -14,7 +14,10 @@
     "path": "sprites/sPlayerDownOld/sPlayerDownOld.yy",
   },
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "oPlayerParent",
+    "path": "objects/oPlayerParent/oPlayerParent.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
