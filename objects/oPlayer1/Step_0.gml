@@ -82,7 +82,9 @@
 			if (place_meeting(x, y, oGameBoard)) {
 				if (keyboard_check_released(vk_lshift)) {
 					//get id of current tile instance
-					var _inst = instance_place(x, y, oGameBoard)									
+					var _inst = instance_place(x, y, oGameBoard)
+					// update current tile
+					global.pOneCurrentTile = _inst;
 					//check if current tile is on the perimeter of the gameboard
 					if (place_meeting(_inst.x, _inst.y, oPerimeter)) {			
 				
@@ -120,67 +122,59 @@
 #region
 if (global.currentRound >= 1) {
 	if (global.gameRound && global.pOneTurn) {
+		// SET STARTING TILE ANIMATION
+		setCardAnimation(global.pOneCurrentTile)
 		global.pOneMovementActive = true;		
 		
-		// COLLECT ELEMENT		
+		// COLLECT ELEMENT
+		#region
 			// max element storage is 5
 			if (ds_list_size(global.pOneList) < 5) {
 				// save current list size
 				var _elementsStoredLength = ds_list_size(global.pOneList);
 				// collect element that player is on top of
-				if (keyboard_check_released(vk_lshift) && place_meeting(x, y, oGameBoard)) {
-					//update id of current tile instance
-					var _inst = instance_place(x, y, oGameBoard)					
-					//check for current tile and set associated element
-					if (_inst.object_index == oRed) {						
-						//_inst.animate = true
-						var _newElement = oElementRed
-						ds_list_add(global.pOneList, "red")						
+				if (keyboard_check_released(vk_lshift) && place_meeting(x, y, oGameBoard)) {											
+					// get id of current tile instance
+					var _inst = instance_place(x, y, oGameBoard)										
+					// if current tile is animating, collect element
+					if (_inst.image_speed == 1) {
+						//check for current tile and set associated element
+						if (_inst.object_index == oRed) {					
+							var _newElement = oElementRed
+							ds_list_add(global.pOneList, "red")						
+						}
+						if (_inst.object_index == oGreen) {						
+							var _newElement = oElementGreen
+							ds_list_add(global.pOneList, "green")								
+						}
+						if (_inst.object_index == oYellow) {						
+							var _newElement = oElementYellow
+							ds_list_add(global.pOneList, "yellow")								
+						}			
+						//store new element						
+						instance_create_layer(pOneElements.x + elementPositionX ,pOneElements.y,"Elements", _newElement)
+						elementPositionX += 20;
+						// update current tile and set animation after element collection
+						global.pOneCurrentTile = _inst;
 					}
-					if (_inst.object_index == oGreen) {						
-						//_inst.animate = true
-						var _newElement = oElementGreen
-						ds_list_add(global.pOneList, "green")								
-					}
-					if (_inst.object_index == oYellow) {						
-						//_inst.animate = true
-						var _newElement = oElementYellow
-						ds_list_add(global.pOneList, "yellow")								
-					}
-					setCardAnimation(_inst);
-				
-					//store new element						
-					instance_create_layer(pOneElements.x + elementPositionX ,pOneElements.y,"Elements", _newElement)
-					elementPositionX += 20;
-					
-					//if (_elementsStoredLength < ds_list_size(global.pOneList)) {
-					if (_elementsStoredLength == 4) {
-						// End Player One Movement Phase
-						global.pOneTurn = false;
-						global.pOneMovementActive = false;
-						global.pTwoTurn = true;				
+				}			
+				if (_elementsStoredLength == 4) {
+					// End Player One Movement Phase
+					global.pOneTurn = false;
+					global.pOneMovementActive = false;
+					global.pTwoTurn = true;				
 				}
 			}
 		}
 	}
-}
+	#endregion
+
 #endregion
 		
 		
 
-			
-			
 
-	
-
-		////check if playerOne is on yellowCard
-		//if(instance_position(x,y,oYellow) == adjacentRight || instance_position(x,y,oYellow) == adjacentLeft || instance_position(x,y,oYellow) == adjacentDown || instance_position(x,y,oYellow) == adjacentUp) {
-		//if ((place_meeting(x, y, oYellow)) && keyboard_check_released(vk_lshift)) {			
-		//	ds_list_add(global.pOneList, "yellow")
-		//	instance_create_layer(pOneElements.x + elementPositionX, pOneElements.y, "Instances", oElementYellow)
-		//	//elementPositionX += 20;			
-		//};
-		//}
+		
 		//check is playerOne is on oPoint
 		if(instance_position(x,y,oPoint) == adjacentRightPoint || instance_position(x,y,oPoint) == adjacentLeftPoint || instance_position(x,y,oPoint) == adjacentDownPoint || instance_position(x,y,oPoint) == adjacentUpPoint) {
 			if ((place_meeting(x, y, oPoint)) && keyboard_check_released(vk_lshift)) {

@@ -12,8 +12,6 @@ if (global.gameSetup) {
 // animate = false;
 //}
 
-if (animate) {
-	image_angle = 90
-}
+
 
 

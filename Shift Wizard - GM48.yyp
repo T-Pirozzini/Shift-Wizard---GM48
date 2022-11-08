@@ -22,6 +22,7 @@
     {"id":{"name":"p2Win","path":"objects/p2Win/p2Win.yy",},"order":24,},
     {"id":{"name":"sYellow","path":"sprites/sYellow/sYellow.yy",},"order":0,},
     {"id":{"name":"oGreenWand","path":"objects/oGreenWand/oGreenWand.yy",},"order":11,},
+    {"id":{"name":"checkAdjacent","path":"scripts/checkAdjacent/checkAdjacent.yy",},"order":4,},
     {"id":{"name":"oRed","path":"objects/oRed/oRed.yy",},"order":2,},
     {"id":{"name":"oPoint","path":"objects/oPoint/oPoint.yy",},"order":1,},
     {"id":{"name":"sPlayerDown","path":"sprites/sPlayerDown/sPlayerDown.yy",},"order":18,},

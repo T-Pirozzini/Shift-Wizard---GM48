@@ -14,6 +14,8 @@
 	
 	elementPositionX = 20;
 	
+	adjacent = false
+	
 	currentPositionX = 0
 	currentPositionY = 0
 	prevCurrentRound = global.currentRound

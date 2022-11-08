@@ -15,6 +15,7 @@ global.pTwoSelectionPhase = false; //p2 selection
 global.gameRound = false;
 // player one turn
 global.pOneTurn = false;
+global.pOneCurrentTile = 0;	
 global.pTwoTurn = false;
 
 
@@ -43,7 +44,7 @@ global.gameStart2 = true
 		global.pOneRedSpell = false;
 		global.pOneGreenSpell = false;
 		
-		global.pOneCurrentTile = 0		
+		
 		
 	// Player Two
 		global.pTwoMovementActive = false;
