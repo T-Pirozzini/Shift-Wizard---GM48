@@ -82,8 +82,7 @@
 			if (place_meeting(x, y, oGameBoard)) {
 				if (keyboard_check_released(vk_lshift)) {
 					//get id of current tile instance
-					var _inst = instance_place(x, y, oGameBoard)
-				
+					var _inst = instance_place(x, y, oGameBoard)									
 					//check if current tile is on the perimeter of the gameboard
 					if (place_meeting(_inst.x, _inst.y, oPerimeter)) {			
 				
@@ -120,8 +119,9 @@
 //PLAYER ONE TURN
 #region
 if (global.currentRound >= 1) {
-	if (global.gameRound && global.pOneTurn) {		
-		global.pOneMovementActive = true;
+	if (global.gameRound && global.pOneTurn) {
+		global.pOneMovementActive = true;		
+		
 		// COLLECT ELEMENT		
 			// max element storage is 5
 			if (ds_list_size(global.pOneList) < 5) {
@@ -129,39 +129,36 @@ if (global.currentRound >= 1) {
 				var _elementsStoredLength = ds_list_size(global.pOneList);
 				// collect element that player is on top of
 				if (keyboard_check_released(vk_lshift) && place_meeting(x, y, oGameBoard)) {
-					//get id of current tile instance
+					//update id of current tile instance
 					var _inst = instance_place(x, y, oGameBoard)					
-						
-						//check for current tile and set associated element
-						if (_inst.object_index == oRed) {
-							setCardAnimation(_inst, oRed);
-							//_inst.animate = true
-							var _newElement = oElementRed
-							ds_list_add(global.pOneList, "red")						
-						}
-						if (_inst.object_index == oGreen) {
-							setCardAnimation(_inst, oGreen);
-							//_inst.animate = true
-							var _newElement = oElementGreen
-							ds_list_add(global.pOneList, "green")								
-						}
-						if (_inst.object_index == oYellow) {
-							setCardAnimation(_inst, oYellow);
-							//_inst.animate = true
-							var _newElement = oElementYellow
-							ds_list_add(global.pOneList, "yellow")								
-						}
+					//check for current tile and set associated element
+					if (_inst.object_index == oRed) {						
+						//_inst.animate = true
+						var _newElement = oElementRed
+						ds_list_add(global.pOneList, "red")						
+					}
+					if (_inst.object_index == oGreen) {						
+						//_inst.animate = true
+						var _newElement = oElementGreen
+						ds_list_add(global.pOneList, "green")								
+					}
+					if (_inst.object_index == oYellow) {						
+						//_inst.animate = true
+						var _newElement = oElementYellow
+						ds_list_add(global.pOneList, "yellow")								
+					}
+					setCardAnimation(_inst);
 				
-						//store new element						
-						instance_create_layer(pOneElements.x + elementPositionX ,pOneElements.y,"Elements", _newElement)
-						elementPositionX += 20;
+					//store new element						
+					instance_create_layer(pOneElements.x + elementPositionX ,pOneElements.y,"Elements", _newElement)
+					elementPositionX += 20;
 					
-						//if (_elementsStoredLength < ds_list_size(global.pOneList)) {
-						if (_elementsStoredLength == 4) {
-							// End Player One Movement Phase
-							global.pOneTurn = false;
-							global.pOneMovementActive = false;
-							global.pTwoTurn = true;				
+					//if (_elementsStoredLength < ds_list_size(global.pOneList)) {
+					if (_elementsStoredLength == 4) {
+						// End Player One Movement Phase
+						global.pOneTurn = false;
+						global.pOneMovementActive = false;
+						global.pTwoTurn = true;				
 				}
 			}
 		}
@@ -184,13 +181,13 @@ if (global.currentRound >= 1) {
 		//	//elementPositionX += 20;			
 		//};
 		//}
-		////check is playerOne is on oPoint
-		//if(instance_position(x,y,oPoint) == adjacentRightPoint || instance_position(x,y,oPoint) == adjacentLeftPoint || instance_position(x,y,oPoint) == adjacentDownPoint || instance_position(x,y,oPoint) == adjacentUpPoint) {
-		//	if ((place_meeting(x, y, oPoint)) && keyboard_check_released(vk_lshift)) {
-		//		//room_goto(rm_start)
-		//		room_goto(rm_p1Win);
-		//	}
-		//}
+		//check is playerOne is on oPoint
+		if(instance_position(x,y,oPoint) == adjacentRightPoint || instance_position(x,y,oPoint) == adjacentLeftPoint || instance_position(x,y,oPoint) == adjacentDownPoint || instance_position(x,y,oPoint) == adjacentUpPoint) {
+			if ((place_meeting(x, y, oPoint)) && keyboard_check_released(vk_lshift)) {
+				//room_goto(rm_start)
+				room_goto(rm_p1Win);
+			}
+		}
 		
 		//if (_elementsStoredLength < ds_list_size(global.pOneList)) {
 		//	// End Player One Movement Phase
@@ -221,30 +218,30 @@ if (global.currentRound >= 1) {
 //// At beginning of round check current tile reference
 //#region
 
-function getTileID () {
-		if (place_meeting(x,y,oRed)) {
-			currentTileID = instance_position(x,y,oRed)
-			currentTileID = global.pOneCurrentTile
-			setCardAnimation()
-			//currentTile.active = true;
-			//global.pOneCurrentTile = currentTile
-		}
-		if (place_meeting(x,y,oGreen)) {
-			//get current tile id
-			currentTileID = instance_position(x,y,oGreen)
-			currentTileID = global.pOneCurrentTile
-			setCardAnimation()
-			//currentTile.active = true;
-			//global.pOneCurrentTile = currentTile
-		}
-		if (place_meeting(x,y,oYellow)) {
-			currentTileID = instance_position(x,y,oYellow)
-			currentTileID = global.pOneCurrentTile
-			setCardAnimation()
-			//currentTile.active = true;	
-			//global.pOneCurrentTile = currentTile
-		}
-	}
+//function getTileID () {
+//		if (place_meeting(x,y,oRed)) {
+//			currentTileID = instance_position(x,y,oRed)
+//			currentTileID = global.pOneCurrentTile
+//			setCardAnimation()
+//			//currentTile.active = true;
+//			//global.pOneCurrentTile = currentTile
+//		}
+//		if (place_meeting(x,y,oGreen)) {
+//			//get current tile id
+//			currentTileID = instance_position(x,y,oGreen)
+//			currentTileID = global.pOneCurrentTile
+//			setCardAnimation()
+//			//currentTile.active = true;
+//			//global.pOneCurrentTile = currentTile
+//		}
+//		if (place_meeting(x,y,oYellow)) {
+//			currentTileID = instance_position(x,y,oYellow)
+//			currentTileID = global.pOneCurrentTile
+//			setCardAnimation()
+//			//currentTile.active = true;	
+//			//global.pOneCurrentTile = currentTile
+//		}
+//	}
 	
 //if (global.gameStart) {
 //	getCurrentPosition(oPlayer1);

@@ -96,7 +96,7 @@
 					//start game round
 					global.gameRound = true;
 					global.pOneTurn = true;
-					global.currentRound = 1;
+					global.currentRound = 1;					
 				}
 			}
 		}
