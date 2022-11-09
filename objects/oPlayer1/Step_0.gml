@@ -9,7 +9,7 @@
 	upKey = keyboard_check(ord("W"));
 	downKey = keyboard_check(ord("S"));
 	
-	// PLAYER MOVEMENT
+	// MOVEMENT
 #region
 	if (global.pOneMovementActive) {	
 		xspd = moveSpd * (rightKey - leftKey); // if right = 1, if left = -1, if both pressed = 0 (no movement)
@@ -74,19 +74,19 @@
 #region
 	if (global.currentRound == 0) {
 		if (global.selectionPhase && !global.pTwoMovementActive) {
-			// update phase information
-			//global.movementPhase = true;
+			// UPDATE PHASE INFO		
 			global.pOneSelectionPhase = true;
 			global.pOneMovementActive = true;
-			// UPDATE CURRENT TILE ANIMATION
+			// SET STARTINGT TILE ANIMATION
 			setCardAnimation(global.pOneCurrentTile)
-		
+			// SET STARTING TILE
 			if (place_meeting(x, y, oGameBoard)) {
 				if (keyboard_check_released(vk_lshift)) {
 					//get id of current tile instance
 					var _inst = instance_place(x, y, oGameBoard)
 					// update current tile
 					global.pOneCurrentTile = _inst;
+					
 					//check if current tile is on the perimeter of the gameboard
 					if (place_meeting(_inst.x, _inst.y, oPerimeter)) {			
 				
@@ -107,11 +107,11 @@
 						//store new element				
 						instance_create_layer(pOneElements.x,pOneElements.y,"Elements", _newElement)
 				
-						//update phase information
+						// UPDATE PHASE INFO					
+						global.pOneSelectionPhase = false;
+						global.pOneMovementActive = false;						
 						global.pTwoSelectionPhase = true;
 						global.pTwoMovementActive = true;
-						global.pOneSelectionPhase = false;
-						global.pOneMovementActive = false;					
 					}
 				}
 			}
@@ -152,16 +152,18 @@ if (global.currentRound >= 1) {
 						if (_inst.object_index == oYellow) {						
 							var _newElement = oElementYellow
 							ds_list_add(global.pOneList, "yellow")								
-						}			
+						}
+						
 						//store new element						
 						instance_create_layer(pOneElements.x + elementPositionX ,pOneElements.y,"Elements", _newElement)
 						elementPositionX += 20;
+						
 						// update current tile and set animation after element collection
 						global.pOneCurrentTile = _inst;
 					}
 				}			
-				if (_elementsStoredLength == 4) {
-					// End Player One Movement Phase
+				if (_elementsStoredLength < ds_list_size(global.pOneList)) {
+					// End Player One Turn
 					global.pOneTurn = false;
 					global.pOneMovementActive = false;
 					global.pTwoTurn = true;				
@@ -170,113 +172,29 @@ if (global.currentRound >= 1) {
 		}
 	}
 	#endregion
-
+	
+	if (!global.pOneMovementActive) {
+	oPlayer1.image_index = 0;
+	}
+	
 #endregion
 		
 		
-
-
 		
-		//check is playerOne is on oPoint
-		if(instance_position(x,y,oPoint) == adjacentRightPoint || instance_position(x,y,oPoint) == adjacentLeftPoint || instance_position(x,y,oPoint) == adjacentDownPoint || instance_position(x,y,oPoint) == adjacentUpPoint) {
-			if ((place_meeting(x, y, oPoint)) && keyboard_check_released(vk_lshift)) {
-				//room_goto(rm_start)
-				room_goto(rm_p1Win);
-			}
-		}
-		
-		//if (_elementsStoredLength < ds_list_size(global.pOneList)) {
-		//	// End Player One Movement Phase
-		//	global.pOneMovementActive = false;
-		//	global.pTwoMovementActive = true;
-		//	getTileID();
+		////check is playerOne is on oPoint
+		//if(instance_position(x,y,oPoint) == adjacentRightPoint || instance_position(x,y,oPoint) == adjacentLeftPoint || instance_position(x,y,oPoint) == adjacentDownPoint || instance_position(x,y,oPoint) == adjacentUpPoint) {
+		//	if ((place_meeting(x, y, oPoint)) && keyboard_check_released(vk_lshift)) {
+		//		//room_goto(rm_start)
+		//		room_goto(rm_p1Win);
+		//	}
 		//}
-	//}
-	//}
-//}
-	
+		
 
 
 
-//#endregion
-
-
-//if (!global.pOneMovementActive) {
-//	oPlayer1.image_index = 0;
-//}
-
-//// Collisions
-//function getCurrentPosition(player) {	
-//	currentPositionX = player.x 
-//	currentPositionY = player.y
-//}
-
-//// At beginning of round check current tile reference
-//#region
-
-//function getTileID () {
-//		if (place_meeting(x,y,oRed)) {
-//			currentTileID = instance_position(x,y,oRed)
-//			currentTileID = global.pOneCurrentTile
-//			setCardAnimation()
-//			//currentTile.active = true;
-//			//global.pOneCurrentTile = currentTile
-//		}
-//		if (place_meeting(x,y,oGreen)) {
-//			//get current tile id
-//			currentTileID = instance_position(x,y,oGreen)
-//			currentTileID = global.pOneCurrentTile
-//			setCardAnimation()
-//			//currentTile.active = true;
-//			//global.pOneCurrentTile = currentTile
-//		}
-//		if (place_meeting(x,y,oYellow)) {
-//			currentTileID = instance_position(x,y,oYellow)
-//			currentTileID = global.pOneCurrentTile
-//			setCardAnimation()
-//			//currentTile.active = true;	
-//			//global.pOneCurrentTile = currentTile
-//		}
-//	}
-	
-//if (global.gameStart) {
-//	getCurrentPosition(oPlayer1);
-//	getTileID();
-//	prevCurrentRound++
-//	global.gameStart = false;
-//}
-//if (global.newRound1) {
-//	getTileID();	
-//	global.newRound1 = false
-//}
-
-//if (global.gameStart) {	
-//	getTileID();	
-//	global.gameStart = false;
-//	//global.newRound2 = true;
-//}
-//if (global.pTwoCastingActive) {
-//	getTileID()
-//}
-//if (global.setID) {
-//	getTileID()
-//}
 
 
 
-//// get reference of tiles adjacent to currentTile 
-//adjacentRight = instance_position(currentTile.x + 80, currentTile.y, oGameBoard)
-//adjacentLeft = instance_position(currentTile.x - 50, currentTile.y, oGameBoard)
-//adjacentDown = instance_position(currentTile.x, currentTile.y - 50, oGameBoard)
-//adjacentUp = instance_position(currentTile.x, currentTile.y + 80, oGameBoard)
-
-
-//adjacentRightPoint = instance_position(currentTile.x + 80, currentTile.y, oPoint)
-//adjacentLeftPoint = instance_position(currentTile.x - 50, currentTile.y, oPoint)
-//adjacentDownPoint = instance_position(currentTile.x, currentTile.y - 50, oPoint)
-//adjacentUpPoint = instance_position(currentTile.x, currentTile.y + 80, oPoint)
-
-//#endregion
 
 
 

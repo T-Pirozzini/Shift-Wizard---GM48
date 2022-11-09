@@ -11,12 +11,12 @@ global.selectionPhase = false; //players select starting tiles
 global.pOneSelectionPhase = false; //p1 selection
 global.pTwoSelectionPhase = false; //p2 selection
 
-
+// Game Phase
 global.gameRound = false;
-// player one turn
 global.pOneTurn = false;
 global.pOneCurrentTile = 0;	
 global.pTwoTurn = false;
+global.pTwoCurrentTile = 0;
 
 
 

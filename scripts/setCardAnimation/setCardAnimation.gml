@@ -2,7 +2,7 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function setCardAnimation(currentTile){
 	
-	// Selection Phase: Animate tiles on perimeter
+	// SELECTION PHASE: Animate tiles on perimeter
 	if (global.selectionPhase) {		
 		for (var i = 0; i < instance_number(oGameBoard); i++) {		
 			card[i] = instance_find(oGameBoard, i);
@@ -16,7 +16,7 @@ function setCardAnimation(currentTile){
 		}		
 	}
 	
-	// Game Round: Animate tile each player is on
+	// GAME ROUND: Animate tile each player is on
 	if (global.gameRound) {						
 		for (var i = 0; i < instance_number(oGameBoard); i++) {		
 			card[i] = instance_find(oGameBoard, i);
