@@ -75,9 +75,11 @@
 	if (global.currentRound == 0) {
 		if (global.selectionPhase && !global.pTwoMovementActive) {
 			// update phase information
-			global.movementPhase = true;
+			//global.movementPhase = true;
 			global.pOneSelectionPhase = true;
 			global.pOneMovementActive = true;
+			// UPDATE CURRENT TILE ANIMATION
+			setCardAnimation(global.pOneCurrentTile)
 		
 			if (place_meeting(x, y, oGameBoard)) {
 				if (keyboard_check_released(vk_lshift)) {
@@ -122,7 +124,7 @@
 #region
 if (global.currentRound >= 1) {
 	if (global.gameRound && global.pOneTurn) {
-		// SET STARTING TILE ANIMATION
+		// UPDATE CURRENT TILE ANIMATION
 		setCardAnimation(global.pOneCurrentTile)
 		global.pOneMovementActive = true;		
 		

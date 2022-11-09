@@ -3,10 +3,17 @@
 function setCardAnimation(currentTile){
 	
 	// Selection Phase: Animate tiles on perimeter
-	if (global.selectionPhase) {
-		if (place_meeting(x, y, oPerimeter)) {
-			animate = true;
-		}
+	if (global.selectionPhase) {		
+		for (var i = 0; i < instance_number(oGameBoard); i++) {		
+			card[i] = instance_find(oGameBoard, i);
+			if (place_meeting(card[i].x, card[i].y, oPerimeter)) {			
+				card[i].image_speed = 1
+			}
+			if (!place_meeting(card[i].x, card[i].y, oPerimeter)) {
+				card[i].image_speed = 0;
+				card[i].image_alpha = .4;
+			}
+		}		
 	}
 	
 	// Game Round: Animate tile each player is on
