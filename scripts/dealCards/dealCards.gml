@@ -5,9 +5,10 @@ randomise();
 // create deck
 cardDeck = ds_list_create();
 // add cards to deck
-ds_list_add(cardDeck, oGreen, oYellow, oRed, oGreen, oYellow, oRed, oGreen, oYellow, oRed, oGreen, oYellow, oRed, oGreen, oYellow, oRed, oGreen, oYellow, oRed, oGreen, oYellow, oRed, oGreen, oYellow, oRed, oPoint, oRed)
+ds_list_add(cardDeck, oGreen, oYellow, oRed, oGreen, oYellow, oRed, oGreen, oYellow, oRed, oGreen, oYellow, oRed, oGreen, oYellow, oRed, oGreen, oYellow, oRed, oGreen, oYellow, oRed, oGreen, oYellow, oRed, oRed)
 // shuffle the deck
-ds_list_shuffle(cardDeck)	
+ds_list_shuffle(cardDeck)
+ds_list_replace(cardDeck, 13, oPoint)
 // get deck size
 var _deckSize = ds_list_size(cardDeck);
 
@@ -41,9 +42,17 @@ var _y1 = 125
 			_y2 += 125;
 		};
 		// set row 1
-		if (i <= 25 && i > 20) {
+		if (i <= 25 && i >= 20) {
 			 instance_create_layer(250 + _xAdjustment, _y1, "Cards", ds_list_find_value(cardDeck, i))
 			_y1 += 125;
 		};
+		//if (i == 12) {			
+		//	instance_create_layer(500 + _xAdjustment, 375, "Cards", oPoint)
+		//	if (place_meeting(oPoint.x, oPoint.y, oGameBoard)) {
+		//		var _inst = instance_place(oPoint.x, oPoint.y, oGameBoard)	
+		//		instance_destroy(_inst)
+		//	}
+		
 	};
+	
 };
