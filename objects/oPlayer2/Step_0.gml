@@ -151,10 +151,16 @@ if (global.currentRound >= 1) {
 							var _newElement = oElementYellow
 							ds_list_add(global.pTwoList, "yellow")								
 						}
+						//check is playerOne is on oPoint
+						if (_inst.object_index == oPoint) {				
+							room_goto(rm_p2Win);
+						}
 						
-						//store new element						
-						instance_create_layer(pTwoElements.x + spellBagX ,pTwoElements.y,"Elements", _newElement)
-						spellBagX += 20;
+						//store new element
+						if (_inst.object_index != oPoint) {
+							instance_create_layer(pTwoElements.x + spellBagX ,pTwoElements.y,"Elements", _newElement)
+							spellBagX += 20;
+						}
 						
 						// update current tile and set animation after element collection
 						global.pTwoCurrentTile = _inst;
@@ -171,8 +177,9 @@ if (global.currentRound >= 1) {
 	}
 	#endregion
 	
+	// if not player 2 turn, stop animating
 	if (!global.pTwoMovementActive) {
-	oPlayer2.image_index = 0
+		oPlayer2.image_index = 0
 	}
 
 #endregion

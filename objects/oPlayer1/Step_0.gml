@@ -153,10 +153,16 @@ if (global.currentRound >= 1) {
 							var _newElement = oElementYellow
 							ds_list_add(global.pOneList, "yellow")								
 						}
+						//check is playerOne is on oPoint
+						if(_inst.object_index == oPoint) {				
+							room_goto(rm_p1Win);
+						}
 						
-						//store new element						
+						//store new element
+						if (_inst.object_index != oPoint) {
 						instance_create_layer(pOneElements.x + elementPositionX ,pOneElements.y,"Elements", _newElement)
 						elementPositionX += 20;
+						}
 						
 						// update current tile and set animation after element collection
 						global.pOneCurrentTile = _inst;
@@ -173,6 +179,7 @@ if (global.currentRound >= 1) {
 	}
 	#endregion
 	
+	// if movement isn't active - turn off player animation
 	if (!global.pOneMovementActive) {
 	oPlayer1.image_index = 0;
 	}
@@ -181,13 +188,7 @@ if (global.currentRound >= 1) {
 		
 		
 		
-		////check is playerOne is on oPoint
-		//if(instance_position(x,y,oPoint) == adjacentRightPoint || instance_position(x,y,oPoint) == adjacentLeftPoint || instance_position(x,y,oPoint) == adjacentDownPoint || instance_position(x,y,oPoint) == adjacentUpPoint) {
-		//	if ((place_meeting(x, y, oPoint)) && keyboard_check_released(vk_lshift)) {
-		//		//room_goto(rm_start)
-		//		room_goto(rm_p1Win);
-		//	}
-		//}
+		
 		
 
 
