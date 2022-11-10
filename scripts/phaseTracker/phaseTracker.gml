@@ -13,10 +13,20 @@ global.pTwoSelectionPhase = false; //p2 selection
 
 // Game Phase
 global.gameRound = false;
-global.pOneTurn = false;
-global.pOneCurrentTile = 0;	
-global.pTwoTurn = false;
-global.pTwoCurrentTile = 0;
+	// Player One
+	global.pOneTurn = false;
+	global.pOneCurrentTile = 0;
+	global.pOneMovementActive = false;
+	// Player Two
+	global.pTwoTurn = false;
+	global.pTwoCurrentTile = 0;
+	global.pTwoMovementActive = false;
+
+// Casting Phase
+	// Player One
+	global.pOneCastingActive = false;
+	// Player Two
+	global.pTwoCastingActive = false;
 
 
 
@@ -36,8 +46,8 @@ global.gameStart2 = true
 	
 //Player Phase States	
 	//Player One
-		global.pOneMovementActive = false;
-		global.pOneCastingActive = false;
+		
+		
 		global.pOnePointerActive = false;
 		
 		global.pOneYellowSpell = false;
@@ -47,8 +57,8 @@ global.gameStart2 = true
 		
 		
 	// Player Two
-		global.pTwoMovementActive = false;
-		global.pTwoCastingActive = false;
+		
+		
 		global.pTwoPointerActive = false;
 		
 		global.pTwoYellowSpell = false;

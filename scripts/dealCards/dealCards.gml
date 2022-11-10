@@ -45,14 +45,7 @@ var _y1 = 125
 		if (i <= 25 && i >= 20) {
 			 instance_create_layer(250 + _xAdjustment, _y1, "Cards", ds_list_find_value(cardDeck, i))
 			_y1 += 125;
-		};
-		//if (i == 12) {			
-		//	instance_create_layer(500 + _xAdjustment, 375, "Cards", oPoint)
-		//	if (place_meeting(oPoint.x, oPoint.y, oGameBoard)) {
-		//		var _inst = instance_place(oPoint.x, oPoint.y, oGameBoard)	
-		//		instance_destroy(_inst)
-		//	}
-		
+		};	
 	};
 	
 };

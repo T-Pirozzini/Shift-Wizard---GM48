@@ -26,22 +26,22 @@ function setCardAnimation(currentTile){
 			//get right adjacent			
 			if (place_meeting(currentTile.x + 100,currentTile.y, card[i])) {
 				card[i].image_speed = 1
-				card[i].image_alpha = .8				
+				card[i].image_alpha = 1				
 			}
 			//get left adjacent			
 			if (place_meeting(currentTile.x - 100,currentTile.y, card[i])) {
 				card[i].image_speed = 1
-				card[i].image_alpha = .8				
+				card[i].image_alpha = 1				
 			}
 			//get up adjacent			
 			if (place_meeting(currentTile.x,currentTile.y - 100, card[i])) {
 				card[i].image_speed = 1
-				card[i].image_alpha = .8				
+				card[i].image_alpha = 1				
 			}
 			//get down adjacent			
 			if (place_meeting(currentTile.x,currentTile.y + 100, card[i])) {
 				card[i].image_speed = 1
-				card[i].image_alpha = .8				
+				card[i].image_alpha = 1				
 			}		
 		} 
 	}
