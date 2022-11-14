@@ -170,7 +170,8 @@ if (global.currentRound >= 1) {
 					// End Player Two Turn
 					global.pTwoTurn = false;
 					global.pTwoMovementActive = false;
-					global.pOneTurn = true;				
+					global.pOneTurn = true;
+					global.pOneCastingActive = true;
 				}
 			}			
 		}

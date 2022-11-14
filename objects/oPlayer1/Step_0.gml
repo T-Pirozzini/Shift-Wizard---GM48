@@ -161,8 +161,7 @@ if (global.currentRound >= 1) {
 						//store new element
 						if (_inst.object_index != oPoint) {
 						instance_create_layer(pOneElements.x + elementPositionX ,pOneElements.y,"Elements", _newElement)
-						elementPositionX += 20;
-						global.pOneCastingActive = true;
+						elementPositionX += 20;						
 						}
 						
 						// update current tile and set animation after element collection

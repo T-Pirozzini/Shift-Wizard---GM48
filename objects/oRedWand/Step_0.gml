@@ -1,8 +1,8 @@
 /// @description Insert description here
 
 if (global.pOneRedSpell) {
-
-// Player One
+// Player One staff movement
+#region
 	if (keyboard_check(ord("D"))) {		
 		x += 2	
 	}
@@ -15,25 +15,27 @@ if (global.pOneRedSpell) {
 	if (keyboard_check(ord("W"))) {		
 		y -= 2				
 	}
+#endregion
 	
-	if (place_meeting(x,y, oCard)){
+	if (place_meeting(x, y, oGameBoard)){
 		if (keyboard_check(vk_lshift)) {
-		var _cardID = instance_position(x, y, oCard)
-		 instance_destroy(_cardID)
-		 global.pOneRedSpell = false
+		var _inst = instance_position(x, y, oGameBoard)
+		 instance_destroy(_inst)		 
 		 instance_destroy(oRedWand)
 		 instance_destroy(oRedInstructions)
+		 global.pOneRedSpell = false;
+		 global.pOneCastingActive = false;
+		 global.currentlyCasting = false;		 
+		 global.pTwoCastingActive = true;
 		}
 	}
-	//global.pOneRedSpell = false;
-	//global.pTwoCastingActive = true;
-	//global.pTwoPointerActive = true;
+		
 }
 
 
 if (global.pTwoRedSpell) {
-
-// Player Two
+// Player Two staff movement
+#region
 	if (keyboard_check(vk_right)) {		
 		x += 2	
 	}
@@ -46,15 +48,18 @@ if (global.pTwoRedSpell) {
 	if (keyboard_check(vk_up)) {		
 		y -= 2				
 	}
+#endregion
 	
-	if (place_meeting(x,y, oCard)){
+	if (place_meeting(x, y, oGameBoard)){
 		if (keyboard_check(vk_numpad0)) {
-			var _cardID = instance_position(x, y, oCard)
-			instance_destroy(_cardID)
-			global.pTwoRedSpell = false
+			var _inst = instance_position(x, y, oGameBoard)
+			instance_destroy(_inst)			
 			instance_destroy(oRedWand)
 			instance_destroy(oRedInstructions)
-			global.pOneMovementActive = true;
+			global.pTwoRedSpell = false;
+			global.pTwoCastingActive = false;
+			global.currentlyCasting = false;			
+			global.pOneTurn = true;
 		}
 	}
 }

@@ -23,10 +23,13 @@ global.gameRound = false;
 	global.pTwoMovementActive = false;
 
 // Casting Phase
+	global.currentlyCasting = false;
 	// Player One
 	global.pOneCastingActive = false;
+	global.pOnePointerActive = false;
 	// Player Two
 	global.pTwoCastingActive = false;
+	global.pTwoPointerActive = false;
 
 
 
@@ -48,7 +51,7 @@ global.gameStart2 = true
 	//Player One
 		
 		
-		global.pOnePointerActive = false;
+		
 		
 		global.pOneYellowSpell = false;
 		global.pOneRedSpell = false;
@@ -59,7 +62,7 @@ global.gameStart2 = true
 	// Player Two
 		
 		
-		global.pTwoPointerActive = false;
+		
 		
 		global.pTwoYellowSpell = false;
 		global.pTwoRedSpell = false;	

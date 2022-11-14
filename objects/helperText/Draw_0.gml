@@ -40,6 +40,12 @@ draw_text_transformed(5,320,"P1 Casting:",.75, .75,  image_angle)
 draw_text_transformed(100,320,global.pOneCastingActive, .75, .75, image_angle)
 draw_text_transformed(5,340,"P1 Pointer:",.75, .75,  image_angle)
 draw_text_transformed(100,340,global.pOnePointerActive,.75, .75,  image_angle)
+draw_text_transformed(5,360,"P1 Turn:",.75, .75,  image_angle)
+draw_text_transformed(100,360,global.pOneTurn,.75, .75,  image_angle)
+draw_text_transformed(5,380,"P1 Casting:",.75, .75,  image_angle)
+draw_text_transformed(100,380,global.pOneCastingActive,.75, .75,  image_angle)
+draw_text_transformed(5,400,"P1 Current Tile:",.75, .75,  image_angle)
+draw_text_transformed(100,400,global.pOneCurrentTile,.75, .75,  image_angle)
 
 
 
