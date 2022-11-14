@@ -19,9 +19,10 @@ if (global.pOneCastingActive && !global.currentlyCasting) {
 //Remove item from ds_list and destroy instance on pointer click
 #region
 //Initiate casting phase - check if both players have no movement
+if (global.castingPhase) {
+	//global.pOneCastingActive = true;
 if (global.pOneCastingActive) {	
-	global.pOnePointerActive = true;
-	
+	global.pOnePointerActive = true;	
 	if (global.pOnePointerActive) {
 		
 		//Check if pointer touches red element
@@ -84,6 +85,7 @@ if (global.pOneCastingActive) {
 		global.pOneCurrentTile = _instP1;
 		}		
 	}
+}
 }
 		
 #endregion

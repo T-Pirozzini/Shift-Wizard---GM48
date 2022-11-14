@@ -1,12 +1,12 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function collectElement(playerList, playerElements, playerTile, playerTurn, playerWin){
+function collectElement(playerList, playerElements, playerTile, playerTurn, playerWin, playerButton){
 	// max element storage is 5
 	if (ds_list_size(playerList) < 5) {
 		// save current list size
 		var _elementsStoredLength = ds_list_size(playerList);
 		// collect element that player is on top of
-		if (keyboard_check_released(vk_lshift) && place_meeting(x, y, oGameBoard)) {											
+		if (keyboard_check_released(playerButton) && place_meeting(x, y, oGameBoard)) {											
 			// get id of current tile instance
 			var _inst = instance_place(x, y, oGameBoard)										
 			// if current tile is animating, collect element
@@ -39,7 +39,7 @@ function collectElement(playerList, playerElements, playerTile, playerTurn, play
 				playerTile = _inst;
 			}
 		}			
-		if (_elementsStoredLength < ds_list_size(global.pOneList)) {
+		if (_elementsStoredLength < ds_list_size(playerList)) {
 			// End Player One Turn
 			playerTurn = false;
 					

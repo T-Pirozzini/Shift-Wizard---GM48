@@ -72,7 +72,9 @@
 // SELECTION PHASE
 #region
 if (global.currentRound == 0) {
-	if (global.selectionPhase && !global.pOneMovementActive) {		
+	if (global.selectionPhase && global.pTwoTurn) {
+		// UPDATE PHASE INFO
+		global.pTwoMovementActive = true;
 		// SET STARTING TILE ANIMATION
 		setCardAnimation(global.pTwoCurrentTile)
 		// SET STARTING TILE
@@ -104,12 +106,13 @@ if (global.currentRound == 0) {
 						instance_create_layer(pTwoElements.x,pTwoElements.y,"Elements", _newElement)
 				
 						//update phase information
-						global.pTwoSelectionPhase = false;
+						global.pTwoTurn = false;						
 						global.pTwoMovementActive = false;						
+						
 						//end selection phase and start game round
-						global.gameRound = true
-						global.currentRound++
-						global.pOneTurn = true
+						global.selectionPhase = false
+						global.pOneTurn = true;
+						global.currentRound++						
 					}
 				}									
 			}
@@ -117,19 +120,29 @@ if (global.currentRound == 0) {
 	}
 #endregion
 
+// GAME ROUND
+if (global.currentRound >= 1) {
+	global.gameRound = true;
+}
 
 //PLAYER TWO TURN
 #region
-if (global.currentRound >= 1) {
-	if (global.gameRound && global.pTwoTurn) {
+	if (global.gameRound && !global.pOneTurn) {
+		// START MOVEMENT PHASE
+		global.pTwoMovementActive = true;		
 		// UPDATE CURRENT TILE ANIMATION
-		setCardAnimation(global.pTwoCurrentTile)
-		global.pTwoMovementActive = true;
-		
+		setCardAnimation(global.pTwoCurrentTile)	
 		// COLLECT ELEMENT
-		collectElement(global.pOneList, pOneElements, global.pOneCurrentTile, global.pOneTurn, rm_p1Win);
+		collectElement(global.pTwoList, pTwoElements, global.pTwoCurrentTile, global.pTwoTurn, rm_p2Win, vk_numpad0);
+		// UPDATE CURRENT TURN
+		global.pOneTurn = true;
+		
+		global.pTwoTurn = false;
+		global.pTwoMovementActive = false;
+		
+		global.castingPhase = true;
 	}
-}
+
 
 // if not player 2 turn, stop animating
 if (!global.pTwoMovementActive) {

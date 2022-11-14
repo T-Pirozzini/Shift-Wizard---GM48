@@ -44,7 +44,8 @@ draw_text_transformed(5,360,"P1 Turn:",.75, .75,  image_angle)
 draw_text_transformed(100,360,global.pOneTurn,.75, .75,  image_angle)
 draw_text_transformed(5,400,"P1 Current Tile:",.75, .75,  image_angle)
 draw_text_transformed(100,400,global.pOneCurrentTile,.75, .75,  image_angle)
-
+draw_text_transformed(5,420,"Game Round:",.75, .75,  image_angle)
+draw_text_transformed(100,420,global.gameRound,.75, .75,  image_angle)
 
 
 draw_text_transformed(200,300,"P2 Movement:", .75, .75, image_angle)
@@ -58,3 +59,6 @@ draw_text_transformed(320,360,global.pTwoTurn,.75, .75,  image_angle)
 
 draw_text_transformed(200,400,"P2 Current Tile:",.75, .75,  image_angle)
 draw_text_transformed(320,400,global.pTwoCurrentTile,.75, .75,  image_angle)
+
+draw_text_transformed(200,420,"Current Round:",.75, .75,  image_angle)
+draw_text_transformed(320,420,global.currentRound,.75, .75,  image_angle)

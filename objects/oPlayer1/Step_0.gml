@@ -1,6 +1,3 @@
-/// @description Occurs every frame
-
-
 // PLAYER MOVEMENT
 #region
 	// GET INPUT
@@ -69,15 +66,12 @@
 #endregion
 #endregion
 
-
 // SELECTION PHASE
 #region
-	if (global.currentRound == 0) {
-		if (global.selectionPhase && !global.pTwoMovementActive) {
-			// UPDATE PHASE INFO		
-			global.pOneSelectionPhase = true;
+	if (global.currentRound == 0) {		
+		if (global.selectionPhase && global.pOneTurn) {
 			global.pOneMovementActive = true;
-			// SET STARTINGT TILE ANIMATION
+			// SET STARTING TILE ANIMATION
 			setCardAnimation(global.pOneCurrentTile)
 			// SET STARTING TILE
 			if (place_meeting(x, y, oGameBoard)) {
@@ -107,11 +101,11 @@
 						//store new element				
 						instance_create_layer(pOneElements.x,pOneElements.y,"Elements", _newElement)
 				
-						// UPDATE PHASE INFO					
-						global.pOneSelectionPhase = false;
-						global.pOneMovementActive = false;						
-						global.pTwoSelectionPhase = true;
-						global.pTwoMovementActive = true;
+						// UPDATE PHASE INFO		
+						global.pOneTurn = false;						
+						global.pOneMovementActive = false;
+						// Start Player two selection phase
+						global.pTwoTurn = true;						
 					}
 				}
 			}
@@ -119,24 +113,29 @@
 	}
 	#endregion
 
+// GAME ROUND
+if (global.currentRound >= 1) {
+	global.gameRound = true;
+}
 
 //PLAYER ONE TURN
-#region
-if (global.currentRound >= 1) {
-	if (global.gameRound && global.pOneTurn && !global.pOneCastingActive) {
+	if (global.gameRound && global.pOneTurn) {
+		// START MOVEMENT PHASE
+		global.pOneMovementActive = true;		
 		// UPDATE CURRENT TILE ANIMATION
 		setCardAnimation(global.pOneCurrentTile)
-		global.pOneMovementActive = true;		
 		
-		// COLLECT ELEMENT		
-		collectElement(global.pOneList, pOneElements, global.pOneCurrentTile, global.pOneTurn, rm_p1Win);
+		if (global.pOneMovementActive) {
+			// COLLECT ELEMENT		
+			collectElement(global.pOneList, pOneElements, global.pOneCurrentTile, global.pOneTurn, rm_p1Win, vk_lshift);
+			// UPDATE CURRENT TURN			
+			
+			global.pOneTurn = false;
+			global.pOneMovementActive = false;			
+		}
 	}
-}
-	
-	
+
 	// if movement isn't active - turn off player animation
 	if (!global.pOneMovementActive) {
 	oPlayer1.image_index = 0;
 	}
-	
-#endregion	

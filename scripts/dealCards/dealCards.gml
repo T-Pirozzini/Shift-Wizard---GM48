@@ -47,5 +47,7 @@ var _y1 = 125
 			_y1 += 125;
 		};	
 	};
-	
+	// START SELCTION PHASE
+	global.selectionPhase = true;	
+	global.pOneTurn = true;
 };
