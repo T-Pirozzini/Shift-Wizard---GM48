@@ -127,76 +127,14 @@ if (global.currentRound >= 1) {
 		global.pTwoMovementActive = true;
 		
 		// COLLECT ELEMENT
-		#region
-			// max element storage is 5
-			if (ds_list_size(global.pTwoList) < 5) {
-				// save current list size
-				var _elementsStoredLength = ds_list_size(global.pTwoList);
-				// collect element that player is on top of
-				if (keyboard_check_released(vk_numpad0) && place_meeting(x, y, oGameBoard)) {											
-					// get id of current tile instance
-					var _inst = instance_place(x, y, oGameBoard)										
-					// if current tile is animating, collect element
-					if (_inst.image_speed == 1) {
-						//check for current tile and set associated element
-						if (_inst.object_index == oRed) {					
-							var _newElement = oElementRed
-							ds_list_add(global.pTwoList, "red")						
-						}
-						if (_inst.object_index == oGreen) {						
-							var _newElement = oElementGreen
-							ds_list_add(global.pTwoList, "green")								
-						}
-						if (_inst.object_index == oYellow) {						
-							var _newElement = oElementYellow
-							ds_list_add(global.pTwoList, "yellow")								
-						}
-						//check is playerOne is on oPoint
-						if (_inst.object_index == oPoint) {				
-							room_goto(rm_p2Win);
-						}
-						
-						//store new element
-						if (_inst.object_index != oPoint) {
-							instance_create_layer(pTwoElements.x + spellBagX ,pTwoElements.y,"Elements", _newElement)
-							spellBagX += 20;
-						}
-						
-						// update current tile and set animation after element collection
-						global.pTwoCurrentTile = _inst;
-					}
-				}			
-				if (_elementsStoredLength < ds_list_size(global.pTwoList)) {
-					// End Player Two Turn
-					global.pTwoTurn = false;
-					global.pTwoMovementActive = false;
-					global.pOneTurn = true;
-					global.pOneCastingActive = true;
-				}
-			}			
-		}
+		collectElement(global.pOneList, pOneElements, global.pOneCurrentTile, global.pOneTurn, rm_p1Win);
 	}
-	#endregion
-	
-	// if not player 2 turn, stop animating
-	if (!global.pTwoMovementActive) {
-		oPlayer2.image_index = 0
-	}
+}
+
+// if not player 2 turn, stop animating
+if (!global.pTwoMovementActive) {
+	oPlayer2.image_index = 0
+}
 
 #endregion
-
-
-
-//		//check is playerOne is on oPoint
-//		if(instance_position(x,y,oPoint) == adjacentRightPoint2 || instance_position(x,y,oPoint) == adjacentLeftPoint2 || instance_position(x,y,oPoint) == adjacentDownPoint2 || instance_position(x,y,oPoint) == adjacentUpPoint2) {
-//			if ((place_meeting(x, y, oPoint)) && keyboard_check_released(vk_numpad0)) {
-//				//room_goto(rm_start)
-//				room_goto(rm_p2Win);
-//			}
-//		}
-
-
-
-
-
 	

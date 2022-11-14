@@ -123,85 +123,20 @@
 //PLAYER ONE TURN
 #region
 if (global.currentRound >= 1) {
-	if (global.gameRound && global.pOneTurn) {
+	if (global.gameRound && global.pOneTurn && !global.pOneCastingActive) {
 		// UPDATE CURRENT TILE ANIMATION
 		setCardAnimation(global.pOneCurrentTile)
 		global.pOneMovementActive = true;		
 		
-		// COLLECT ELEMENT
-		#region
-			// max element storage is 5
-			if (ds_list_size(global.pOneList) < 5) {
-				// save current list size
-				var _elementsStoredLength = ds_list_size(global.pOneList);
-				// collect element that player is on top of
-				if (keyboard_check_released(vk_lshift) && place_meeting(x, y, oGameBoard)) {											
-					// get id of current tile instance
-					var _inst = instance_place(x, y, oGameBoard)										
-					// if current tile is animating, collect element
-					if (_inst.image_speed == 1) {
-						//check for current tile and set associated element
-						if (_inst.object_index == oRed) {					
-							var _newElement = oElementRed
-							ds_list_add(global.pOneList, "red")						
-						}
-						if (_inst.object_index == oGreen) {						
-							var _newElement = oElementGreen
-							ds_list_add(global.pOneList, "green")								
-						}
-						if (_inst.object_index == oYellow) {						
-							var _newElement = oElementYellow
-							ds_list_add(global.pOneList, "yellow")								
-						}
-						//check is playerOne is on oPoint
-						if(_inst.object_index == oPoint) {				
-							room_goto(rm_p1Win);
-						}
-						
-						//store new element
-						if (_inst.object_index != oPoint) {
-						instance_create_layer(pOneElements.x + elementPositionX ,pOneElements.y,"Elements", _newElement)
-						elementPositionX += 20;						
-						}
-						
-						// update current tile and set animation after element collection
-						global.pOneCurrentTile = _inst;
-					}
-				}			
-				if (_elementsStoredLength < ds_list_size(global.pOneList)) {
-					// End Player One Turn
-					global.pOneTurn = false;
-					global.pOneMovementActive = false;
-					global.pTwoTurn = true;				
-				}
-			}
-		}
+		// COLLECT ELEMENT		
+		collectElement(global.pOneList, pOneElements, global.pOneCurrentTile, global.pOneTurn, rm_p1Win);
 	}
-	#endregion
+}
+	
 	
 	// if movement isn't active - turn off player animation
 	if (!global.pOneMovementActive) {
 	oPlayer1.image_index = 0;
 	}
 	
-#endregion
-		
-		
-		
-		
-		
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
+#endregion	

@@ -27,6 +27,7 @@
     {"id":{"name":"oPoint","path":"objects/oPoint/oPoint.yy",},"order":1,},
     {"id":{"name":"sPlayerDown","path":"sprites/sPlayerDown/sPlayerDown.yy",},"order":18,},
     {"id":{"name":"oYellow","path":"objects/oYellow/oYellow.yy",},"order":3,},
+    {"id":{"name":"collectElement","path":"scripts/collectElement/collectElement.yy",},"order":5,},
     {"id":{"name":"pOneElements","path":"objects/pOneElements/pOneElements.yy",},"order":0,},
     {"id":{"name":"helperText","path":"objects/helperText/helperText.yy",},"order":3,},
     {"id":{"name":"oGreen","path":"objects/oGreen/oGreen.yy",},"order":0,},
