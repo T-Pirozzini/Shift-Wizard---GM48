@@ -68,13 +68,10 @@
 #endregion
 #endregion
 
-
+if (global.pTwoTurn) {
+	
 // SELECTION PHASE
-#region
-if (global.currentRound == 0) {
-	if (global.selectionPhase && global.pTwoTurn) {
-		// UPDATE PHASE INFO
-		global.pTwoMovementActive = true;
+	if (global.selectionPhase && global.pTwoSelectionPhase) {		
 		// SET STARTING TILE ANIMATION
 		setCardAnimation(global.pTwoCurrentTile)
 		// SET STARTING TILE
@@ -89,60 +86,104 @@ if (global.currentRound == 0) {
 				if (place_meeting(_inst.x, _inst.y, oPerimeter)) {
 					
 					//check for current tile and set associated element
-						if (_inst.object_index = oRed) {
-							var _newElement = oElementRed
-							ds_list_add(global.pTwoList, "red")
-						}
-						if (_inst.object_index = oGreen) {
-							var _newElement = oElementGreen
-							ds_list_add(global.pTwoList, "green")
-						}
-						if (_inst.object_index = oYellow) {
-							var _newElement = oElementYellow
-							ds_list_add(global.pTwoList, "yellow")
-						}
+					if (_inst.object_index = oRed) {
+						var _newElement = oElementRed
+						ds_list_add(global.pTwoList, "red")
+					}
+					if (_inst.object_index = oGreen) {
+						var _newElement = oElementGreen
+						ds_list_add(global.pTwoList, "green")
+					}
+					if (_inst.object_index = oYellow) {
+						var _newElement = oElementYellow
+						ds_list_add(global.pTwoList, "yellow")
+					}
 				
-						//store new element				
-						instance_create_layer(pTwoElements.x,pTwoElements.y,"Elements", _newElement)
-				
-						//update phase information
-						global.pTwoTurn = false;						
-						global.pTwoMovementActive = false;						
-						
-						//end selection phase and start game round
-						global.selectionPhase = false
-						global.pOneTurn = true;
-						global.currentRound++						
+					//store new element				
+					instance_create_layer(pTwoElements.x,pTwoElements.y,"Elements", _newElement)
+									
+					//end selection phase and start game round
+					global.pTwoTurn = false;
+					global.pTwoSelectionPhase = false;
+					global.selectionPhase = false;
+					
+					global.collectionPhase = true;
+					global.pOneTurn = true;
+					global.pOneCollectionPhase = true;					
+					global.currentRound++;										
 					}
 				}									
 			}
+	}
+	
+
+// COLLECTION PHASE
+	if (global.currentRound >= 1) {	
+		global.gameRound = true;
+		if (global.collectionPhase && global.pTwoCollectionPhase) {
+			// UPDATE CURRENT TILE ANIMATION
+			setCardAnimation(global.pTwoCurrentTile)
+			// max element storage is 5
+			if (ds_list_size(global.pTwoList) < 5) {
+				// save current list size
+				var _elementsStoredLength = ds_list_size(global.pTwoList);
+				if (place_meeting(x, y, oGameBoard) && keyboard_check_released(vk_numpad0)) {								
+						//get id of current tile instance
+						var _inst = instance_place(x, y, oGameBoard)
+						// update current tile
+						global.pTwoCurrentTile = _inst;
+												
+						// check if tile is adjacent - add to list and create element instance
+						if (_inst.image_speed == 1) {							
+							//check for current tile and set associated element
+							if (_inst.object_index == oRed) {					
+								var _newElement = oElementRed
+								ds_list_add(global.pTwoList, "red")						
+							}
+							if (_inst.object_index == oGreen) {						
+								var _newElement = oElementGreen
+								ds_list_add(global.pTwoList, "green")								
+							}
+							if (_inst.object_index == oYellow) {						
+								var _newElement = oElementYellow
+								ds_list_add(global.pTwoList, "yellow")								
+							}
+							//check is playerOne is on oPoint
+							if(_inst.object_index == oPoint) {				
+								room_goto(rm_p2Win);
+							}						
+							//store new element
+							if (_inst.object_index != oPoint) {
+								instance_create_layer(pTwoElements.x + elementPositionX, pTwoElements.y,"Elements", _newElement)
+								elementPositionX += 20;						
+							}
+						}					
+					}	
+				}
+			if (_elementsStoredLength < ds_list_size(global.pTwoList)) {
+				global.pTwoTurn = false;
+				global.pTwoCollectionPhase = false;	
+				global.collectionPhase = false;
+				global.pOneTurn = true;
+				global.castingPhase = true;
+				global.pOneCastingPhase = true;
+			}
 		}
 	}
-#endregion
-
-// GAME ROUND
-if (global.currentRound >= 1) {
-	global.gameRound = true;
 }
 
-//PLAYER TWO TURN
-#region
-	if (global.gameRound && !global.pOneTurn) {
-		// START MOVEMENT PHASE
-		global.pTwoMovementActive = true;		
-		// UPDATE CURRENT TILE ANIMATION
-		setCardAnimation(global.pTwoCurrentTile)	
-		// COLLECT ELEMENT
-		collectElement(global.pTwoList, pTwoElements, global.pTwoCurrentTile, global.pTwoTurn, rm_p2Win, vk_numpad0);
-		// UPDATE CURRENT TURN
-		global.pOneTurn = true;
-		
-		global.pTwoTurn = false;
-		global.pTwoMovementActive = false;
-		
-		global.castingPhase = true;
-	}
 
+//// COLLECTION PHASE
+//#region
+//if (global.currentRound >= 1) {
+//	if (global.collectionPhase && global.pTwoCollectionPhase) {
+//		//global.endTurn = false;		
+//		// UPDATE CURRENT TILE ANIMATION
+//		setCardAnimation(global.pTwoCurrentTile)	
+//		// COLLECT ELEMENT
+//		collectElement(global.pTwoList, pTwoElements, global.pTwoCurrentTile, global.pTwoTurn, rm_p2Win, vk_numpad0);
+//	}
+//}
 
 // if not player 2 turn, stop animating
 if (!global.pTwoMovementActive) {

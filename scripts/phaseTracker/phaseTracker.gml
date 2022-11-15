@@ -7,31 +7,35 @@ global.gameSetup = true; //set up game board
 global.currentRound = 0
 
 //currentTurn
+global.endTurn = false
 global.pOneTurn = false;
 global.pTwoTurn = false;
 
 // selection phase
 global.selectionPhase = true; //players select starting tiles
-global.pOneSelectionPhase = false; //p1 selection
+global.pOneSelectionPhase = true; //p1 selection
 global.pTwoSelectionPhase = false; //p2 selection
 
 // Game Phase
+global.collectionPhase = false;
 global.gameRound = false;
-	// Player One	
+	// Player One
+	global.pOneCollectionPhase = false
 	global.pOneCurrentTile = 0;
 	global.pOneMovementActive = false;
 	// Player Two
 	
+	global.pTwoCollectionPhase = false
 	global.pTwoCurrentTile = 0;
 	global.pTwoMovementActive = false;
 
 // Casting Phase
 	global.currentlyCasting = false;
 	// Player One
-	global.pOneCastingActive = false;
+	global.pOneCastingPhase = false;
 	global.pOnePointerActive = false;
 	// Player Two
-	global.pTwoCastingActive = false;
+	global.pTwoCastingPhase = false;
 	global.pTwoPointerActive = false;
 
 

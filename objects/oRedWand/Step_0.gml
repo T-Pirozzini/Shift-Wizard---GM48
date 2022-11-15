@@ -16,20 +16,20 @@ if (global.pOneRedSpell) {
 		y -= 2				
 	}
 #endregion
-	
+	 
 	if (place_meeting(x, y, oGameBoard)){
 		if (keyboard_check(vk_lshift)) {
 		var _inst = instance_position(x, y, oGameBoard)
 		 instance_destroy(_inst)		 
 		 instance_destroy(oRedWand)
 		 instance_destroy(oRedInstructions)
+		 global.pOneTurn = false;
 		 global.pOneRedSpell = false;
-		 global.pOneCastingActive = false;
-		 global.currentlyCasting = false;		 
-		 global.pTwoCastingActive = true;
+		 global.pOneCastingPhase = false;				 	 
+		 global.pTwoCastingPhase = true;
+		 global.pTwoTurn = true;		
 		}
-	}
-		
+	}		
 }
 
 
@@ -57,9 +57,9 @@ if (global.pTwoRedSpell) {
 			instance_destroy(oRedWand)
 			instance_destroy(oRedInstructions)
 			global.pTwoRedSpell = false;
-			global.pTwoCastingActive = false;
-			global.currentlyCasting = false;			
+			global.pTwoCastingActive = false;									
 			global.pOneTurn = true;
+			global.castingPhase = false;
 		}
 	}
 }

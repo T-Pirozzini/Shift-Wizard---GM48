@@ -66,21 +66,20 @@
 #endregion
 #endregion
 
-// SELECTION PHASE
-#region
-	if (global.currentRound == 0) {		
-		if (global.selectionPhase && global.pOneTurn) {
-			global.pOneMovementActive = true;
-			// SET STARTING TILE ANIMATION
-			setCardAnimation(global.pOneCurrentTile)
-			// SET STARTING TILE
-			if (place_meeting(x, y, oGameBoard)) {
-				if (keyboard_check_released(vk_lshift)) {
-					//get id of current tile instance
-					var _inst = instance_place(x, y, oGameBoard)
-					// update current tile
-					global.pOneCurrentTile = _inst;
-					
+if (global.pOneTurn) {
+	
+	// SELECTION PHASE		
+	if (global.selectionPhase && global.pOneSelectionPhase) {			
+		// SET STARTING TILE ANIMATION
+		setCardAnimation(global.pOneCurrentTile) // sets tile to 0
+		// SET STARTING TILE
+		if (place_meeting(x, y, oGameBoard)) {
+			if (keyboard_check_released(vk_lshift)) {
+				//get id of current tile instance
+				var _inst = instance_place(x, y, oGameBoard)
+				// update current tile
+				global.pOneCurrentTile = _inst;
+				
 					//check if current tile is on the perimeter of the gameboard
 					if (place_meeting(_inst.x, _inst.y, oPerimeter)) {			
 				
@@ -102,40 +101,69 @@
 						instance_create_layer(pOneElements.x,pOneElements.y,"Elements", _newElement)
 				
 						// UPDATE PHASE INFO		
-						global.pOneTurn = false;						
-						global.pOneMovementActive = false;
-						// Start Player two selection phase
+						global.pOneTurn = false;
+						global.pOneSelectionPhase = false;
 						global.pTwoTurn = true;						
-					}
+						global.pTwoSelectionPhase = true;
+					};
+				};
+			};
+		};
+	
+	// COLLECTION PHASE
+	if (global.currentRound >= 1) {	
+		global.gameRound = true;
+		if (global.collectionPhase && global.pOneCollectionPhase) {
+			// UPDATE CURRENT TILE ANIMATION
+			setCardAnimation(global.pOneCurrentTile)
+			// max element storage is 5
+			if (ds_list_size(global.pOneList) < 5) {
+				// save current list size
+				var _elementsStoredLength = ds_list_size(global.pOneList);
+				if (place_meeting(x, y, oGameBoard) && keyboard_check_released(vk_lshift)) {								
+						//get id of current tile instance
+						var _inst = instance_place(x, y, oGameBoard)
+						// update current tile
+						global.pOneCurrentTile = _inst;
+												
+						// check if tile is adjacent - add to list and create element instance
+						if (_inst.image_speed == 1) {							
+							//check for current tile and set associated element
+							if (_inst.object_index == oRed) {					
+								var _newElement = oElementRed
+								ds_list_add(global.pOneList, "red")						
+							}
+							if (_inst.object_index == oGreen) {						
+								var _newElement = oElementGreen
+								ds_list_add(global.pOneList, "green")								
+							}
+							if (_inst.object_index == oYellow) {						
+								var _newElement = oElementYellow
+								ds_list_add(global.pOneList, "yellow")								
+							}
+							//check is playerOne is on oPoint
+							if(_inst.object_index == oPoint) {				
+								room_goto(rm_p1Win);
+							}						
+							//store new element
+							if (_inst.object_index != oPoint) {
+								instance_create_layer(pOneElements.x + elementPositionX, pOneElements.y,"Elements", _newElement)
+								elementPositionX += 20;						
+							}
+						}					
+					}	
 				}
+			if (_elementsStoredLength < ds_list_size(global.pOneList)) {
+			global.pOneTurn = false;
+			global.pOneCollectionPhase = false;	
+			global.pTwoTurn = true;
+			global.pTwoCollectionPhase = true;
 			}
 		}
 	}
-	#endregion
-
-// GAME ROUND
-if (global.currentRound >= 1) {
-	global.gameRound = true;
 }
 
-//PLAYER ONE TURN
-	if (global.gameRound && global.pOneTurn) {
-		// START MOVEMENT PHASE
-		global.pOneMovementActive = true;		
-		// UPDATE CURRENT TILE ANIMATION
-		setCardAnimation(global.pOneCurrentTile)
-		
-		if (global.pOneMovementActive) {
-			// COLLECT ELEMENT		
-			collectElement(global.pOneList, pOneElements, global.pOneCurrentTile, global.pOneTurn, rm_p1Win, vk_lshift);
-			// UPDATE CURRENT TURN			
-			
-			global.pOneTurn = false;
-			global.pOneMovementActive = false;			
-		}
-	}
-
-	// if movement isn't active - turn off player animation
-	if (!global.pOneMovementActive) {
-	oPlayer1.image_index = 0;
-	}
+// if movement isn't active - turn off player animation
+if (!global.pOneMovementActive) {
+oPlayer1.image_index = 0;
+}

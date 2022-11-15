@@ -12,20 +12,7 @@
 	sprite[2] = sPlayerLeftOld;
 	sprite[3] = sPlayerDownOld;
 	
-spellBagX = 20;
+elementPositionX = 20;
 
-//prevCurrentRound = global.currentRound
-	
-	currentTile2 = 0
-	//instanceID = 0
-	
-	adjacentRight2 = 0
-	adjacentLeft2 = 0
-	adjacentUp2 = 0
-	adjacentDown2 = 0
-	
-	adjacentRightPoint2 = 0
-	adjacentLeftPoint2 = 0
-	adjacentUpPoint2 = 0
-	adjacentDownPoint2 = 0
+
 

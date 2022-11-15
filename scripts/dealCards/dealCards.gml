@@ -46,8 +46,5 @@ var _y1 = 125
 			 instance_create_layer(250 + _xAdjustment, _y1, "Cards", ds_list_find_value(cardDeck, i))
 			_y1 += 125;
 		};	
-	};
-	// START SELCTION PHASE
-	global.selectionPhase = true;	
-	global.pOneTurn = true;
+	};	
 };

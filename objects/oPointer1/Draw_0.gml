@@ -1,6 +1,6 @@
 /// @description Insert description here
 
-if (global.pOneCastingActive) {
+if (global.pOnePointerActive) {
 	draw_self();	
 }
 

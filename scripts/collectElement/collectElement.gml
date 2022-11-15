@@ -38,11 +38,20 @@ function collectElement(playerList, playerElements, playerTile, playerTurn, play
 				// update current tile and set animation after element collection
 				playerTile = _inst;
 			}
-		}			
+		}		
 		if (_elementsStoredLength < ds_list_size(playerList)) {
 			// End Player One Turn
-			playerTurn = false;
-					
+			if (global.pOneCollectionPhase) {
+				global.pOneTurn = false;				
+				global.pTwoTurn = true;
+				global.pTwoCollectionPhase = true;
+			}
+			if (global.pTwoCollectionPhase) {
+				global.pTwoTurn = false;
+				global.pOneTurn = true;	
+				global.collectionPhase = false;
+				global.castingPhase = true;											
+			}			
 		}
 	}
 }

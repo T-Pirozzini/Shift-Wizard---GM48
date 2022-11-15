@@ -5,6 +5,7 @@
   "resources": [
     {"id":{"name":"sRedWand","path":"sprites/sRedWand/sRedWand.yy",},"order":17,},
     {"id":{"name":"rm_p2Win","path":"rooms/rm_p2Win/rm_p2Win.yy",},"order":3,},
+    {"id":{"name":"turnObj","path":"objects/turnObj/turnObj.yy",},"order":6,},
     {"id":{"name":"sPerimeter","path":"sprites/sPerimeter/sPerimeter.yy",},"order":22,},
     {"id":{"name":"sWall","path":"sprites/sWall/sWall.yy",},"order":12,},
     {"id":{"name":"gameText","path":"objects/gameText/gameText.yy",},"order":2,},

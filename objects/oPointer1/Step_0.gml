@@ -2,7 +2,7 @@
 
 //Move arrow left and Right & wall collisions
 #region
-if (global.pOneCastingActive && !global.currentlyCasting) {	
+if (global.pOneCastingPhase) {	
 	if (keyboard_check_released(ord("D"))) {
 		if (!place_meeting(x + 5, y, oWall)) {
 			x += 20			
@@ -19,9 +19,7 @@ if (global.pOneCastingActive && !global.currentlyCasting) {
 //Remove item from ds_list and destroy instance on pointer click
 #region
 //Initiate casting phase - check if both players have no movement
-if (global.castingPhase) {
-	//global.pOneCastingActive = true;
-if (global.pOneCastingActive) {	
+if (global.castingPhase && global.pOneCastingPhase) {	
 	global.pOnePointerActive = true;	
 	if (global.pOnePointerActive) {
 		
@@ -32,7 +30,7 @@ if (global.pOneCastingActive) {
 				// Cast Red Spell
 				instance_create_layer(oPointer1.x + 100, oPointer1.y, "Spells", oRedWand)
 				instance_create_layer(oPointer1.x, oPointer1.y + 100, "Spells", oRedInstructions)
-				global.currentlyCasting = true;
+				
 				global.pOneRedSpell = true;
 						
 				//remove element from the list
@@ -86,7 +84,7 @@ if (global.pOneCastingActive) {
 		}		
 	}
 }
-}
+
 		
 #endregion
 

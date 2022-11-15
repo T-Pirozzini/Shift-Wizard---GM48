@@ -2,7 +2,7 @@
 
 //Move arrow left and Right & wall collisions
 #region
-if (global.pTwoCastingActive && !global.currentlyCasting) {	
+if (global.pTwoPointerActive) {	
 	if (keyboard_check_released(vk_right)) {
 		if (!place_meeting(x + 5, y, oWall)) {
 			x += 20			
@@ -19,10 +19,8 @@ if (global.pTwoCastingActive && !global.currentlyCasting) {
 //Remove item from ds_list and destroy instance on pointer click
 #region
 //Initiate casting phase - check if both players have no movement
-if (global.pTwoCastingActive) {
+if (global.castingPhase && global.pTwoCastingPhase) {
 		global.pTwoPointerActive = true;
-		global.pTwoMovementActive = false;
-		
 	if (global.pTwoPointerActive) {			
 			
 		//check if pointer touches red element
@@ -90,7 +88,7 @@ if (global.pTwoCastingActive) {
 		}
 		// update current tile and set animation after element collection
 		var _instP2 = instance_place(oPlayer2.x, oPlayer2.y, oGameBoard)
-		global.pOneCurrentTile = _instP2;
+		global.pTwoCurrentTile = _instP2;
 	}
 }
 #endregion

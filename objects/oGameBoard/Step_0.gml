@@ -6,12 +6,5 @@ if (global.gameSetup) {
 	// End game setup and start selection phase
 	global.gameSetup = false
 	global.selectionPhase = true
-}
-
-//if (!global.selectionPhase) {
-// animate = false;
-//}
-
-
-
-
+	global.pOneTurn = true;	
+};
