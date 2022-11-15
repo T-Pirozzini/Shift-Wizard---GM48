@@ -4,16 +4,16 @@
 if (global.pOneYellowSpell) {
 #region
 	if (keyboard_check(ord("D"))) {		
-			x += 2	
+			x += 5	
 	}
 	if (keyboard_check(ord("A"))) {		
-		x -= 2			
+		x -= 5			
 	}
 	if (keyboard_check(ord("S"))) {		
-		y += 2		
+		y += 5		
 	}
 	if (keyboard_check(ord("W"))) {
-		y -= 2				
+		y -= 5				
 	}
 #endregion
 	global.pOnePointerActive = false;

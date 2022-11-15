@@ -23,10 +23,10 @@ if (global.collectionPhase) {
 // CASTING PHASE
 if (global.castingPhase) {
 	if (global.pOneCastingPhase) {		
-			draw_text_transformed_color(x, y, "PLAYER ONE: Cast a spell", 1, 1, image_angle, c_blue, c_blue, c_aqua, c_aqua, 1);
+			draw_text_transformed_color(x, y, "PLAYER ONE: Cast a stored spell", 1, 1, image_angle, c_blue, c_blue, c_aqua, c_aqua, 1);
 	}
 	if (global.pTwoCastingPhase) {		
-			draw_text_transformed_color(x, y, "PLAYER TWO: Cast a spell", 1, 1, image_angle, c_red, c_red, c_orange, c_orange, 1);
+			draw_text_transformed_color(x, y, "PLAYER TWO: Cast a stored spell", 1, 1, image_angle, c_red, c_red, c_orange, c_orange, 1);
 	}
 }
 

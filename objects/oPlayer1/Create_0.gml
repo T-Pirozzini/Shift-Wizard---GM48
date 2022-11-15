@@ -2,8 +2,8 @@
 
 //Movement
 	moveSpd = 2;
-	xspd = 0;
-	yspd = 0;
+	xspd = 5;
+	yspd = 5;
 	
 //Sprite Control
 	face = 3;
