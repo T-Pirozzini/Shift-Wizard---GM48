@@ -51,6 +51,7 @@ if (global.pOneYellowSpell) {
 			if (_inst.image_speed = 1) {
 				if (_inst.object_index == oPoint) {
 				room_goto(rm_p1Win)
+				global.currentRound = 0
 				}
 			oPlayer1.x = _inst.x;
 			oPlayer1.y = _inst.y;
@@ -75,16 +76,16 @@ if (global.pOneYellowSpell) {
 if (global.pTwoYellowSpell) {
 #region
 	if (keyboard_check(vk_right)) {		
-		x += 2	
+		x += 5	
 	}
 	if (keyboard_check(vk_left)) {		
-		x -= 2			
+		x -= 5			
 	}
 	if (keyboard_check(vk_down)) {		
-		y += 2		
+		y += 5		
 	}
 	if (keyboard_check(vk_up)) {		
-		y -= 2				
+		y -= 5				
 	}
 #endregion
 	global.pTwoPointerActive = false;
@@ -122,6 +123,7 @@ if (global.pTwoYellowSpell) {
 			if (_inst.image_speed = 1) {
 				if (_inst.object_index == oPoint) {
 				room_goto(rm_p2Win)
+				global.currentRound = 0
 				}
 			oPlayer2.x = _inst.x;
 			oPlayer2.y = _inst.y;

@@ -9,4 +9,4 @@ draw_text_transformed(500, 420, "Player Two Movement: Up, Down, Left, Right", 1,
 draw_text_transformed(500, 440, "Player Two Action Button: Numpad 0", 1, 1, image_angle)
 
 
-draw_text_transformed(500, 600, "PRESS ENTER TO PLAY", 2, 2, image_angle)
+draw_text_transformed(500, 600, "PRESS SPACEBAR TO PLAY", 2, 2, image_angle)

@@ -21,8 +21,7 @@ if (global.pTwoPointerActive) {
 //Initiate casting phase - check if both players have no movement
 if (global.castingPhase && global.pTwoCastingPhase) {
 		global.pTwoPointerActive = true;
-	if (global.pTwoPointerActive) {			
-			
+	if (global.pTwoPointerActive) {		
 		//check if pointer touches red element
 		if (place_meeting(x, y, oElementRed) && keyboard_check_pressed(vk_numpad0)) {
 				var _index = ds_list_find_index(global.pTwoList, "red")
@@ -64,7 +63,7 @@ if (global.castingPhase && global.pTwoCastingPhase) {
 		}
 			
 		//Check if pointer touches green element
-		if (place_meeting(x, y, oElementGreen) && keyboard_check_pressed(vk_numpad0)) {
+		if (place_meeting(x, y, oElementGreen) && keyboard_check_released(vk_numpad0)) {
 			var _index = ds_list_find_index(global.pTwoList, "green")
 				
 			// Cast Green Spell

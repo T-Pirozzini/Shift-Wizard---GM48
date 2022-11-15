@@ -172,28 +172,8 @@ oPlayer1.image_index = 0;
 if (place_meeting(oPlayer1.x, oPlayer1.y, oPoint)) {
 	if (oPoint.image_speed = 1) {
 		room_goto(rm_p1Win);
+		global.currentRound = 0		
 	}
 }
 
-//for (var i = 0; i < instance_number(oGameBoard); i++) {		
-//		card[i] = instance_find(oGameBoard, i);
-//		card[i].image_alpha = 1
-//		card[i].image_speed = 1			
-			
-//		//check for player 1 current tile			
-//		if (place_meeting(oPlayer1.x, oPlayer1.y, card[i])) {
-//			card[i].image_speed = 0
-//			card[i].image_alpha = .4				
-//		}
-//		// check for player 2 current tile			
-//		if (place_meeting(oPlayer2.x, oPlayer2.y, card[i])) {
-//			card[i].image_speed = 0
-//			card[i].image_alpha = .4			
-//		}
-//		// check for point			
-//		if (place_meeting(oPoint.x, oPoint.y, card[i])) {
-//			card[i].image_speed = 0
-//			card[i].image_alpha = .4			
-//		}	
-//	} 
-	
+

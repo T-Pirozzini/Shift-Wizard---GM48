@@ -2,5 +2,6 @@
 
 
 if (keyboard_check(vk_enter)) {
- room_goto(rm_start);
+	global.currentRound = 0
+ game_restart()
 }

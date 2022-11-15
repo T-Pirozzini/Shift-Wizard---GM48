@@ -1,5 +1,5 @@
 /// @description Insert description here
 
-if (keyboard_check(vk_enter)) {
+if (keyboard_check(vk_space)) {
 	 room_goto(rm_game);
 }

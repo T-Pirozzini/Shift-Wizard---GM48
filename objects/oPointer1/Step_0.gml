@@ -22,7 +22,6 @@ if (global.pOneCastingPhase) {
 if (global.castingPhase && global.pOneCastingPhase) {	
 	global.pOnePointerActive = true;	
 	if (global.pOnePointerActive) {
-		
 		//Check if pointer touches red element
 		if (place_meeting(x, y, oElementRed) && keyboard_check_released(vk_lshift)) {					
 			var _index = ds_list_find_index(global.pOneList, "red")	

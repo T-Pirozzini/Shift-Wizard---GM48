@@ -63,16 +63,16 @@ if (global.pTwoRedSpell) {
 // Player Two staff movement
 #region
 	if (keyboard_check(vk_right)) {		
-		x += 2	
+		x += 5	
 	}
 	if (keyboard_check(vk_left)) {		
-		x -= 2			
+		x -= 5			
 	}
 	if (keyboard_check(vk_down)) {		
-		y += 2		
+		y += 5		
 	}
 	if (keyboard_check(vk_up)) {		
-		y -= 2				
+		y -= 5				
 	}
 #endregion
 	

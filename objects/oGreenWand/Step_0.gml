@@ -55,8 +55,30 @@ if (global.pOneGreenSpell) {
 
 if (global.pTwoGreenSpell) {
 	global.pTwoPointerActive = false;
-	if (keyboard_check(vk_numpad0)) {	
 	
+	for (var i = 0; i < instance_number(oGameBoard); i++) {		
+		card[i] = instance_find(oGameBoard, i);
+		card[i].image_alpha = .4
+		card[i].image_speed = 0			
+			
+		//check for player 1 current tile			
+		if (place_meeting(oPlayer1.x, oPlayer1.y, card[i])) {
+			card[i].image_speed = 1
+			card[i].image_alpha = 1				
+		}
+		// check for player 2 current tile			
+		if (place_meeting(oPlayer2.x, oPlayer2.y, card[i])) {
+			card[i].image_speed = 1
+			card[i].image_alpha = 1			
+		}
+		// check for point			
+		if (place_meeting(oPoint.x, oPoint.y, card[i])) {
+			card[i].image_speed = 0
+			card[i].image_alpha = .4			
+		}	
+	} 
+	
+	if (keyboard_check(vk_numpad0)) {
 	// get current player positions & then swap positions
 	var _oPlayerOneTempX = oPlayer1.x
 	var _oPlayerOneTempY = oPlayer1.y	
