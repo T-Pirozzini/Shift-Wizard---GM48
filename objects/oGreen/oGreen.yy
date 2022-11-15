@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "oGreen",
   "spriteId": {
-    "name": "sGreenOld",
-    "path": "sprites/sGreenOld/sGreenOld.yy",
+    "name": "sGreen",
+    "path": "sprites/sGreen/sGreen.yy",
   },
   "solid": false,
   "visible": true,

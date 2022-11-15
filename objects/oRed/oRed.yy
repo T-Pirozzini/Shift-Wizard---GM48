@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "oRed",
   "spriteId": {
-    "name": "sRedOld",
-    "path": "sprites/sRedOld/sRedOld.yy",
+    "name": "sRed",
+    "path": "sprites/sRed/sRed.yy",
   },
   "solid": false,
   "visible": true,
