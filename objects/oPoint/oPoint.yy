@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "oPoint",
   "spriteId": {
-    "name": "sPoint",
-    "path": "sprites/sPoint/sPoint.yy",
+    "name": "sPointOld",
+    "path": "sprites/sPointOld/sPointOld.yy",
   },
   "solid": false,
   "visible": true,

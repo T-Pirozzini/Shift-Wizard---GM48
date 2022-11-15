@@ -1,4 +1,3 @@
-global.test = false
 
 // game setup
 global.gameSetup = true; //set up game board
@@ -7,7 +6,6 @@ global.gameSetup = true; //set up game board
 global.currentRound = 0
 
 //currentTurn
-global.endTurn = false
 global.pOneTurn = false;
 global.pTwoTurn = false;
 

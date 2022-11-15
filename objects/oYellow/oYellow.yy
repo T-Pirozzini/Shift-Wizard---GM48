@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "oYellow",
   "spriteId": {
-    "name": "sYellow",
-    "path": "sprites/sYellow/sYellow.yy",
+    "name": "sYellowOld",
+    "path": "sprites/sYellowOld/sYellowOld.yy",
   },
   "solid": false,
   "visible": true,
