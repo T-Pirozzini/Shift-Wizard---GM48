@@ -43,7 +43,7 @@ if (global.castingPhase && global.pOneCastingPhase) {
 		if (place_meeting(x, y, oElementYellow) && keyboard_check_released(vk_lshift)) {
 			var _index = ds_list_find_index(global.pOneList, "yellow")					
 			//Cast Yellow Spell
-			instance_create_layer(oPointer1.x, oPointer1.y, "Spells", oYellowWand)	
+			instance_create_layer(oPointer1.x + 100, oPointer1.y, "Spells", oYellowWand)	
 			instance_create_layer(oPointer1.x, oPointer1.y + 100, "Spells", oYellowInstructions)			
 			global.pOneYellowSpell = true							
 			//remove element from the list

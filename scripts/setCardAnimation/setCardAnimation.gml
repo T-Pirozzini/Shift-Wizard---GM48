@@ -45,6 +45,6 @@ function setCardAnimation(currentTile){
 			}		
 		} 
 	}
-	
+		
 	
 }
