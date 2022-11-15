@@ -1,5 +1,5 @@
 /// @description Insert description here
 
-if (global.pTwoCastingPhase) {
+if (global.pTwoPointerActive) {
 	draw_self();	
 }

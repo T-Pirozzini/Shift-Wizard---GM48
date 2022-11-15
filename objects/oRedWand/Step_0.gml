@@ -1,6 +1,7 @@
 /// @description Insert description here
 
 if (global.pOneRedSpell) {
+	global.pOnePointerActive = false;
 // Player One staff movement
 #region
 	if (keyboard_check(ord("D"))) {		
@@ -24,7 +25,7 @@ if (global.pOneRedSpell) {
 		 instance_destroy(oRedWand)
 		 instance_destroy(oRedInstructions)
 		 global.pOneTurn = false;
-		 global.pOneRedSpell = false;
+		 global.pOneRedSpell = false;		 
 		 global.pOneCastingPhase = false;				 	 
 		 global.pTwoCastingPhase = true;
 		 global.pTwoTurn = true;		
@@ -34,6 +35,7 @@ if (global.pOneRedSpell) {
 
 
 if (global.pTwoRedSpell) {
+	global.pTwoPointerActive = false;
 // Player Two staff movement
 #region
 	if (keyboard_check(vk_right)) {		
@@ -56,9 +58,12 @@ if (global.pTwoRedSpell) {
 			instance_destroy(_inst)			
 			instance_destroy(oRedWand)
 			instance_destroy(oRedInstructions)
-			global.pTwoRedSpell = false;
-			global.pTwoCastingActive = false;									
+			global.pTwoTurn = false
+			global.pTwoRedSpell = false;			
+			global.pTwoCastingPhase = false;									
 			global.pOneTurn = true;
+			global.collectionPhase = true;
+			global.pOneCollectionPhase = true;
 			global.castingPhase = false;
 		}
 	}

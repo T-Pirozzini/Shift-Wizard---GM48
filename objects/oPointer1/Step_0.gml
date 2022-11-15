@@ -25,33 +25,27 @@ if (global.castingPhase && global.pOneCastingPhase) {
 		
 		//Check if pointer touches red element
 		if (place_meeting(x, y, oElementRed) && keyboard_check_released(vk_lshift)) {					
-			var _index = ds_list_find_index(global.pOneList, "red")		
-		
-				// Cast Red Spell
-				instance_create_layer(oPointer1.x + 100, oPointer1.y, "Spells", oRedWand)
-				instance_create_layer(oPointer1.x, oPointer1.y + 100, "Spells", oRedInstructions)
-				
-				global.pOneRedSpell = true;
-						
-				//remove element from the list
-				ds_list_delete(global.pOneList, _index)
-				for (var i = 0; i < instance_number(oElementRed); i++) {
-					elementID = instance_find(oElementRed,i);
-					//destroy element
-					instance_destroy(elementID);						
-				}				
-			}
+			var _index = ds_list_find_index(global.pOneList, "red")	
+			// Cast Red Spell
+			instance_create_layer(oPointer1.x + 100, oPointer1.y, "Spells", oRedWand)
+			instance_create_layer(oPointer1.x, oPointer1.y + 100, "Spells", oRedInstructions)				
+			global.pOneRedSpell = true;						
+			//remove element from the list
+			ds_list_delete(global.pOneList, _index)
+			for (var i = 0; i < instance_number(oElementRed); i++) {
+				elementID = instance_find(oElementRed,i);
+				//destroy element
+				instance_destroy(elementID);						
+			}				
+		}
 			
 		//Check if pointer touches yellow element
 		if (place_meeting(x, y, oElementYellow) && keyboard_check_released(vk_lshift)) {
-			var _index = ds_list_find_index(global.pOneList, "yellow")
-					
+			var _index = ds_list_find_index(global.pOneList, "yellow")					
 			//Cast Yellow Spell
 			instance_create_layer(oPointer1.x, oPointer1.y, "Spells", oYellowWand)	
-			instance_create_layer(oPointer1.x, oPointer1.y + 100, "Spells", oYellowInstructions)
-			global.currentlyCasting = true;
-			global.pOneYellowSpell = true
-							
+			instance_create_layer(oPointer1.x, oPointer1.y + 100, "Spells", oYellowInstructions)			
+			global.pOneYellowSpell = true							
 			//remove element from the list
 			ds_list_delete(global.pOneList, _index)
 			for (i = 0; i < instance_number(oElementYellow); i++) {
@@ -63,14 +57,11 @@ if (global.castingPhase && global.pOneCastingPhase) {
 		
 		//Check if pointer touches green element
 		if (place_meeting(x, y, oElementGreen) && keyboard_check_released(vk_lshift)) {
-			var _index = ds_list_find_index(global.pOneList, "green")
-				
+			var _index = ds_list_find_index(global.pOneList, "green")				
 			// Cast Green Spell
-				instance_create_layer(oPointer1.x, oPointer1.y, "Spells", oGreenWand)
-				instance_create_layer(oPointer1.x, oPointer1.y + 100, "Spells", oGreenInstructions)
-				global.currentlyCasting = true;
-				global.pOneGreenSpell = true
-					
+			instance_create_layer(oPointer1.x, oPointer1.y, "Spells", oGreenWand)
+			instance_create_layer(oPointer1.x, oPointer1.y + 100, "Spells", oGreenInstructions)				
+			global.pOneGreenSpell = true					
 			//remove element from the list
 			ds_list_delete(global.pOneList, _index)
 			for (i = 0; i < instance_number(oElementGreen); i++) {
@@ -78,21 +69,10 @@ if (global.castingPhase && global.pOneCastingPhase) {
 				//destroy element
 				instance_destroy(elementID);							
 			}
-			// update current tile and set animation after element collection
-		var _instP1 = instance_place(oPlayer1.x, oPlayer1.y, oGameBoard)
-		global.pOneCurrentTile = _instP1;
+		
 		}		
 	}
 }
-
 		
 #endregion
-
-
-
-
-
-
-
-
 

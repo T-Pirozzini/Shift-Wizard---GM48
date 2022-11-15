@@ -2,6 +2,7 @@
 
 
 if (global.pOneGreenSpell) {
+	global.pOnePointerActive = false
 	if (keyboard_check(vk_lshift)) {
 	
 	// get current player positions & then swap positions
@@ -16,23 +17,22 @@ if (global.pOneGreenSpell) {
 	instance_destroy(oGreenWand)
 	instance_destroy(oGreenInstructions)
 	
-	////get id of current tile instances
-	//var _instP1 = instance_place(oPlayer1.x, oPlayer1.y, oGameBoard)
-	//var _instP2 = instance_place(oPlayer2.x, oPlayer2.y, oGameBoard)
-	//// update current tile of players
-	//global.pOneCurrentTile = _instP1;
-	//global.pTwoCurrentTile = _instP2;
-	//setCardAnimation(_instP1)
-	//setCardAnimation(_instP2)
+	// update current tile and set animation after element collection
+	var _oPlayerOneTempCurrentTile = global.pOneCurrentTile;
+	var _oPlayerTwoTempCurrentTile = global.pTwoCurrentTile;
+	global.pOneCurrentTile = _oPlayerTwoTempCurrentTile;
+	global.pTwoCurrentTile = _oPlayerOneTempCurrentTile;
 	
-	global.pOneGreenSpell = false;
-	global.pOneCastingActive = false;
-	global.currentlyCasting = false;	
-	global.pTwoCastingActive = true;	 
+	global.pOneTurn = false;
+	global.pOneGreenSpell = false;		 
+	global.pOneCastingPhase = false;				 	 
+	global.pTwoCastingPhase = true;
+	global.pTwoTurn = true;		 
 	}
 }
 
 if (global.pTwoGreenSpell) {
+	global.pTwoPointerActive = false;
 	if (keyboard_check(vk_numpad0)) {	
 	
 	// get current player positions & then swap positions
@@ -47,18 +47,18 @@ if (global.pTwoGreenSpell) {
 	instance_destroy(oGreenWand)
 	instance_destroy(oGreenInstructions)
 	
-	////get id of current tile instances
-	//var _instP1 = instance_place(oPlayer1.x, oPlayer1.y, oGameBoard)
-	//var _instP2 = instance_place(oPlayer2.x, oPlayer2.y, oGameBoard)
-	//// update current tile of players
-	//global.pOneCurrentTile = _instP1;
-	//global.pTwoCurrentTile = _instP2;
-	//setCardAnimation(_instP1)
-	//setCardAnimation(_instP2)
+	// update current tile and set animation after element collection
+	var _oPlayerOneTempCurrentTile = global.pOneCurrentTile;
+	var _oPlayerTwoTempCurrentTile = global.pTwoCurrentTile;
+	global.pOneCurrentTile = _oPlayerTwoTempCurrentTile;
+	global.pTwoCurrentTile = _oPlayerOneTempCurrentTile;
 	
-	global.pTwoGreenSpell = false;
-	global.pTwoCastingActive = false;
-	global.currentlyCasting = false;			
+	global.pTwoTurn = false
+	global.pTwoGreenSpell = false;			
+	global.pTwoCastingPhase = false;									
 	global.pOneTurn = true;
+	global.collectionPhase = true;
+	global.pOneCollectionPhase = true;
+	global.castingPhase = false;
 	}
 }

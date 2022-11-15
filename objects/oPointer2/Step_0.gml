@@ -86,9 +86,6 @@ if (global.castingPhase && global.pTwoCastingPhase) {
 			}				
 			global.currentRound++				
 		}
-		// update current tile and set animation after element collection
-		var _instP2 = instance_place(oPlayer2.x, oPlayer2.y, oGameBoard)
-		global.pTwoCurrentTile = _instP2;
 	}
 }
 #endregion
