@@ -173,22 +173,14 @@ if (global.pTwoTurn) {
 }
 
 
-//// COLLECTION PHASE
-//#region
-//if (global.currentRound >= 1) {
-//	if (global.collectionPhase && global.pTwoCollectionPhase) {
-//		//global.endTurn = false;		
-//		// UPDATE CURRENT TILE ANIMATION
-//		setCardAnimation(global.pTwoCurrentTile)	
-//		// COLLECT ELEMENT
-//		collectElement(global.pTwoList, pTwoElements, global.pTwoCurrentTile, global.pTwoTurn, rm_p2Win, vk_numpad0);
-//	}
-//}
-
 // if not player 2 turn, stop animating
 if (!global.pTwoMovementActive) {
 	oPlayer2.image_index = 0
 }
-
-#endregion
+// if player 2 on point and animating is true - win
+if (place_meeting(oPlayer2.x, oPlayer2.y, oPoint)) {
+	if (oPoint.image_speed = 1) {
+		room_goto(rm_p2Win);
+	}
+}
 	

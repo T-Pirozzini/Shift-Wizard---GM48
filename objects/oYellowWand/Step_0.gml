@@ -49,6 +49,9 @@ if (global.pOneYellowSpell) {
 		if (keyboard_check(vk_lshift)) {
 		var _inst = instance_position(x, y, oGameBoard)
 			if (_inst.image_speed = 1) {
+				if (_inst.object_index == oPoint) {
+				room_goto(rm_p1Win)
+				}
 			oPlayer1.x = _inst.x;
 			oPlayer1.y = _inst.y;
 			
@@ -117,6 +120,9 @@ if (global.pTwoYellowSpell) {
 		if (keyboard_check(vk_numpad0)) {
 		var _inst = instance_position(x, y, oGameBoard)
 			if (_inst.image_speed = 1) {
+				if (_inst.object_index == oPoint) {
+				room_goto(rm_p2Win)
+				}
 			oPlayer2.x = _inst.x;
 			oPlayer2.y = _inst.y;
 			

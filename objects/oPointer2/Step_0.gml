@@ -33,8 +33,7 @@ if (global.castingPhase && global.pTwoCastingPhase) {
 				with (instance_create_layer(oPointer2.x, oPointer2.y, "Spells", oRedWand)) {
 				image_xscale = -1
 				}
-				instance_create_layer(oPointer2.x, oPointer2.y + 100, "Spells", oRedInstructions)
-				global.currentlyCasting = true;					
+				instance_create_layer(oPointer2.x, oPointer2.y + 100, "Spells", oRedInstructions)				
 				global.pTwoRedSpell = true;					
 					
 				for (i = 0; i < instance_number(oElementRed); i++) {
@@ -51,8 +50,7 @@ if (global.castingPhase && global.pTwoCastingPhase) {
 				with (instance_create_layer(oPointer2.x + 100, oPointer2.y, "Spells", oYellowWand)) {
 					image_xscale = -1
 				}
-				instance_create_layer(oPointer2.x, oPointer2.y + 100, "Spells", oYellowInstructions)
-				global.currentlyCasting = true;					
+				instance_create_layer(oPointer2.x, oPointer2.y + 100, "Spells", oYellowInstructions)				
 				global.pTwoYellowSpell = true;
 					
 			//remove element from the list
@@ -73,8 +71,7 @@ if (global.castingPhase && global.pTwoCastingPhase) {
 				with (instance_create_layer(oPointer2.x + 100, oPointer2.y, "Spells", oGreenWand)) {
 					image_xscale = -1
 				}
-				instance_create_layer(oPointer2.x, oPointer2.y + 100, "Spells", oGreenInstructions)
-				global.currentlyCasting = true;					
+				instance_create_layer(oPointer2.x, oPointer2.y + 100, "Spells", oGreenInstructions)				
 				global.pTwoGreenSpell = true;
 					
 			//remove element from the list
