@@ -28,7 +28,7 @@ global.gameRound = false;
 	global.pTwoMovementActive = false;
 
 // Casting Phase
-	global.currentlyCasting = false;
+
 	// Player One
 	global.pOneCastingPhase = false;
 	global.pOnePointerActive = false;
@@ -38,22 +38,14 @@ global.gameRound = false;
 
 
 
-// game begin state
-	// starting tile
-	//global.p1SelectStartingTile = true;
-	//global.p2SelectStartingTile = false;
 
 
 
-
-global.gameStart = true
-global.gameStart2 = true
 // Game Phases
 	global.movementPhase = false;
 	global.castingPhase = false;
 	
-//Player Phase States	
-	//Player One
+
 		
 		
 		
@@ -74,13 +66,12 @@ global.gameStart2 = true
 		global.pTwoGreenSpell = false;		
 
 
-	
-	global.newRound = false;
-	global.newRound1 = false;
 
-global.setID = false
 
 // Stored Element Lists
 	global.pOneList = ds_list_create();
 	global.pTwoList = ds_list_create();
+	
+	global.pOneElementList = ds_list_create();
+	global.pTwoElementList = ds_list_create();
 

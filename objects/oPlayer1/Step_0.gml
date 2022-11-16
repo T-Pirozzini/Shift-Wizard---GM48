@@ -87,18 +87,24 @@ if (global.pOneTurn) {
 						if (_inst.object_index = oRed) {
 							var _newElement = oElementRed
 							ds_list_add(global.pOneList, "red")
+							ds_list_add(global.pOneElementList, oElementRed)
 						}
 						if (_inst.object_index = oGreen) {
 							var _newElement = oElementGreen
 							ds_list_add(global.pOneList, "green")
+							ds_list_add(global.pOneElementList, oElementGreen)
 						}
 						if (_inst.object_index = oYellow) {
 							var _newElement = oElementYellow
 							ds_list_add(global.pOneList, "yellow")
+							ds_list_add(global.pOneElementList, oElementYellow)
 						}
 				
-						//store new element				
-						instance_create_layer(pOneElements.x,pOneElements.y,"Elements", _newElement)
+						//store new element
+						//for (var i = 0; i < ds_list_size(global.pOneElementList); i++) {
+						//			instance_create_layer(pOneElements.x, pOneElements.y, "Elements", ds_list_find_value(global.pOneElementList, i))
+						//		}
+						//instance_create_layer(pOneElements.x,pOneElements.y,"Elements", _newElement)
 				
 						// UPDATE PHASE INFO		
 						global.pOneTurn = false;
@@ -131,24 +137,33 @@ if (global.pOneTurn) {
 							//check for current tile and set associated element
 							if (_inst.object_index == oRed) {					
 								var _newElement = oElementRed
-								ds_list_add(global.pOneList, "red")						
+								ds_list_add(global.pOneList, "red")
+								ds_list_add(global.pOneElementList, oElementRed)
 							}
 							if (_inst.object_index == oGreen) {						
 								var _newElement = oElementGreen
-								ds_list_add(global.pOneList, "green")								
+								ds_list_add(global.pOneList, "green")
+								ds_list_add(global.pOneElementList, oElementGreen)
 							}
 							if (_inst.object_index == oYellow) {						
 								var _newElement = oElementYellow
-								ds_list_add(global.pOneList, "yellow")								
+								ds_list_add(global.pOneList, "yellow")
+								ds_list_add(global.pOneElementList, oElementYellow)
 							}
-							//check is playerOne is on oPoint
+							//check if playerOne is on oPoint
 							if(_inst.object_index == oPoint) {				
 								room_goto(rm_p1Win);
 							}						
 							//store new element
-							if (_inst.object_index != oPoint) {
-								instance_create_layer(pOneElements.x + elementPositionX, pOneElements.y,"Elements", _newElement)
-								elementPositionX += 20;						
+							if (_inst.object_index != oPoint) {	
+								instance_destroy(pOneElements)
+								instance_create_layer(54, 152, "Elements", pOneElements)
+								for (var i = 0; i < ds_list_size(global.pOneElementList); i++) {
+									instance_create_layer(pOneElements.x + (20*i), pOneElements.y, "Elements", ds_list_find_value(global.pOneElementList, i))
+									
+								}
+								//instance_create_layer(pOneElements.x + elementPositionX, pOneElements.y,"Elements", _newElement)
+								//elementPositionX += 20;						
 							}
 						}					
 					}	
