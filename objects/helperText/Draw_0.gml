@@ -30,3 +30,21 @@
 
 //draw_text_transformed(200,420,"Current Round:",.75, .75,  image_angle)
 //draw_text_transformed(320,420,global.currentRound,.75, .75,  image_angle)
+
+draw_text_transformed(5,360,"PLAYER 1 ELEMENT TOTAL:",.75, .75,  image_angle)
+draw_text_transformed(200,360,ds_list_size(global.pOneElementList),.75, .75,  image_angle)
+draw_text_transformed(5,260,"PLAYER 1 ELEMENTS:",.75, .75,  image_angle)
+var _X = 0
+for (var i = 0; i < ds_list_size(global.pOneElementList); i++) {
+	draw_text_transformed(150 + _X,260,ds_list_find_value(global.pOneElementList, i),.75, .75,  image_angle)
+	_X += 20
+}
+
+draw_text_transformed(5,560,"PLAYER 2 ELEMENT TOTAL:",.75, .75,  image_angle)
+draw_text_transformed(200,560,ds_list_size(global.pTwoElementList),.75, .75,  image_angle)
+draw_text_transformed(5,460,"PLAYER 2 ELEMENTS:",.75, .75,  image_angle)
+var _X = 0
+for (var i = 0; i < ds_list_size(global.pTwoElementList); i++) {
+	draw_text_transformed(150 + _X,460,ds_list_find_value(global.pTwoElementList, i),.75, .75,  image_angle)
+	_X += 20
+}

@@ -86,17 +86,17 @@ if (global.pOneTurn) {
 						//check for current tile and set associated element
 						if (_inst.object_index = oRed) {
 							var _newElement = oElementRed
-							ds_list_add(global.pOneList, "red")
+							//ds_list_add(global.pOneList, "red")
 							ds_list_add(global.pOneElementList, oElementRed)
 						}
 						if (_inst.object_index = oGreen) {
 							var _newElement = oElementGreen
-							ds_list_add(global.pOneList, "green")
+							//ds_list_add(global.pOneList, "green")
 							ds_list_add(global.pOneElementList, oElementGreen)
 						}
 						if (_inst.object_index = oYellow) {
 							var _newElement = oElementYellow
-							ds_list_add(global.pOneList, "yellow")
+							//ds_list_add(global.pOneList, "yellow")
 							ds_list_add(global.pOneElementList, oElementYellow)
 						}
 				
@@ -104,7 +104,7 @@ if (global.pOneTurn) {
 						//for (var i = 0; i < ds_list_size(global.pOneElementList); i++) {
 						//			instance_create_layer(pOneElements.x, pOneElements.y, "Elements", ds_list_find_value(global.pOneElementList, i))
 						//		}
-						//instance_create_layer(pOneElements.x,pOneElements.y,"Elements", _newElement)
+						p1ElementListID = instance_create_layer(pOneElements.x,pOneElements.y,"Elements", _newElement)
 				
 						// UPDATE PHASE INFO		
 						global.pOneTurn = false;
@@ -123,9 +123,9 @@ if (global.pOneTurn) {
 			// UPDATE CURRENT TILE ANIMATION
 			setCardAnimation(global.pOneCurrentTile)
 			// max element storage is 5
-			if (ds_list_size(global.pOneList) < 5) {
+			if (ds_list_size(global.pOneElementList) < 5) {
 				// save current list size
-				var _elementsStoredLength = ds_list_size(global.pOneList);
+				var _elementsStoredLength = ds_list_size(global.pOneElementList);
 				if (place_meeting(x, y, oGameBoard) && keyboard_check_released(vk_lshift)) {								
 						//get id of current tile instance
 						var _inst = instance_place(x, y, oGameBoard)
@@ -137,17 +137,17 @@ if (global.pOneTurn) {
 							//check for current tile and set associated element
 							if (_inst.object_index == oRed) {					
 								var _newElement = oElementRed
-								ds_list_add(global.pOneList, "red")
+								//ds_list_add(global.pOneList, "red")
 								ds_list_add(global.pOneElementList, oElementRed)
 							}
 							if (_inst.object_index == oGreen) {						
 								var _newElement = oElementGreen
-								ds_list_add(global.pOneList, "green")
+								//ds_list_add(global.pOneList, "green")
 								ds_list_add(global.pOneElementList, oElementGreen)
 							}
 							if (_inst.object_index == oYellow) {						
 								var _newElement = oElementYellow
-								ds_list_add(global.pOneList, "yellow")
+								//ds_list_add(global.pOneList, "yellow")
 								ds_list_add(global.pOneElementList, oElementYellow)
 							}
 							//check if playerOne is on oPoint
@@ -156,10 +156,10 @@ if (global.pOneTurn) {
 							}						
 							//store new element
 							if (_inst.object_index != oPoint) {	
-								instance_destroy(pOneElements)
-								instance_create_layer(54, 152, "Elements", pOneElements)
+								instance_destroy(p1ElementListID)
+								p1ElementListID = instance_create_layer(54, 152, "Elements", pOneElements)
 								for (var i = 0; i < ds_list_size(global.pOneElementList); i++) {
-									instance_create_layer(pOneElements.x + (20*i), pOneElements.y, "Elements", ds_list_find_value(global.pOneElementList, i))
+									instance_create_layer(p1ElementListID.x + (20*i), p1ElementListID.y, "Elements", ds_list_find_value(global.pOneElementList, i))
 									
 								}
 								//instance_create_layer(pOneElements.x + elementPositionX, pOneElements.y,"Elements", _newElement)
@@ -168,7 +168,7 @@ if (global.pOneTurn) {
 						}					
 					}	
 				}
-			if (_elementsStoredLength < ds_list_size(global.pOneList)) {
+			if (_elementsStoredLength < ds_list_size(global.pOneElementList)) {
 			global.pOneTurn = false;
 			global.pOneCollectionPhase = false;	
 			global.pTwoTurn = true;

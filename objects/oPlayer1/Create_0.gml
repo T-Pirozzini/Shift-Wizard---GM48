@@ -12,5 +12,7 @@
 	sprite[2] = sPlayerLeft;
 	sprite[3] = sPlayerDown;
 	
-	elementPositionX = 20;	
+	elementPositionX = 20;
+	
+	p1ElementListID = 0
 	

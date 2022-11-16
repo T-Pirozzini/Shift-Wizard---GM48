@@ -24,9 +24,10 @@ if (global.castingPhase && global.pTwoCastingPhase) {
 	if (global.pTwoPointerActive) {		
 		//check if pointer touches red element
 		if (place_meeting(x, y, oElementRed) && keyboard_check_pressed(vk_numpad0)) {
-				var _index = ds_list_find_index(global.pTwoList, "red")
+				//var _index = ds_list_find_index(global.pTwoElementList, "red")
+				var _index = ds_list_find_index(global.pTwoElementList, oElementRed)
 				//remove element from the list
-				ds_list_delete(global.pTwoList, _index)
+				ds_list_delete(global.pTwoElementList, _index)
 					
 				// Cast Red Spell
 				with (instance_create_layer(oPointer2.x, oPointer2.y, "Spells", oRedWand)) {
@@ -43,7 +44,8 @@ if (global.castingPhase && global.pTwoCastingPhase) {
 			global.currentRound++				
 		}
 		if (place_meeting(x, y, oElementYellow) && keyboard_check_pressed(vk_numpad0)) {
-			var _index = ds_list_find_index(global.pTwoList, "yellow")
+			//var _index = ds_list_find_index(global.pTwoElementList, "yellow")
+			var _index = ds_list_find_index(global.pTwoElementList, oElementYellow)
 				
 			//Cast Yellow Spell
 				with (instance_create_layer(oPointer2.x + 100, oPointer2.y, "Spells", oYellowWand)) {
@@ -53,7 +55,7 @@ if (global.castingPhase && global.pTwoCastingPhase) {
 				global.pTwoYellowSpell = true;
 					
 			//remove element from the list
-			ds_list_delete(global.pTwoList, _index)
+			ds_list_delete(global.pTwoElementList, _index)
 			for (i = 0; i < instance_number(oElementYellow); i++) {
 				elementID = instance_find(oElementYellow,i);
 				//destroy element
@@ -64,7 +66,8 @@ if (global.castingPhase && global.pTwoCastingPhase) {
 			
 		//Check if pointer touches green element
 		if (place_meeting(x, y, oElementGreen) && keyboard_check_released(vk_numpad0)) {
-			var _index = ds_list_find_index(global.pTwoList, "green")
+			//var _index = ds_list_find_index(global.pTwoElementList, "green")
+			var _index = ds_list_find_index(global.pTwoElementList, oElementGreen)
 				
 			// Cast Green Spell
 				with (instance_create_layer(oPointer2.x + 100, oPointer2.y, "Spells", oGreenWand)) {
@@ -74,7 +77,7 @@ if (global.castingPhase && global.pTwoCastingPhase) {
 				global.pTwoGreenSpell = true;
 					
 			//remove element from the list
-			ds_list_delete(global.pTwoList, _index)
+			ds_list_delete(global.pTwoElementList, _index)
 			for (i = 0; i < instance_number(oElementGreen); i++) {
 				elementID = instance_find(oElementGreen,i);
 				//destroy element

@@ -2,6 +2,7 @@
 
 // Player One
 if (global.pOneYellowSpell) {
+	global.pOnePointerActive = false;
 #region
 	if (keyboard_check(ord("D"))) {		
 			x += 5	
@@ -15,8 +16,7 @@ if (global.pOneYellowSpell) {
 	if (keyboard_check(ord("W"))) {
 		y -= 5				
 	}
-#endregion
-	global.pOnePointerActive = false;
+#endregion	
 	
 	for (var i = 0; i < instance_number(oGameBoard); i++) {		
 			card[i] = instance_find(oGameBoard, i);
@@ -74,6 +74,7 @@ if (global.pOneYellowSpell) {
 	
 	// Player Two
 if (global.pTwoYellowSpell) {
+	global.pTwoPointerActive = false;
 #region
 	if (keyboard_check(vk_right)) {		
 		x += 5	
@@ -88,7 +89,7 @@ if (global.pTwoYellowSpell) {
 		y -= 5				
 	}
 #endregion
-	global.pTwoPointerActive = false;
+	
 	
 	for (var i = 0; i < instance_number(oGameBoard); i++) {		
 			card[i] = instance_find(oGameBoard, i);
