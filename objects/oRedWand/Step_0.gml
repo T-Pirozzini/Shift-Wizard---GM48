@@ -41,7 +41,7 @@ if (global.pOneRedSpell) {
 	} 
 	 
 	if (place_meeting(x, y, oGameBoard)){
-		if (keyboard_check(vk_lshift)) {
+		if (keyboard_check_released(vk_lshift)) {
 		var _inst = instance_position(x, y, oGameBoard)
 			if (_inst.image_speed == 1) {
 			 instance_destroy(_inst)		 
@@ -99,7 +99,7 @@ if (global.pTwoRedSpell) {
 	}
 	
 	if (place_meeting(x, y, oGameBoard)){
-		if (keyboard_check(vk_numpad0)) {
+		if (keyboard_check_released(vk_numpad0)) {
 			var _inst = instance_position(x, y, oGameBoard)
 			if (_inst.image_speed == 1) {
 				instance_destroy(_inst)			

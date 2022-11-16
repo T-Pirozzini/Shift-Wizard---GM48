@@ -128,9 +128,7 @@ if (global.pOneTurn) {
 				var _elementsStoredLength = ds_list_size(global.pOneElementList);
 				if (place_meeting(x, y, oGameBoard) && keyboard_check_released(vk_lshift)) {								
 						//get id of current tile instance
-						var _inst = instance_place(x, y, oGameBoard)
-						// update current tile
-						global.pOneCurrentTile = _inst;
+						var _inst = instance_place(x, y, oGameBoard)						
 												
 						// check if tile is adjacent - add to list and create element instance
 						if (_inst.image_speed == 1) {							
@@ -157,14 +155,15 @@ if (global.pOneTurn) {
 							//store new element
 							if (_inst.object_index != oPoint) {	
 								instance_destroy(p1ElementListID)
-								p1ElementListID = instance_create_layer(54, 152, "Elements", pOneElements)
+								p1ElementListID = instance_create_layer(48, 144, "Elements", pOneElements)
 								for (var i = 0; i < ds_list_size(global.pOneElementList); i++) {
 									instance_create_layer(p1ElementListID.x + (20*i), p1ElementListID.y, "Elements", ds_list_find_value(global.pOneElementList, i))
-									
 								}
 								//instance_create_layer(pOneElements.x + elementPositionX, pOneElements.y,"Elements", _newElement)
 								//elementPositionX += 20;						
 							}
+							// update current tile
+							global.pOneCurrentTile = _inst;
 						}					
 					}	
 				}

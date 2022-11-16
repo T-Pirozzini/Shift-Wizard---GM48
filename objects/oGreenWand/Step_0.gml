@@ -26,7 +26,7 @@ if (global.pOneGreenSpell) {
 		}	
 	} 
 	
-	if (keyboard_check(vk_lshift)) {
+	if (keyboard_check_released(vk_lshift)) {
 	// get current player positions & then swap positions
 	var _oPlayerOneTempX = oPlayer1.x
 	var _oPlayerOneTempY = oPlayer1.y	
@@ -78,7 +78,7 @@ if (global.pTwoGreenSpell) {
 		}	
 	} 
 	
-	if (keyboard_check(vk_numpad0)) {
+	if (keyboard_check_released(vk_numpad0)) {
 	// get current player positions & then swap positions
 	var _oPlayerOneTempX = oPlayer1.x
 	var _oPlayerOneTempY = oPlayer1.y	

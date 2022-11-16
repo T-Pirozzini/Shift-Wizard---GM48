@@ -25,9 +25,7 @@ if (global.castingPhase && global.pTwoCastingPhase) {
 		//check if pointer touches red element
 		if (place_meeting(x, y, oElementRed) && keyboard_check_pressed(vk_numpad0)) {
 				//var _index = ds_list_find_index(global.pTwoElementList, "red")
-				var _index = ds_list_find_index(global.pTwoElementList, oElementRed)
-				//remove element from the list
-				ds_list_delete(global.pTwoElementList, _index)
+				var _index = ds_list_find_index(global.pTwoElementList, oElementRed)				
 					
 				// Cast Red Spell
 				with (instance_create_layer(oPointer2.x, oPointer2.y, "Spells", oRedWand)) {
@@ -36,11 +34,14 @@ if (global.castingPhase && global.pTwoCastingPhase) {
 				instance_create_layer(oPointer2.x, oPointer2.y + 100, "Spells", oRedInstructions)				
 				global.pTwoRedSpell = true;					
 					
-				for (i = 0; i < instance_number(oElementRed); i++) {
-					elementID = instance_find(oElementRed,i);
-					//destroy element						
-					instance_destroy(elementID);						
-			}				
+				ds_list_delete(global.pTwoElementList, _index)
+				var _inst = instance_position(x, y, oElementRed)
+				instance_destroy(_inst)
+				//for (var i = 0; i < instance_number(oElementRed); i++) {
+				//	p2ElementID = instance_find(oElementRed,i);
+				//	//destroy element
+				//	instance_destroy(p2ElementID);						
+				//}		
 			global.currentRound++				
 		}
 		if (place_meeting(x, y, oElementYellow) && keyboard_check_pressed(vk_numpad0)) {
@@ -56,11 +57,13 @@ if (global.castingPhase && global.pTwoCastingPhase) {
 					
 			//remove element from the list
 			ds_list_delete(global.pTwoElementList, _index)
-			for (i = 0; i < instance_number(oElementYellow); i++) {
-				elementID = instance_find(oElementYellow,i);
-				//destroy element
-				instance_destroy(elementID);						
-			}							
+			var _inst = instance_position(x, y, oElementYellow)
+			instance_destroy(_inst)
+			//for (i = 0; i < instance_number(oElementYellow); i++) {
+			//	p2ElementID = instance_find(oElementYellow,i);
+			//	//destroy element
+			//	instance_destroy(p2ElementID);						
+			//}							
 			global.currentRound++				
 		}
 			
@@ -78,11 +81,13 @@ if (global.castingPhase && global.pTwoCastingPhase) {
 					
 			//remove element from the list
 			ds_list_delete(global.pTwoElementList, _index)
-			for (i = 0; i < instance_number(oElementGreen); i++) {
-				elementID = instance_find(oElementGreen,i);
-				//destroy element
-				instance_destroy(elementID);							
-			}				
+			var _inst = instance_position(x, y, oElementGreen)
+			instance_destroy(_inst)
+			//for (i = 0; i < instance_number(oElementGreen); i++) {
+			//	p2ElementID = instance_find(oElementGreen,i);
+			//	//destroy element
+			//	instance_destroy(p2ElementID);							
+			//}				
 			global.currentRound++				
 		}
 	}
