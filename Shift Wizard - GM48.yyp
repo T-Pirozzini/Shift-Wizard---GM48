@@ -71,6 +71,7 @@
     {"id":{"name":"oGameBoard","path":"objects/oGameBoard/oGameBoard.yy",},"order":4,},
     {"id":{"name":"sCard","path":"sprites/sCard/sCard.yy",},"order":13,},
     {"id":{"name":"sPlayerDownOld","path":"sprites/sPlayerDownOld/sPlayerDownOld.yy",},"order":3,},
+    {"id":{"name":"snd_theme","path":"sounds/snd_theme/snd_theme.yy",},"order":0,},
     {"id":{"name":"sPointer","path":"sprites/sPointer/sPointer.yy",},"order":11,},
     {"id":{"name":"sPlayerUp","path":"sprites/sPlayerUp/sPlayerUp.yy",},"order":21,},
     {"id":{"name":"sRed","path":"sprites/sRed/sRed.yy",},"order":25,},
