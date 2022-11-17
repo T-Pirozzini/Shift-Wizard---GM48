@@ -45,13 +45,22 @@ if (global.pOneYellowSpell) {
 			}		
 		} 
 	}
+	instance_create_layer(190, 144, "Instances", oBack)	
+	if (place_meeting(x,y, oBack)) {		
+		instance_destroy(oYellowWand)
+		instance_destroy(oYellowInstructions)
+		global.pOneYellowSpell = false
+		global.pOnePointerActive = true;
+		ds_list_add(global.pOneElementList, oYellow)
+		instance_destroy(oBack)
+	}
+	
 	if (place_meeting(x, y, oGameBoard)){
 		if (keyboard_check(vk_lshift)) {
 		var _inst = instance_position(x, y, oGameBoard)
 			if (_inst.image_speed = 1) {
 				if (_inst.object_index == oPoint) {
-				room_goto(rm_p1Win)
-				global.currentRound = 0
+				room_goto(rm_p1Win)				
 				}
 			oPlayer1.x = _inst.x;
 			oPlayer1.y = _inst.y;
@@ -118,6 +127,17 @@ if (global.pTwoYellowSpell) {
 			}		
 		} 
 	}
+	
+	instance_create_layer(1024, 144, "Instances", oBack)	
+	if (place_meeting(x,y, oBack)) {		
+		instance_destroy(oYellowWand)
+		instance_destroy(oYellowInstructions)
+		global.pTwoYellowSpell = false
+		global.pTwoPointerActive = true;
+		ds_list_add(global.pTwoElementList, oYellow)
+		instance_destroy(oBack)
+	}
+	
 	if (place_meeting(x, y, oGameBoard)){
 		if (keyboard_check(vk_numpad0)) {
 		var _inst = instance_position(x, y, oGameBoard)

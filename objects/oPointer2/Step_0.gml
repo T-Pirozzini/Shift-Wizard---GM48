@@ -26,10 +26,10 @@ if (global.castingPhase && global.pTwoCastingPhase) {
 		if (place_meeting(x, y, oElementRed) && keyboard_check_released(vk_numpad0)) {			
 			var _index = ds_list_find_index(global.pTwoElementList, oElementRed)			
 			// Cast Red Spell
-			with (instance_create_layer(oPointer2.x, oPointer2.y, "Spells", oRedWand)) {
+			with (instance_create_layer(oPointer2.x, oPointer2.y + 100, "Spells", oRedWand)) {
 			image_xscale = -1
 			}
-			instance_create_layer(oPointer2.x, oPointer2.y + 100, "Spells", oRedInstructions)				
+			instance_create_layer(oPointer2.x, oPointer2.y + 200, "Spells", oRedInstructions)				
 			global.pTwoRedSpell = true;					
 			//remove element from the list
 			ds_list_delete(global.pTwoElementList, _index)
@@ -41,10 +41,10 @@ if (global.castingPhase && global.pTwoCastingPhase) {
 			var _index = ds_list_find_index(global.pTwoElementList, oElementYellow)
 				
 			//Cast Yellow Spell
-				with (instance_create_layer(oPointer2.x + 100, oPointer2.y, "Spells", oYellowWand)) {
+				with (instance_create_layer(oPointer2.x, oPointer2.y + 100, "Spells", oYellowWand)) {
 					image_xscale = -1
 				}
-				instance_create_layer(oPointer2.x, oPointer2.y + 100, "Spells", oYellowInstructions)				
+				instance_create_layer(oPointer2.x, oPointer2.y + 200, "Spells", oYellowInstructions)				
 				global.pTwoYellowSpell = true;					
 			//remove element from the list
 			ds_list_delete(global.pTwoElementList, _index)
@@ -58,10 +58,10 @@ if (global.castingPhase && global.pTwoCastingPhase) {
 			var _index = ds_list_find_index(global.pTwoElementList, oElementGreen)
 				
 			// Cast Green Spell
-				with (instance_create_layer(oPointer2.x + 100, oPointer2.y, "Spells", oGreenWand)) {
+				with (instance_create_layer(oPointer2.x, oPointer2.y + 100, "Spells", oGreenWand)) {
 					image_xscale = -1
 				}
-				instance_create_layer(oPointer2.x, oPointer2.y + 100, "Spells", oGreenInstructions)				
+				instance_create_layer(oPointer2.x, oPointer2.y + 200, "Spells", oGreenInstructions)				
 				global.pTwoGreenSpell = true;
 					
 			//remove element from the list
@@ -69,6 +69,19 @@ if (global.castingPhase && global.pTwoCastingPhase) {
 			global.pTwoPointerActive = false;							
 			global.currentRound++				
 		}
+		
+		// check if pointer touches X
+		instance_create_layer(1152, 144, "Instances", oNope)
+		if (place_meeting(x, y, oNope) && keyboard_check_released(vk_numpad0)) {
+			global.pOnePointerActive = false;
+			global.pTwoTurn = false						
+			global.pTwoCastingPhase = false;									
+			global.pOneTurn = true;
+			global.collectionPhase = true;
+			global.pOneCollectionPhase = true;
+			global.castingPhase = false;
+			instance_destroy(oNope)
+		}		
 	}
 }
 #endregion

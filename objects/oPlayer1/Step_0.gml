@@ -117,12 +117,18 @@ if (global.pOneTurn) {
 		if (global.collectionPhase && global.pOneCollectionPhase) {
 			// UPDATE CURRENT TILE ANIMATION
 			setCardAnimation(global.pOneCurrentTile)
-			// UPDATE STORED ELEMENT LIST
+			// UPDATE STORED ELEMENT LIST P1
 			layer_destroy("p1Elements")
 			layer_create(-100, "p1Elements")
 			for (var i = 0; i < ds_list_size(global.pOneElementList); i++) {
 				instance_create_layer(pOneElements.x + (20*i), pOneElements.y, "p1Elements", ds_list_find_value(global.pOneElementList, i))
 			}
+			// UPDATE STORED ELEMENT LIST P2
+			layer_destroy("p2Elements")
+			layer_create(-100, "p2Elements")
+			for (var i = 0; i < ds_list_size(global.pTwoElementList); i++) {
+				instance_create_layer(pTwoElements.x + (20*i), pTwoElements.y, "p2Elements", ds_list_find_value(global.pTwoElementList, i))
+			}			
 			// max element storage is 5
 			if (ds_list_size(global.pOneElementList) < 5) {
 				// save current list size

@@ -123,13 +123,7 @@ if (global.pTwoTurn) {
 		global.gameRound = true;
 		if (global.collectionPhase && global.pTwoCollectionPhase) {
 			// UPDATE CURRENT TILE ANIMATION
-			setCardAnimation(global.pTwoCurrentTile)
-			// UPDATE STORED ELEMENT LIST
-			layer_destroy("p2Elements")
-			layer_create(-100, "p2Elements")
-			for (var i = 0; i < ds_list_size(global.pTwoElementList); i++) {
-				instance_create_layer(pTwoElements.x + (20*i), pTwoElements.y, "p2Elements", ds_list_find_value(global.pTwoElementList, i))
-			}			
+			setCardAnimation(global.pTwoCurrentTile)			
 			// max element storage is 5
 			if (ds_list_size(global.pTwoElementList) < 5) {
 				// save current list size
@@ -175,7 +169,7 @@ if (global.pTwoTurn) {
 					global.collectionPhase = false;
 					global.pOneTurn = true;
 					global.castingPhase = true;
-					global.pOneCastingPhase = true;
+					global.pOneCastingPhase = true;					
 				}
 			}
 		}

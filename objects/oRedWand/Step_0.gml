@@ -51,7 +51,8 @@ if (global.pOneRedSpell) {
 			 global.pOneRedSpell = false;		 
 			 global.pOneCastingPhase = false;				 	 
 			 global.pTwoCastingPhase = true;
-			 global.pTwoTurn = true;	
+			 global.pTwoTurn = true;
+			 
 			}
 		}
 	}		
