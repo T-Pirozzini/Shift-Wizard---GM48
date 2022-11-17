@@ -37,7 +37,7 @@ if (global.pOneGreenSpell) {
 	
 	// remove green spell instances
 	instance_destroy(oGreenWand)
-	instance_destroy(oGreenInstructions)
+	instance_destroy(oGreenInstructions)	
 	
 	// update current tile and set animation after element collection
 	var _oPlayerOneTempCurrentTile = global.pOneCurrentTile;
